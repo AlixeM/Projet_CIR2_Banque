@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main() {
-    std::cout << "si je fais un test dscfhergtjdgezjs ça marche ?" << std::endl;
+    std::cout << "" << std::endl;
     return 0;
 }
 
