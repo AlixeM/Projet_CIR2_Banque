@@ -1,5 +1,5 @@
  cmake_minimum_required(VERSION 3.23)
- project(BIM)
+ project(PATHYS)
 
  set(Boost_USE_STATIC_LIBS ON)
  set(Boost_USE_RELEASE_LIBS ON)
@@ -17,6 +17,6 @@
  find_package(Boost 1.80.0 COMPONENTS json serialization REQUIRED)
  include_directories(${Boost_INCLUDE_DIRS})
 
- add_executable(BIM main.cpp)
+ add_executable(PATHYS main.cpp)
 
- target_link_libraries (BIM LINK_PUBLIC ${Boost_LIBRARIES})
+ target_link_libraries (PATHYS LINK_PUBLIC ${Boost_LIBRARIES})
