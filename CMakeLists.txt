@@ -1,6 +1,22 @@
-cmake_minimum_required(VERSION 3.23)
-project(Projet_CIR2_Banque)
+ cmake_minimum_required(VERSION 3.23)
+ project(BIM)
 
-set(CMAKE_CXX_STANDARD 14)
+ set(Boost_USE_STATIC_LIBS ON)
+ set(Boost_USE_RELEASE_LIBS ON)
 
-add_executable(Projet_CIR2_Banque main.cpp)
+ if(MSVC)
+     add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
+     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
+     set(Boost_USE_STATIC_RUNTIME ON)
+     set(Boost_DIR "lib/Boost/lib/cmake/Boost-1.80.0")
+
+ elseif(MSVC)
+     set(Boost_DIR lib/Boost/lib/cmake/Boost-1.80.0)
+ endif (MSVC)
+
+ find_package(Boost 1.80.0 COMPONENTS json serialization REQUIRED)
+ include_directories(${Boost_INCLUDE_DIRS})
+
+ add_executable(BIM main.cpp)
+
+ target_link_libraries (BIM LINK_PUBLIC ${Boost_LIBRARIES})
