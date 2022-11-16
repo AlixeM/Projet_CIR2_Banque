@@ -8,7 +8,7 @@ if(MSVC)
     add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
     set(Boost_USE_STATIC_RUNTIME ON)
-    set(Boost_DIR "lib/Boost/lib/cmake/Boost-1.80.0")
+    set(Boost_DIR "C:/tools/Boost/lib/cmake/Boost-1.80.0")
 
     set(wxWidgets_ROOT_DIR  "C:/tools/wxWidgets")
     set(CMAKE_PREFIX_PATH  C:/tools/wxWidgets)
@@ -26,7 +26,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 find_package(wxWidgets REQUIRED COMPONENTS net core base)
 include(${wxWidgets_USE_FILE})
 
-add_executable(PATHYS main.cpp classes/Compte.cpp classes/Compte.h classes/Client.cpp classes/Client.h)
+add_executable(PATHYS main.cpp)
 
 if(MSVC)
     set_target_properties(PATHYS PROPERTIES LINK_FLAGS /SUBSYSTEM:WINDOWS)
