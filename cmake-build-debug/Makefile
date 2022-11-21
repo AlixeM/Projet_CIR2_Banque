@@ -142,6 +142,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\PATHYS.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PATHYS.dir\main.cpp.s
 .PHONY : main.cpp.s
 
+wxWidgets.obj: wxWidgets.cpp.obj
+.PHONY : wxWidgets.obj
+
+# target to build an object file
+wxWidgets.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PATHYS.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PATHYS.dir\wxWidgets.cpp.obj
+.PHONY : wxWidgets.cpp.obj
+
+wxWidgets.i: wxWidgets.cpp.i
+.PHONY : wxWidgets.i
+
+# target to preprocess a source file
+wxWidgets.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PATHYS.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PATHYS.dir\wxWidgets.cpp.i
+.PHONY : wxWidgets.cpp.i
+
+wxWidgets.s: wxWidgets.cpp.s
+.PHONY : wxWidgets.s
+
+# target to generate assembly for a file
+wxWidgets.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PATHYS.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PATHYS.dir\wxWidgets.cpp.s
+.PHONY : wxWidgets.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -154,6 +178,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... wxWidgets.obj
+	@echo ... wxWidgets.i
+	@echo ... wxWidgets.s
 .PHONY : help
 
 

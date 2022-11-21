@@ -105,6 +105,15 @@
 		<Unit filename="C:/Users/Administrateur/CLionProjects/Projet_CIR2_Banque2/main.cpp">
 			<Option target="PATHYS"/>
 		</Unit>
+		<Unit filename="C:/Users/Administrateur/CLionProjects/Projet_CIR2_Banque2/main.h">
+			<Option target="PATHYS"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrateur/CLionProjects/Projet_CIR2_Banque2/wxWidgets.cpp">
+			<Option target="PATHYS"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrateur/CLionProjects/Projet_CIR2_Banque2/wxWidgets.h">
+			<Option target="PATHYS"/>
+		</Unit>
 		<Unit filename="C:/Users/Administrateur/CLionProjects/Projet_CIR2_Banque2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

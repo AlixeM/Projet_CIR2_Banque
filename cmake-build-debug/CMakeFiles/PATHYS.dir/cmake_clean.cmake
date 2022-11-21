@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/PATHYS.dir/main.cpp.obj"
   "CMakeFiles/PATHYS.dir/main.cpp.obj.d"
+  "CMakeFiles/PATHYS.dir/wxWidgets.cpp.obj"
+  "CMakeFiles/PATHYS.dir/wxWidgets.cpp.obj.d"
   "PATHYS.exe"
   "PATHYS.exe.manifest"
   "PATHYS.lib"

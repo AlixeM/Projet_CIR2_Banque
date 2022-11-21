@@ -1,9 +1,12 @@
-#include <iostream>
+#include "main.h"
+#include "wxWidgets.h"
 
+IMPLEMENT_APP(MyApp)
 
+bool MyApp::OnInit()
+{
+    Simple *simple = new Simple(wxT("PATHYS BANQUE"));
+    simple->Show(true);
 
-
-int main() {
-    std::cout << "" << std::endl;
-    return 0;
+    return true;
 }
