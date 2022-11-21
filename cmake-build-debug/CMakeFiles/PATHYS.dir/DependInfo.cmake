@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/Administrateur/CLionProjects/Projet_CIR2_Banque2/icon.cpp" "CMakeFiles/PATHYS.dir/icon.cpp.obj" "msvc" "CMakeFiles/PATHYS.dir/icon.cpp.obj.d"
   "C:/Users/Administrateur/CLionProjects/Projet_CIR2_Banque2/main.cpp" "CMakeFiles/PATHYS.dir/main.cpp.obj" "msvc" "CMakeFiles/PATHYS.dir/main.cpp.obj.d"
   "C:/Users/Administrateur/CLionProjects/Projet_CIR2_Banque2/wxWidgets.cpp" "CMakeFiles/PATHYS.dir/wxWidgets.cpp.obj" "msvc" "CMakeFiles/PATHYS.dir/wxWidgets.cpp.obj.d"
   )

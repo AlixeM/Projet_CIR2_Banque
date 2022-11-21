@@ -760,3 +760,4 @@ C:/tools/wxWidgets/include/wx/defs.h
 C:/tools/wxWidgets/include/wx/msw/winundef.h
 C:/tools/wxWidgets/include/wx/msw/mdi.h
 C:/Users/Administrateur/CLionProjects/Projet_CIR2_Banque2/wxWidgets.h
+C:/Users/Administrateur/CLionProjects/Projet_CIR2_Banque2/icon.h
