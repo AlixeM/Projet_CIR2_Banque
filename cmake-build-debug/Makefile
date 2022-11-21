@@ -118,30 +118,6 @@ PATHYS\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\PATHYS.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PATHYS.dir\build
 .PHONY : PATHYS\fast
 
-icon.obj: icon.cpp.obj
-.PHONY : icon.obj
-
-# target to build an object file
-icon.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PATHYS.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PATHYS.dir\icon.cpp.obj
-.PHONY : icon.cpp.obj
-
-icon.i: icon.cpp.i
-.PHONY : icon.i
-
-# target to preprocess a source file
-icon.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PATHYS.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PATHYS.dir\icon.cpp.i
-.PHONY : icon.cpp.i
-
-icon.s: icon.cpp.s
-.PHONY : icon.s
-
-# target to generate assembly for a file
-icon.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PATHYS.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\PATHYS.dir\icon.cpp.s
-.PHONY : icon.cpp.s
-
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -199,9 +175,6 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... PATHYS
-	@echo ... icon.obj
-	@echo ... icon.i
-	@echo ... icon.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
