@@ -5,9 +5,8 @@
 
 #include <wx/wx.h>
 
-class Simple : public wxFrame
-{
+class Ident : public wxFrame{
 public:
-    Simple(const wxString& title);
+    Ident(const wxString& title);
 
 };

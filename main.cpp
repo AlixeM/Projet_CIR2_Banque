@@ -5,8 +5,9 @@ IMPLEMENT_APP(MyApp)
 
 bool MyApp::OnInit()
 {
-    Simple *simple = new Simple(wxT("PATHYS BANQUE"));
-    simple->Show(true);
+
+    Ident *ident = new Ident(wxT("PATHYS BANQUE"));
+    ident->Show(true);
 
     return true;
 }
