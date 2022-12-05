@@ -1,4 +1,5 @@
-C:/tools/wxWidgets/include/wx/wxprec.h
+C:/Users/Administrateur/CLionProjects/Projet_CIR2_Banque2/main.h
+C:/tools/wxWidgets/include/wx/wx.h
 C:/tools/wxWidgets/include/wx/defs.h
 C:/tools/wxWidgets/include/wx/platform.h
 C:/tools/wxWidgets/include/wx/compiler.h
@@ -39,8 +40,6 @@ C:/Program Files (x86)/Windows Kits/10/include/10.0.19041.0/ucrt/sys/stat.h
 C:/Program Files (x86)/Windows Kits/10/include/10.0.19041.0/ucrt/sys/types.h
 C:/Program Files (x86)/Windows Kits/10/include/10.0.19041.0/ucrt/tchar.h
 C:/tools/wxWidgets/include/wx/features.h
-C:/tools/wxWidgets/include/wx/wx.h
-C:/tools/wxWidgets/include/wx/defs.h
 C:/tools/wxWidgets/include/wx/object.h
 C:/tools/wxWidgets/include/wx/memory.h
 C:/tools/wxWidgets/include/wx/defs.h
@@ -760,3 +759,4 @@ C:/tools/wxWidgets/include/wx/mdi.h
 C:/tools/wxWidgets/include/wx/defs.h
 C:/tools/wxWidgets/include/wx/msw/winundef.h
 C:/tools/wxWidgets/include/wx/msw/mdi.h
+C:/Users/Administrateur/CLionProjects/Projet_CIR2_Banque2/wxWidgets.h
