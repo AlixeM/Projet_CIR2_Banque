@@ -5,8 +5,10 @@
 
 #include <wx/wx.h>
 
-class Ident : public wxFrame{
+class Mybank : public wxFrame
+{
 public:
-    Ident(const wxString& title);
-
+    Mybank(const wxString& title, const wxPoint& pos, const wxSize& size,
+           long style = wxDEFAULT_FRAME_STYLE);
+//...
 };
