@@ -28,6 +28,7 @@ public :
 };
 
 class Compte {
+public:
 	int numclient;
 	int numcompte;
 	int type;
