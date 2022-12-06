@@ -31,3 +31,19 @@ Client extraire_client(ptree& pt) {
 	Client client(num, std::move(nom), std::move(prenom), std::move(num_comptes));
 	return client;
 }
+
+Client transaction(Client client1, Compte compte1, Client client2, Compte compte2, int montant) {
+	compte1.solde -= montant;
+	compte2.solde += montant;
+
+}
+
+Client retrait_depot(Client client1, Compte compte1, int type, int montant) {
+	if (type == 0) {
+		compte1.solde -= montant;
+	}
+	else if (type == 0) {
+		compte1.solde += montant;
+	}
+
+}
