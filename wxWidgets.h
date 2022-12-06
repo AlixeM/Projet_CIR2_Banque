@@ -2,13 +2,18 @@
 #define PATHYS_WXWIDGETS_H
 
 #endif //PATHYS_WXWIDGETS_H
-
 #include <wx/wx.h>
 
-class Mybank : public wxFrame
+class TMyFrame : public wxFrame
 {
 public:
-    Mybank(const wxString& title, const wxPoint& pos, const wxSize& size,
-           long style = wxDEFAULT_FRAME_STYLE);
-//...
+    TMyFrame(const wxString& title, const wxPoint& pos, const wxSize& size,
+             long style = wxDEFAULT_FRAME_STYLE);
+    void OnQuit(wxCommandEvent& event);
+    void OnChgTitre(wxCommandEvent& event);
+private:
+    wxButton *MonBouton;
+    wxButton *MonBouton2;
+
+DECLARE_EVENT_TABLE()
 };

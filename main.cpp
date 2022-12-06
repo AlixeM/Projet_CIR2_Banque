@@ -1,9 +1,11 @@
 #include "main.h"
 #include "wxWidgets.h"
 
-bool Mybank::OnInit()
+IMPLEMENT_APP(TMyApp)
+
+bool TMyApp::OnInit()
 {
-    Mybank *frame = new Mybank("Ma première application",wxPoint(150, 150), wxSize(480, 360));
+    TMyFrame *frame = new TMyFrame("Pathys bank",wxPoint(150, 150), wxSize(480, 360));
     frame->Show(true);
     return true;
 }

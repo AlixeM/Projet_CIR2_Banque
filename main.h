@@ -6,7 +6,7 @@
 
 #include <wx/wx.h>
 
-class Mybank : public wxApp
+class TMyApp : public wxApp
 {
 public:
     virtual bool OnInit();
