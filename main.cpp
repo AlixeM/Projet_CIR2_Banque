@@ -1,12 +1,9 @@
 #include "main.h"
 #include "wxWidgets.h"
 
-IMPLEMENT_APP(MyApp)
-
-bool MyApp::OnInit(){
-
-    Ident *ident = new Ident(wxT("Identifiers"));
-    ident->Show(true);
-
+bool Mybank::OnInit()
+{
+    Mybank *frame = new Mybank("Ma première application",wxPoint(150, 150), wxSize(480, 360));
+    frame->Show(true);
     return true;
 }
