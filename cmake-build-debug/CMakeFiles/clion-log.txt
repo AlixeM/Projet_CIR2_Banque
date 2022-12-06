@@ -1,4 +1,0 @@
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" -S C:\Users\Administrateur\CLionProjects\Projet_CIR2_Banque2 -B C:\Users\Administrateur\CLionProjects\Projet_CIR2_Banque2\cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: C:/Users/Administrateur/CLionProjects/Projet_CIR2_Banque2/cmake-build-debug
