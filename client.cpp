@@ -1,6 +1,7 @@
 #include "client.h"
 
-creer_ptree_client(const Client& client) {
+
+ptree creer_ptree_client(const Client& client) {
 	ptree pt;
 	ptree nums_comptes;
 

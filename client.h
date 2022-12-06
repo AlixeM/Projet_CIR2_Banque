@@ -18,6 +18,7 @@ using boost::property_tree::write_json;
 #endif //PATHYS_CLIENT_H
 
 class Client {
+public :
 	int numclient;
 	std::string nom;
 	std::string prenom;
