@@ -102,6 +102,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Administrateur/CLionProjects/Projet_CIR2_Banque2/client.cpp">
+			<Option target="PATHYS"/>
+		</Unit>
+		<Unit filename="C:/Users/Administrateur/CLionProjects/Projet_CIR2_Banque2/client.h">
+			<Option target="PATHYS"/>
+		</Unit>
 		<Unit filename="C:/Users/Administrateur/CLionProjects/Projet_CIR2_Banque2/main.cpp">
 			<Option target="PATHYS"/>
 		</Unit>
