@@ -6,8 +6,3 @@
 
 #include <wx/wx.h>
 
-class TMyApp : public wxApp
-{
-public:
-    virtual bool OnInit();
-};
