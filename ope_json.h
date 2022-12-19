@@ -4,3 +4,6 @@
 ptree lire_json();
 
 void ecrire_json();
+
+void recherche_numclient(ptree& pt);
+

@@ -28,7 +28,7 @@ public :
 };
 
 class Compte {
-public:
+public :
 	int numclient;
 	int numcompte; 
 	std::string nom;
