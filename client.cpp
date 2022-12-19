@@ -1,5 +1,35 @@
 #include "client.h"
 
+Client::Client() {
+	numclient = 69420;
+	nom = "Jean";
+	prenom = "Michel";
+	num_compte = { 0 };
+}
+
+Client::Client(const int& num_client, std::string&& name, std::string&& surname, std::vector<int> vec_compte) {
+	numclient = num_client;
+	nom = name;
+	prenom = surname;
+	num_compte = vec_compte;
+}
+
+Compte::Compte() {
+	numclient = 69420;
+	numcompte = 42069;
+	type = 1;
+	solde = 0;
+	agence = 1;
+}
+
+Compte::Compte(const int& num_client, const int& num_compte, const int& compte_type, std::string&& name, const int& argent, const int& agency) {
+	numclient = num_client;
+	numcompte = num_compte;
+	type = compte_type;
+	nom = name;
+	solde = argent;
+	agence = agency;
+}
 
 ptree creer_ptree_client(const Client& client) {
 	ptree pt;
@@ -19,6 +49,17 @@ ptree creer_ptree_client(const Client& client) {
 	return pt;
 }
 
+ptree creer_ptree_compte(const Compte& compte) {
+	ptree pt;
+	pt.put("Numclient", compte.numclient);
+	pt.put("Numcompte", compte.numcompte);
+	pt.put("Type", compte.type);
+	pt.put("Nom", compte.nom);
+	pt.put("Solde", compte.solde);
+	pt.put("Agence", compte.agence);
+	return pt;
+}
+
 Client extraire_client(ptree& pt) {
 	int num= pt.get<int>("Numclient", 0);
 	std::string nom = pt.get<std::string>("Nom");
@@ -30,6 +71,18 @@ Client extraire_client(ptree& pt) {
 	}
 	Client client(num, std::move(nom), std::move(prenom), std::move(num_comptes));
 	return client;
+}
+
+Compte extraire_compte(ptree& pt) {
+	int numclient = pt.get<int>("Numclient", 0);
+	int numcompte = pt.get<int>("Numcompte", 0);
+	int type = pt.get<int>("Type");
+	std::string nom = pt.get<std::string>("Nom");
+	int solde = pt.get<int>("Solde", 0);
+	int agence = pt.get<int>("Agence");
+
+	Compte compte(numclient, numcompte, type, std::move(nom), solde, agence);
+	return compte;
 }
 
 Client transaction(Client client1, Compte compte1, Client client2, Compte compte2, int montant) {

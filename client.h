@@ -30,12 +30,13 @@ public :
 class Compte {
 public:
 	int numclient;
-	int numcompte;
+	int numcompte; 
+	std::string nom;
 	int type;
 	int solde;
 	int agence;
 	Compte();
-	Compte(const int& numclient,const int& numcompte, const int& type, const int& solde, const int& agence);
+	Compte(const int& numclient,const int& numcompte, const int& type, std::string&& name, const int& solde, const int& agence);
 };
 
 ptree creer_ptree_client(const Client& client);
