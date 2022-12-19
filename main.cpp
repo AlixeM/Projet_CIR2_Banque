@@ -1,5 +1,4 @@
 #include "main.h"
-#include "wxWidgets.h"
 
 IMPLEMENT_APP(TMyApp)
 
