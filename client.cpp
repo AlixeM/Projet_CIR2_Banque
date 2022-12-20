@@ -5,13 +5,15 @@ Client::Client() {
 	nom = "Jean";
 	prenom = "Michel";
 	num_compte = { 0 };
+	mdp = "squidgame";
 }
 
-Client::Client(const int& num_client, std::string&& name, std::string&& surname, std::vector<int> vec_compte) {
+Client::Client(const int& num_client, std::string&& name, std::string&& surname, std::vector<int> vec_compte,std::string password) {
 	numclient = num_client;
 	nom = name;
 	prenom = surname;
 	num_compte = vec_compte;
+	mdp = password;
 }
 
 Compte::Compte() {
@@ -38,6 +40,7 @@ ptree creer_ptree_client(const Client& client) {
 	pt.put("Numclient", client.numclient);
 	pt.put("Nom", client.nom);
 	pt.put("Prenom", client.prenom);
+	pt.put("MDP", client.mdp);
 	for (auto& num : client.num_compte){
 		ptree dummy_tree;
 		//   dummy_tree.put(account_number.first, account_number.second);
@@ -64,12 +67,13 @@ Client extraire_client(ptree& pt) {
 	int num= pt.get<int>("Numclient", 0);
 	std::string nom = pt.get<std::string>("Nom");
 	std::string prenom = pt.get<std::string>("Prenom");
+	std::string mdp = pt.get<std::string>("MDP");
 	std::vector<int>num_comptes;
 
 	for (ptree::value_type& num_compte : pt.get_child("Num_comptes")) {
 		num_comptes.push_back(num_compte.second.get_value<int>());
 	}
-	Client client(num, std::move(nom), std::move(prenom), std::move(num_comptes));
+	Client client(num, std::move(nom), std::move(prenom), std::move(num_comptes),std::move(mdp));
 	return client;
 }
 

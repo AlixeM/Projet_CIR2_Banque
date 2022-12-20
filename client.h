@@ -23,8 +23,9 @@ public :
 	std::string nom;
 	std::string prenom;
 	std::vector<int> num_compte;
+	std::string mdp;
 	Client();
-	Client(const int& numclient, std::string&& name, std::string&& prenom,std::vector<int> num_compte);
+	Client(const int& numclient, std::string&& name, std::string&& prenom,std::vector<int> num_compte,std::string password);
 };
 
 class Compte {
