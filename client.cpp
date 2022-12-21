@@ -89,7 +89,7 @@ Compte extraire_compte(ptree& pt) {
 	return compte;
 }
 
-Client transaction(Client client1, Compte compte1, Client client2, Compte compte2, int montant) {
+/*Client transaction(Client client1, Compte compte1, Client client2, Compte compte2, int montant) {
 	compte1.solde -= montant;
 	compte2.solde += montant;
 
@@ -103,4 +103,4 @@ Client retrait_depot(Client client1, Compte compte1, int type, int montant) {
 		compte1.solde += montant;
 	}
 
-}
+}*/

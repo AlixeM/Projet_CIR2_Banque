@@ -41,10 +41,13 @@ Client recherche_numclient(ptree& pt, int num) {
 
 		
 		if (custom.numclient == num) {
-			std::cout << custom << std::endl;
+			cout << "Nom : " << custom.nom << endl;
+			cout << "Prenom : " << custom.prenom << endl;
 			return custom;
 		}
 	}
+	Client error(0, "Error", "Error", { 0 }, "error");
+	return error;
 }
 
 Compte recherche_numcompte(ptree& pt, int num) {
@@ -54,10 +57,29 @@ Compte recherche_numcompte(ptree& pt, int num) {
 
 
 		if (acc.numcompte == num) {
-			std::cout << acc << std::endl;
+			std::cout << "Nom : " << acc.nom << std::endl;
+			std::cout << "Numéro de compte : " << acc.numcompte << std::endl;
+			std::cout << "Solde : " << acc.solde << std::endl;
+
 			return acc;
 		}
 	}
+	Compte error(0, 0, 0, "error", 0, 0);
+	return error;
+}
+
+int main() {
+	Client client1(72,"Jean-Pierre","Mollefesse",{7,12},"jaimelargent");
+	Client client2(89, "Robert", "Francis", { 0,38,54 }, "vivegiroud");
+
+	ptree arbre1= creer_ptree_client(client1);
+	ptree arbre2= creer_ptree_client(client2);
+	ptree pt_comptes;
+	pt_comptes.push_back({ "",arbre1 });
+	pt_comptes.push_back({ "",arbre2 });
+	ecrire_json_client(pt_comptes);
+	ptree testlec = lire_json_client();
+	Client search = recherche_numclient(testlec,89);
 }
 
 

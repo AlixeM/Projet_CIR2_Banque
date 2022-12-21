@@ -13,6 +13,8 @@
 using boost::property_tree::ptree;
 using boost::property_tree::read_json;
 using boost::property_tree::write_json;
+using std::cout;
+using std::endl;
 
 ptree lire_json_client();
 ptree lire_json_compte();
