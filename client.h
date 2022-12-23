@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <string>
 #include <utility>
@@ -25,7 +26,7 @@ public :
 	std::vector<int> num_compte;
 	std::string mdp;
 	Client();
-	Client(const int& numclient, std::string&& name, std::string&& prenom,std::vector<int> num_compte,std::string password);
+	Client(const int& numclient, std::string&& name, std::string&& prenom,std::vector<int>&& num_compte,std::string&& password);
 };
 
 class Compte {

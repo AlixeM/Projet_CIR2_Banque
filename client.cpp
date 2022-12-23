@@ -1,4 +1,4 @@
-#include "client.h"
+#include "main.h"
 
 Client::Client() {
 	numclient = 69420;
@@ -8,7 +8,7 @@ Client::Client() {
 	mdp = "squidgame";
 }
 
-Client::Client(const int& num_client, std::string&& name, std::string&& surname, std::vector<int> vec_compte,std::string password) {
+Client::Client(const int& num_client, std::string&& name, std::string&& surname, std::vector<int>&& vec_compte,std::string&& password) {
 	numclient = num_client;
 	nom = name;
 	prenom = surname;
@@ -64,7 +64,7 @@ ptree creer_ptree_compte(const Compte& compte) {
 }
 
 Client extraire_client(ptree& pt) {
-	int num= pt.get<int>("Numclient", 0);
+	const int num= pt.get<int>("Numclient", 0);
 	std::string nom = pt.get<std::string>("Nom");
 	std::string prenom = pt.get<std::string>("Prenom");
 	std::string mdp = pt.get<std::string>("MDP");
@@ -78,13 +78,12 @@ Client extraire_client(ptree& pt) {
 }
 
 Compte extraire_compte(ptree& pt) {
-	int numclient = pt.get<int>("Numclient", 0);
-	int numcompte = pt.get<int>("Numcompte", 0);
-	int type = pt.get<int>("Type");
+	const int numclient = pt.get<int>("Numclient", 0);
+	const int numcompte = pt.get<int>("Numcompte", 0);
+	const int type = pt.get<int>("Type");
 	std::string nom = pt.get<std::string>("Nom");
-	int solde = pt.get<int>("Solde", 0);
-	int agence = pt.get<int>("Agence");
-
+	const int solde = pt.get<int>("Solde", 0);
+	const int agence = pt.get<int>("Agence");
 	Compte compte(numclient, numcompte, type, std::move(nom), solde, agence);
 	return compte;
 }
