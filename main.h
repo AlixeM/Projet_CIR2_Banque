@@ -65,3 +65,5 @@ Client recherche_numclient(ptree& pt, int num);
 
 Compte search_numcompte(ptree& pt, int num);
 
+int valid_mdp(int numclient, std::string mdp);
+

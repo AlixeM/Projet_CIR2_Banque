@@ -1,0 +1,6 @@
+# ninja log v5
+18	3929	6935160157604344	CMakeFiles/PATHYS.dir/socket_client.cpp.obj	406de02a90fd293c
+13	3977	6935160158007287	CMakeFiles/PATHYS.dir/socket_serveur.cpp.obj	3ab1f7823798ab1f
+5	4694	6935160165208496	CMakeFiles/PATHYS.dir/main.cpp.obj	4b2d52eb6335390c
+9	4880	6935160167125146	CMakeFiles/PATHYS.dir/client.cpp.obj	e67c8aa15ad073a5
+23	4968	6935160168062614	CMakeFiles/PATHYS.dir/ope_json.cpp.obj	929e7e458cd996f3

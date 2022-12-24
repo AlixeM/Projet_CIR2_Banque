@@ -70,4 +70,11 @@ Compte search_numcompte(ptree& pt, int num) {
 	return error;
 }
 
-
+int valid_mdp(int numclient, std::string mdp) {
+	ptree pt = lire_json_client();
+	Client connect = recherche_numclient(pt,numclient);
+	if (connect.mdp == mdp) {
+		return 1;
+	}
+	else { return 0; }
+}
