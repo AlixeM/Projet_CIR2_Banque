@@ -30,7 +30,10 @@ public:
 	std::vector<int> num_compte;
 	std::string mdp;
 	Client();
-	Client(const int& numclient, std::string&& name, std::string&& prenom, std::vector<int>&& num_compte, std::string&& password);
+	Client(const int num_client, std::string name, std::string surname, std::vector<int> vec_compte, std::string password);
+	Client(ptree pt);
+	ptree creer_ptree_client();
+	void ajout_compte(Compte compte);
 };
 
 class Compte {
@@ -42,28 +45,49 @@ public:
 	int solde;
 	int agence;
 	Compte();
-	Compte(const int& numclient, const int& numcompte, const int& type, std::string&& name, const int& solde, const int& agence);
+	Compte(const int num_client, const int num_compte, const int compte_type, std::string name,int argent, const int agency);
+	Compte(ptree pt);
+	ptree creer_ptree_compte();
+	int transaction(Compte compte,int montant);
+	int paiement(int montant);
+	void depot(int montant);
+	int transfert(Compte compte,int montant);
 };
-
-ptree creer_ptree_client(const Client& client);
-
-ptree creer_ptree_compte(const Compte& compte);
-
-Client extraire_client(ptree& pt);
-
-Compte extraire_compte(ptree& pt);
 
 ptree lire_json_client();
 
 ptree lire_json_compte();
 
-void ecrire_json_client(ptree& pt);
+ptree lire_agence1();
 
-void ecrire_json_compte(ptree& pt);
+ptree lire_agence2();
 
-Client recherche_numclient(ptree& pt, int num);
+ptree lire_agence3();
 
-Compte search_numcompte(ptree& pt, int num);
+ptree lire_subclient();
+
+ptree json_assemble(ptree pt1, ptree pt2, ptree pt3);
+
+void add_agence1(ptree pt);
+
+void add_agence2(ptree pt);
+
+void add_agence3(ptree pt);
+
+void add_subclient(ptree pt);
+
+void add_json_client(ptree pt);
+
+void add_json_compte(ptree pt);
+
+Client recherche_numclient(ptree pt, int num);
+
+Compte search_numcompte(ptree pt, int num);
 
 int valid_mdp(int numclient, std::string mdp);
+
+void update_centrale_compte(ptree pt);
+
+void update_centrale_client(ptree pt);
+
 

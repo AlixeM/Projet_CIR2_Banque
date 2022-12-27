@@ -4,11 +4,12 @@ Client::Client() {
 	numclient = 69420;
 	nom = "Jean";
 	prenom = "Michel";
-	num_compte = { 0 };
+	std::vector<int> vec{ 0 };
+	num_compte=vec;
 	mdp = "squidgame";
 }
 
-Client::Client(const int& num_client, std::string&& name, std::string&& surname, std::vector<int>&& vec_compte,std::string&& password) {
+Client::Client(const int num_client, std::string name, std::string surname, std::vector<int> vec_compte,std::string password) {
 	numclient = num_client;
 	nom = name;
 	prenom = surname;
@@ -24,7 +25,7 @@ Compte::Compte() {
 	agence = 1;
 }
 
-Compte::Compte(const int& num_client, const int& num_compte, const int& compte_type, std::string&& name, const int& argent, const int& agency) {
+Compte::Compte(const int num_client, const int num_compte, const int compte_type, std::string name, int argent,const int agency) {
 	numclient = num_client;
 	numcompte = num_compte;
 	type = compte_type;
@@ -32,16 +33,36 @@ Compte::Compte(const int& num_client, const int& num_compte, const int& compte_t
 	solde = argent;
 	agence = agency;
 }
+Client::Client(ptree pt) {
+	numclient = pt.get<int>("Numclient", 0);
+	nom = pt.get<std::string>("Nom");
+	prenom = pt.get<std::string>("Prenom");
+	mdp = pt.get<std::string>("MDP");
+	std::vector<int>num_comptes;
 
-ptree creer_ptree_client(const Client& client) {
+	for (ptree::value_type& num_compte : pt.get_child("Num_comptes")) {
+		num_comptes.push_back(num_compte.second.get_value<int>());
+	}
+	num_compte = num_comptes;
+}
+
+Compte::Compte(ptree pt) {
+	numclient = pt.get<int>("Numclient", 0);
+	numcompte = pt.get<int>("Numcompte", 0);
+	type = pt.get<int>("Type");
+	nom = pt.get<std::string>("Nom");
+	solde = pt.get<int>("Solde", 0);
+	agence = pt.get<int>("Agence");
+}
+ptree Client::creer_ptree_client() {
 	ptree pt;
 	ptree nums_comptes;
 
-	pt.put("Numclient", client.numclient);
-	pt.put("Nom", client.nom);
-	pt.put("Prenom", client.prenom);
-	pt.put("MDP", client.mdp);
-	for (auto& num : client.num_compte){
+	pt.put("Numclient",numclient);
+	pt.put("Nom", nom);
+	pt.put("Prenom", prenom);
+	pt.put("MDP", mdp);
+	for (auto& num : num_compte){
 		ptree dummy_tree;
 		//   dummy_tree.put(account_number.first, account_number.second);
 		dummy_tree.put_value(num);
@@ -52,40 +73,60 @@ ptree creer_ptree_client(const Client& client) {
 	return pt;
 }
 
-ptree creer_ptree_compte(const Compte& compte) {
+ptree Compte::creer_ptree_compte() {
 	ptree pt;
-	pt.put("Numclient", compte.numclient);
-	pt.put("Numcompte", compte.numcompte);
-	pt.put("Type", compte.type);
-	pt.put("Nom", compte.nom);
-	pt.put("Solde", compte.solde);
-	pt.put("Agence", compte.agence);
+	pt.put("Numclient", numclient);
+	pt.put("Numcompte", numcompte);
+	pt.put("Type", type);
+	pt.put("Nom", nom);
+	pt.put("Solde", solde);
+	pt.put("Agence", agence);
 	return pt;
 }
 
-Client extraire_client(ptree& pt) {
-	const int num= pt.get<int>("Numclient", 0);
-	std::string nom = pt.get<std::string>("Nom");
-	std::string prenom = pt.get<std::string>("Prenom");
-	std::string mdp = pt.get<std::string>("MDP");
-	std::vector<int>num_comptes;
-
-	for (ptree::value_type& num_compte : pt.get_child("Num_comptes")) {
-		num_comptes.push_back(num_compte.second.get_value<int>());
-	}
-	Client client(num, std::move(nom), std::move(prenom), std::move(num_comptes),std::move(mdp));
-	return client;
+void Client::ajout_compte(Compte compte) {
+	num_compte.push_back(compte.numcompte);
 }
 
-Compte extraire_compte(ptree& pt) {
-	const int numclient = pt.get<int>("Numclient", 0);
-	const int numcompte = pt.get<int>("Numcompte", 0);
-	const int type = pt.get<int>("Type");
-	std::string nom = pt.get<std::string>("Nom");
-	const int solde = pt.get<int>("Solde", 0);
-	const int agence = pt.get<int>("Agence");
-	Compte compte(numclient, numcompte, type, std::move(nom), solde, agence);
-	return compte;
+int Compte::transaction(Compte compte, int montant) {
+	if (numclient = compte.numclient) {
+		return 0;
+	}
+	if (solde < montant) {
+		return 0;
+	}
+	else {
+		solde -= montant;
+		compte.solde += montant;
+		return 1;
+	}
+}
+
+int Compte::paiement(int montant) {
+	if (solde < montant) {
+		return 0;
+	}
+	else {
+		solde -= montant;
+		return 1;
+	}
+}
+
+void Compte::depot(int montant) {
+	solde += montant;
+}
+
+int Compte::transfert(Compte compte, int montant) {
+	if (numclient != compte.numclient) {
+		return 0;
+	}
+	if (solde < montant) {
+		return 0;
+	}
+	else {
+		solde -= montant;
+		compte.solde += montant;
+	}
 }
 
 /*Client transaction(Client client1, Compte compte1, Client client2, Compte compte2, int montant) {
