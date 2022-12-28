@@ -6,3 +6,5 @@ cmake-build-debug/
 *.vsidx
 
 .vs/
+
+out/

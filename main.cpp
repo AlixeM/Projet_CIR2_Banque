@@ -21,7 +21,6 @@ int main() {
     Client client2(84, "sdklgn", "sdklgn", "sdklgn", vec2, "sdklgn");
     client1.add_account(13);
     ptree test=client1.creer_ptree_client();
-    add_subclient(test);
 	return 1;
 }
 /*

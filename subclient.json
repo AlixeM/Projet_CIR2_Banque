@@ -1,3 +1,15 @@
 {
-
+  "Clients": [
+    {
+      "Numclient": "1500",
+      "Nom": "Michel",
+      "Prenom": "Francis",
+      "Adresse": "221B Baker Street",
+      "MDP": "vivegiroud",
+      "Num_comptes": [
+        "540",
+        "412"
+      ]
+    }
+  ]
 }
