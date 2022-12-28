@@ -26,11 +26,11 @@ include_directories(${Boost_INCLUDE_DIRS})
 find_package(wxWidgets REQUIRED COMPONENTS net core base)
 include(${wxWidgets_USE_FILE})
 
-add_executable(PATHYS main.cpp main.h client.cpp client.h ope_json.h ope_json.cpp resource.rc)
+add_executable(PATHYS.exe main.cpp main.h client.cpp client.h ope_json.h ope_json.cpp resource.rc)
 
 if(MSVC)
-    set_target_properties(PATHYS PROPERTIES LINK_FLAGS /SUBSYSTEM:WINDOWS)
-    set_property(TARGET PATHYS PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+    set_target_properties(PATHYS.exe PROPERTIES LINK_FLAGS /SUBSYSTEM:WINDOWS)
+    set_property(TARGET PATHYS.exe PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 endif (MSVC)
 
-target_link_libraries (PATHYS LINK_PUBLIC ${Boost_LIBRARIES} ${wxWidgets_LIBRARIES})
+target_link_libraries (PATHYS.exe LINK_PUBLIC ${Boost_LIBRARIES} ${wxWidgets_LIBRARIES})

@@ -243,30 +243,35 @@ void Frame::OnSubmitUpdate(wxCommandEvent& WXUNUSED(event))
 {
     int idClient = wxAtoi(ID_client->GetValue());
     std::string mdp_client = MDP_client->GetValue().ToStdString();
-    if(valid_mdp(idClient,mdp_client)==1) {
-        Dialog dialog(NULL, -1, "Choisissez votre agence", Chiffre);
-        if (dialog.ShowModal() == wxID_OK) {
-            wxString st = "Aucun";
-            Chiffre = dialog.GetValue();
-            switch (Chiffre) {
-                case 1 :
-                    st = "Listenbourg";
-                    break;
-                case 2 :
-                    st = "Lille";
-                    break;
-                case 3 :
-                    st = "Londres";
-                    break;
-            }
-            Agence = st;
-        }
-        Close();
-        Frame3 *frame = new Frame3("Pathys Bank", wxPoint(150, 150), wxSize(480, 380));
-        frame->Show();
+    if (mdp_client.empty()||idClient == 0) {
+        wxMessageBox("Il y a un champ vide !", "Erreur", wxOK | wxICON_ERROR);
     }
-    else{
-        wxMessageBox("Mot de passe ou identifiant incorrect","INFORMATION");
+    else {
+        if(valid_mdp(idClient,mdp_client)==1) {
+            Dialog dialog(NULL, -1, "Choisissez votre agence", Chiffre);
+            if (dialog.ShowModal() == wxID_OK) {
+                wxString st = "Aucun";
+                Chiffre = dialog.GetValue();
+                switch (Chiffre) {
+                    case 1 :
+                        st = "Listenbourg";
+                        break;
+                    case 2 :
+                        st = "Lille";
+                        break;
+                    case 3 :
+                        st = "Londres";
+                        break;
+                }
+                Agence = st;
+            }
+            Close();
+            Frame3 *frame = new Frame3("Pathys Bank", wxPoint(150, 150), wxSize(480, 380));
+            frame->Show();
+        }
+        else{
+            wxMessageBox("Mot de passe ou identifiant incorrect","ERREUR", wxOK | wxICON_ERROR);
+        }
     }
 }
 
@@ -306,15 +311,21 @@ void Frame2::Submit(wxCommandEvent& WXUNUSED(event))
     std::string prenom = prenom_client->GetValue().ToStdString();
     std::string adresse = adresse_client->GetValue().ToStdString();
     std::string mdp = mdp_client->GetValue().ToStdString();
-    int num = random_number_client();
-    std::vector<int>vect;
-    Client client(num, nom, prenom, adresse, vect, mdp);
-    ptree tamere = client.creer_ptree_client();
-    add_subclient(tamere);
+    if (mdp.empty()||prenom.empty()||adresse.empty()||nom.empty()) {
 
-    wxString message = wxString::Format("Votre identifiant client est le : %d", num);
-    wxMessageBox(message, "INFORMATION", wxOK | wxICON_INFORMATION, this);
-    Close();
+        wxMessageBox("Il y a un champ vide !", "Erreur", wxOK | wxICON_ERROR);
+    }
+    else {
+        int num = random_number_client();
+        std::vector<int> vect;
+        Client client(num, nom, prenom, adresse, vect, mdp);
+        ptree tamere = client.creer_ptree_client();
+        add_subclient(tamere);
+
+        wxString message = wxString::Format("Votre identifiant client est le : %d", num);
+        wxMessageBox(message, "INFORMATION", wxOK | wxICON_INFORMATION, this);
+        Close();
+    }
 }
 
 
