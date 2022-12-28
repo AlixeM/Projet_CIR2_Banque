@@ -91,3 +91,116 @@ void update_centrale_compte(ptree pt);
 void update_centrale_client(ptree pt);
 
 
+//------------------------------------------------------------------------------
+//WxWIDGET
+//------------------------------------------------------------------------------
+class Application : public wxApp
+{
+public:
+    virtual bool OnInit();
+};
+
+//------------------------------------------------------------------------------
+class Frame : public wxFrame
+{
+public:
+    Frame(const wxString& title, const wxPoint& pos, const wxSize& size,
+          long style = wxDEFAULT_FRAME_STYLE);
+private:
+    wxStaticText *Label;
+    wxTextCtrl *ID_client;
+    wxTextCtrl *MDP_client;
+    wxButton *submit;
+    int Chiffre;
+    void OnQuit(wxCommandEvent& event);
+    void Client(wxCommandEvent& event);
+    void OnTextUpdate(wxCommandEvent& event);
+    void OnMdpUpdate(wxCommandEvent& event);
+    void OnSubmitUpdate(wxCommandEvent& event);
+    enum
+    {
+        App_Quit = 1,
+        New_client,
+        TextEdit,
+        MdpEdit,
+        Btsubmit,
+    };
+
+    DECLARE_EVENT_TABLE()
+};
+
+//------------------------------------------------------------------------------
+
+class Frame2 : public wxFrame
+{
+public:
+    Frame2(const wxString& title, const wxPoint& pos, const wxSize& size,
+           long style = wxDEFAULT_FRAME_STYLE);
+private:
+    wxStaticText *Label;
+    wxTextCtrl *nom_client;
+    wxTextCtrl *prenom_client;
+    wxTextCtrl *adresse_client;
+    wxTextCtrl *mdp_client;
+    wxButton *submit;
+    void Quit(wxCommandEvent& event);
+    void Ncli(wxCommandEvent& event);
+    void Pcli(wxCommandEvent& event);
+    void Acli(wxCommandEvent& event);
+    void Mcli(wxCommandEvent& event);
+    void Submit(wxCommandEvent& event);
+    enum
+    {
+        App_Quit = 1,
+        Nomclient,
+        Prenomclient,
+        Adresseclient,
+        Mdpclient,
+        Inscription,
+    };
+
+    DECLARE_EVENT_TABLE()
+};
+//------------------------------------------------------------------------------
+
+class Frame3 : public wxFrame
+{
+public:
+    Frame3(const wxString& title, const wxPoint& pos, const wxSize& size,
+           long style = wxDEFAULT_FRAME_STYLE);
+private:
+    wxButton *tran;
+    wxButton *dep;
+    wxButton *ret;
+    wxButton *trans;
+    void Quit(wxCommandEvent& event);
+    void Transaction(wxCommandEvent& event);
+    void Depot(wxCommandEvent& event);
+    void Retrait(wxCommandEvent& event);
+    void Transfert(wxCommandEvent& event);
+    enum
+    {
+        App_Quit = 1,
+        Tran,
+        Dep,
+        Ret,
+        Trans,
+    };
+
+    DECLARE_EVENT_TABLE()
+};
+
+//------------------------------------------------------------------------------
+class Dialog : public wxDialog
+{
+public:
+    Dialog(wxWindow* parent, wxWindowID id, const wxString& title, int nb = 0);
+    int GetValue();
+    void SetValue(int);
+private:
+    wxRadioButton *RadioBouton1;
+    wxRadioButton *RadioBouton2;
+    wxRadioButton *RadioBouton3;
+    wxString Agence;
+};
+
