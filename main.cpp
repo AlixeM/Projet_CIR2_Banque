@@ -234,25 +234,33 @@ void Frame::Client(wxCommandEvent& WXUNUSED(event))
 //------------------------------------------------------------------------------
 void Frame::OnSubmitUpdate(wxCommandEvent& WXUNUSED(event))
 {
-    Dialog dialog(NULL,-1,"Choisissez votre agence",Chiffre);
-    if ( dialog.ShowModal() == wxID_OK )
-    {
-        wxString st = "Aucun";
-        Chiffre = dialog.GetValue();
-        switch(Chiffre)
-        {
-            case 1 : st = "Listenbourg";
-                break;
-            case 2 : st = "Lille";
-                break;
-            case 3 : st = "Londres";
-                break;
+    int idClient = wxAtoi(ID_client->GetValue());
+    std::string mdp_client = MDP_client->GetValue().ToStdString();
+    if(valid_mdp(idClient,mdp_client)==1) {
+        Dialog dialog(NULL, -1, "Choisissez votre agence", Chiffre);
+        if (dialog.ShowModal() == wxID_OK) {
+            wxString st = "Aucun";
+            Chiffre = dialog.GetValue();
+            switch (Chiffre) {
+                case 1 :
+                    st = "Listenbourg";
+                    break;
+                case 2 :
+                    st = "Lille";
+                    break;
+                case 3 :
+                    st = "Londres";
+                    break;
+            }
+            Agence = st;
         }
-        Agence = st;
+        Close();
+        Frame3 *frame = new Frame3("Pathys Bank", wxPoint(150, 150), wxSize(480, 380));
+        frame->Show();
     }
-    Close();
-    Frame3 *frame = new Frame3("Pathys Bank test3", wxPoint(150, 150), wxSize(480, 380));
-    frame->Show();
+    else{
+        wxMessageBox("Mot de passe ou identifiant incorrect","INFORMATION");
+    }
 }
 
 
@@ -287,7 +295,13 @@ void Frame2::Mcli(wxCommandEvent& WXUNUSED(event))
 //------------------------------------------------------------------------------
 void Frame2::Submit(wxCommandEvent& WXUNUSED(event))
 {
-    wxMessageBox("Votre identifiant client est le :","INFORMATION");
+    std::string nom = nom_client->GetValue().ToStdString();
+    std::string prenom = prenom_client->GetValue().ToStdString();
+    std::string adresse = adresse_client->GetValue().ToStdString();
+    std::string mdp = mdp_client->GetValue().ToStdString();
+    std::vector<int>vect;
+    Client client(num, nom, prenom, adresse, vect, mdp,);
+    wxMessageBox("Votre identifiant client est le :", "num","INFORMATION");
     Close();
 }
 
