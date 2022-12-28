@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Users/Administrateur/source/repos/Projet_CIR2_Banque/out/install/x64-Debug")
+  set(CMAKE_INSTALL_PREFIX "C:/Users/Administrateur/Source/Repos/Projet_CIR2_Banque/out/install/x64-Debug")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -30,6 +30,13 @@ endif()
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("C:/Users/Administrateur/source/repos/Projet_CIR2_Banque/out/build/x64-Debug/socket/cmake_install.cmake")
+  include("C:/Users/Administrateur/source/repos/Projet_CIR2_Banque/out/build/x64-Debug/customer/cmake_install.cmake")
+
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

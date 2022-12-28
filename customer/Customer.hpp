@@ -1,4 +1,4 @@
-/*#pragma once
+#pragma once
 #include <iostream>
 #include <string>
 #include <utility>
@@ -69,4 +69,4 @@ ptree creer_ptree_compte(const Compte& compte);
 
 Client extraire_client(ptree& pt);
 
-Compte extraire_compte(ptree& pt);*/
+Compte extraire_compte(ptree& pt);

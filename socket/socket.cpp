@@ -38,7 +38,7 @@ void color(int a) {
     else if (a == 3) std::cout << "----------------Agence C----------------" << std::endl;
     SetConsoleTextAttribute(console_color, 7);
 }
-int client(std::string agence, int demande_type)
+int client(std::string agence,int demande_type)
 {
     try
     {
@@ -69,7 +69,7 @@ int client(std::string agence, int demande_type)
         size_t length = s.read_some(boost::asio::buffer(reply), error);
 
         //création du Customer et son affichage
-        Client customer_back = get_data_from_string<Client>(reply);
+        Client customer_back = get_data_from_string<Client>(reply); 
         //std::cout << "Customer received :" << std::endl << customer_back << std::endl;
 
     }
@@ -153,14 +153,14 @@ int main(int argc, char* argv[])
             if (tmp == "A" || tmp == "a") tmp = "1234";
             else if (tmp == "B" || tmp == "b") tmp = "2345";
             else if (tmp == "C" || tmp == "c") tmp = "3333";
-            else if (tmp != "s") {
+            else if(tmp!="s") {
                 std::cout << "cette agence n'exite pas" << std::endl;
                 tmp = "error";
             }
             if (tmp != "error") {
                 std::cout << "Quelle num de demande voulez-vous faire ?";
                 std::cin >> demande_type;
-                std::thread client0(client, tmp, demande_type);
+                std::thread client0(client, tmp,demande_type);
                 client0.join();
             }
         }

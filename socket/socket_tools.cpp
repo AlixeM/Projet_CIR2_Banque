@@ -22,20 +22,25 @@ _Data_type get_data_from_string(const char *s)
 }
 
 template <typename _Data_type>
-std::string get_string_from_data(const _Data_type &data)
+std::string get_string_from_data(const _Data_type& data)
 {
         boost::asio::streambuf buf;
         std::ostream os(&buf);
         boost::archive::text_oarchive ar(os);
         ar << data;
         auto s = to_string(buf);
+        std::cout << data << std::endl;
+        //s += " 01";
+        //std::cout << s.substr(s.length() - 2, 2) << std::endl;
+        //std::cout << move(s) << std::endl;
         return std::move(s);
 }
 template
-//Client get_data_from_string(const char* s);
-Compte get_data_from_string(const char *s);
+Client get_data_from_string(const char* s);
+template
+std::string get_string_from_data(const Client& data);
 
-template 
-
-//std::string get_string_from_data(const Client &data);
+template
+Compte get_data_from_string(const char* s);
+template
 std::string get_string_from_data(const Compte& data);
