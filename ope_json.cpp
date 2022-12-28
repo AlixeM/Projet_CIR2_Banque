@@ -61,8 +61,7 @@ Client recherche_numclient(ptree pt, int num) {
 		}
 	}
 	std::vector<int> Verr;
-	Verr.push_back(0);
-	Client error(0, "Error", "Error", { 0 }, "error");
+	Client error(0, "Error", "Error","Error",Verr, "error");
 	return error;
 }
 
@@ -221,3 +220,42 @@ void update_centrale_client(ptree pt) {
 	file_out.close();
 }
 
+int random_number_client() {
+	srand((unsigned int) time(0));
+	ptree verif = lire_json_client();
+	int validation = 1;
+	int val = 0;
+	while (validation != 0) {
+		validation = 1;
+		val = rand() % 10000 + 1;
+		for (ptree::value_type& client : verif.get_child("Clients"))
+		{
+			Client custom(client.second);
+			if (val == custom.numclient) {
+				validation += 1;
+			}
+		}
+		validation -= 1;
+	}
+	return val;
+}
+
+int random_number_compte() {
+	srand((unsigned int)time(0));
+	ptree verif = lire_json_client();
+	int validation = 1;
+	int val = 0;
+	while (validation != 0) {
+		validation = 1;
+		val = rand() % 10000 + 1;
+		for (ptree::value_type& compte : verif.get_child("Clients"))
+		{
+			Compte acc(compte.second);
+			if (val == acc.numcompte) {
+				validation += 1;
+			}
+		}
+		validation -= 1;
+	}
+	return val;
+}

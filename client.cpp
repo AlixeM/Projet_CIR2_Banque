@@ -4,15 +4,17 @@ Client::Client() {
 	numclient = 69420;
 	nom = "Jean";
 	prenom = "Michel";
-	std::vector<int> vec{ 0 };
+	adresse = "221B Baker Street";
+	std::vector<int> vec;
 	num_compte=vec;
 	mdp = "squidgame";
 }
 
-Client::Client(const int num_client, std::string name, std::string surname, std::vector<int> vec_compte,std::string password) {
+Client::Client(const int num_client, std::string name, std::string surname,std::string home, std::vector<int> vec_compte,std::string password) {
 	numclient = num_client;
 	nom = name;
 	prenom = surname;
+	adresse = home;
 	num_compte = vec_compte;
 	mdp = password;
 }
@@ -37,6 +39,7 @@ Client::Client(ptree pt) {
 	numclient = pt.get<int>("Numclient", 0);
 	nom = pt.get<std::string>("Nom");
 	prenom = pt.get<std::string>("Prenom");
+	adresse = pt.get<std::string>("Adresse");
 	mdp = pt.get<std::string>("MDP");
 	std::vector<int>num_comptes;
 
@@ -61,6 +64,7 @@ ptree Client::creer_ptree_client() {
 	pt.put("Numclient",numclient);
 	pt.put("Nom", nom);
 	pt.put("Prenom", prenom);
+	pt.put("Adresse", adresse);
 	pt.put("MDP", mdp);
 	for (auto& num : num_compte){
 		ptree dummy_tree;

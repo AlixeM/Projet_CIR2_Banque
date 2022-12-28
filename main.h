@@ -30,8 +30,9 @@ public:
 	std::string prenom;
 	std::vector<int> num_compte;
 	std::string mdp;
+    std::string adresse;
 	Client();
-	Client(const int num_client, std::string name, std::string surname, std::vector<int> vec_compte, std::string password);
+	Client(const int num_client, std::string name, std::string surname, std::string home, std::vector<int> vec_compte, std::string password);
 	Client(ptree pt);
 	void add_account(int num);
 	ptree creer_ptree_client();
@@ -91,6 +92,10 @@ int valid_mdp(int numclient, std::string mdp);
 void update_centrale_compte(ptree pt);
 
 void update_centrale_client(ptree pt);
+
+int random_number_compte();
+
+int random_number_client();
 
 
 //------------------------------------------------------------------------------
