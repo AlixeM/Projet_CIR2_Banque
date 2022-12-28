@@ -4,8 +4,6 @@
 
 #endif //PATHYS_MAIN_H
 
-
-
 #include <wx/wx.h>
 #include <iostream>
 #include <string>
