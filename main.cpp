@@ -13,16 +13,7 @@
 #include "main.h"
 
 int main() {
-	Client client1(72,"jean-Pierre","mollefesse",{7,12},"jaimelargent");
-	Client client2(89, "Robert", "Francis", {0,38,54}, "vivegiroud");
-	ptree arbre1 = client1.creer_ptree_client();
-	ptree arbre2 = client2.creer_ptree_client();
-	ptree pt_comptes;
-	pt_comptes.push_back({ "",arbre1 });
-	pt_comptes.push_back({ "",arbre2 });
-	add_json_client(pt_comptes);
-	ptree testlec = lire_json_client();
-	Client search = recherche_numclient(testlec, 89);
+
 	return 1;
 }
 
@@ -299,9 +290,14 @@ void Frame2::Submit(wxCommandEvent& WXUNUSED(event))
     std::string prenom = prenom_client->GetValue().ToStdString();
     std::string adresse = adresse_client->GetValue().ToStdString();
     std::string mdp = mdp_client->GetValue().ToStdString();
+    int num = random_number_client();
     std::vector<int>vect;
-    Client client(num, nom, prenom, adresse, vect, mdp,);
-    wxMessageBox("Votre identifiant client est le :", "num","INFORMATION");
+    Client client(num, nom, prenom, adresse, vect, mdp);
+    ptree tamere = client.creer_ptree_client();
+    add_subclient(tamere);
+
+    wxString message = wxString::Format("Votre identifiant client est le : %d", num);
+    wxMessageBox(message, "INFORMATION", wxOK | wxICON_INFORMATION, this);
     Close();
 }
 
