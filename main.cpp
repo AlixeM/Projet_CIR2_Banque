@@ -13,10 +13,26 @@
 #include "main.h"
 
 int main() {
-
+    int num = random_number_client();
+    std::vector<int> vec;
+    Client client1(num, "Michel", "fldsgn", "sdjfn", vec, "dknfgsdk");
+    int num2 = random_number_client();
+    std::vector<int> vec2;
+    Client client2(num2, "sdklgn", "sdklgn", "sdklgn", vec2, "sdklgn");
+    int number = random_number_compte();
+    client1.add_account(number);
+    ptree test=client1.creer_ptree_client();
+    add_subclient(test);
+    ptree lec=lire_subclient();
+    for (ptree::value_type& client : lec.get_child("Clients")) {
+        Client custom(client.second);
+        cout << custom.nom << endl;
+        cout << custom.prenom << endl;
+        cout << custom.numclient << endl;
+    }
 	return 1;
 }
-
+/*
 //------------------------------------------------------------------------------
 //WxWidget
 //------------------------------------------------------------------------------
@@ -328,5 +344,5 @@ void Frame3::Retrait(wxCommandEvent& WXUNUSED(event))
 void Frame3::Transfert(wxCommandEvent& WXUNUSED(event))
 {
     Close();
-}
+}*/
 

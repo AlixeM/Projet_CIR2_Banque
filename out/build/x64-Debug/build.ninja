@@ -40,6 +40,72 @@ include CMakeFiles\rules.ninja
 # Logical path to working directory; prefix for absolute paths.
 
 cmake_ninja_workdir = C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\out\build\x64-Debug\
+# =============================================================================
+# Object build statements for EXECUTABLE target PATHYS
+
+
+#############################################
+# Order-only phony target for PATHYS
+
+build cmake_object_order_depends_target_PATHYS: phony || CMakeFiles\PATHYS.dir
+
+build CMakeFiles\PATHYS.dir\main.cpp.obj: CXX_COMPILER__PATHYS_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\main.cpp || cmake_object_order_depends_target_PATHYS
+  DEFINES = -DBOOST_CONTAINER_NO_LIB -DBOOST_JSON_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MTd /MTd
+  INCLUDES = -external:IC:\tools\Boost\include\boost-1_80 -external:IC:\tools\wxWidgets\lib\vc_x64_lib\mswu -external:IC:\tools\wxWidgets\include -external:W0
+  OBJECT_DIR = CMakeFiles\PATHYS.dir
+  OBJECT_FILE_DIR = CMakeFiles\PATHYS.dir
+  TARGET_COMPILE_PDB = CMakeFiles\PATHYS.dir\
+  TARGET_PDB = PATHYS.pdb
+
+build CMakeFiles\PATHYS.dir\client.cpp.obj: CXX_COMPILER__PATHYS_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\client.cpp || cmake_object_order_depends_target_PATHYS
+  DEFINES = -DBOOST_CONTAINER_NO_LIB -DBOOST_JSON_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MTd /MTd
+  INCLUDES = -external:IC:\tools\Boost\include\boost-1_80 -external:IC:\tools\wxWidgets\lib\vc_x64_lib\mswu -external:IC:\tools\wxWidgets\include -external:W0
+  OBJECT_DIR = CMakeFiles\PATHYS.dir
+  OBJECT_FILE_DIR = CMakeFiles\PATHYS.dir
+  TARGET_COMPILE_PDB = CMakeFiles\PATHYS.dir\
+  TARGET_PDB = PATHYS.pdb
+
+build CMakeFiles\PATHYS.dir\ope_json.cpp.obj: CXX_COMPILER__PATHYS_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\ope_json.cpp || cmake_object_order_depends_target_PATHYS
+  DEFINES = -DBOOST_CONTAINER_NO_LIB -DBOOST_JSON_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MTd /MTd
+  INCLUDES = -external:IC:\tools\Boost\include\boost-1_80 -external:IC:\tools\wxWidgets\lib\vc_x64_lib\mswu -external:IC:\tools\wxWidgets\include -external:W0
+  OBJECT_DIR = CMakeFiles\PATHYS.dir
+  OBJECT_FILE_DIR = CMakeFiles\PATHYS.dir
+  TARGET_COMPILE_PDB = CMakeFiles\PATHYS.dir\
+  TARGET_PDB = PATHYS.pdb
+
+build CMakeFiles\PATHYS.dir\resource.rc.res: RC_COMPILER__PATHYS_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\resource.rc || cmake_object_order_depends_target_PATHYS
+  DEFINES = -DBOOST_CONTAINER_NO_LIB -DBOOST_JSON_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE
+  DEP_FILE = CMakeFiles\PATHYS.dir\resource.rc.res.d
+  FLAGS = -DWIN32 -D_DEBUG
+  INCLUDES = -I C:\tools\Boost\include\boost-1_80 -I C:\tools\wxWidgets\lib\vc_x64_lib\mswu -I C:\tools\wxWidgets\include
+  OBJECT_DIR = CMakeFiles\PATHYS.dir
+  OBJECT_FILE_DIR = CMakeFiles\PATHYS.dir
+  TARGET_COMPILE_PDB = CMakeFiles\PATHYS.dir\
+  TARGET_PDB = PATHYS.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target PATHYS
+
+
+#############################################
+# Link the executable PATHYS.exe
+
+build PATHYS.exe: CXX_EXECUTABLE_LINKER__PATHYS_Debug CMakeFiles\PATHYS.dir\main.cpp.obj CMakeFiles\PATHYS.dir\client.cpp.obj CMakeFiles\PATHYS.dir\ope_json.cpp.obj CMakeFiles\PATHYS.dir\resource.rc.res | C$:\tools\Boost\lib\libboost_json-vc143-mt-sgd-x64-1_80.lib C$:\tools\Boost\lib\libboost_serialization-vc143-mt-sgd-x64-1_80.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxbase32ud_net.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxmsw32ud_core.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxbase32ud.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxpngd.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxtiffd.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxjpegd.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxzlibd.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxregexud.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxexpatd.lib C$:\tools\Boost\lib\libboost_container-vc143-mt-sgd-x64-1_80.lib
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MTd
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console /SUBSYSTEM:WINDOWS
+  LINK_LIBRARIES = C:\tools\Boost\lib\libboost_json-vc143-mt-sgd-x64-1_80.lib  C:\tools\Boost\lib\libboost_serialization-vc143-mt-sgd-x64-1_80.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxbase32ud_net.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxmsw32ud_core.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxbase32ud.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxpngd.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxtiffd.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxjpegd.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxzlibd.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxregexud.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxexpatd.lib  winmm.lib  comctl32.lib  uuid.lib  oleacc.lib  uxtheme.lib  rpcrt4.lib  shlwapi.lib  version.lib  wsock32.lib  C:\tools\Boost\lib\libboost_container-vc143-mt-sgd-x64-1_80.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = CMakeFiles\PATHYS.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\PATHYS.dir\
+  TARGET_FILE = PATHYS.exe
+  TARGET_IMPLIB = PATHYS.lib
+  TARGET_PDB = PATHYS.pdb
+
 
 #############################################
 # Utility command for edit_cache
@@ -64,154 +130,9 @@ build CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
 build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 
 # =============================================================================
-# Write statements declared in CMakeLists.txt:
-# C:/Users/Administrateur/source/repos/Projet_CIR2_Banque/CMakeLists.txt
-# =============================================================================
-
-# =============================================================================
-# Object build statements for EXECUTABLE target socket
-
-
-#############################################
-# Order-only phony target for socket
-
-build cmake_object_order_depends_target_socket: phony || cmake_object_order_depends_target_customer
-
-build socket\CMakeFiles\socket.dir\socket.cpp.obj: CXX_COMPILER__socket_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\socket\socket.cpp || cmake_object_order_depends_target_socket
-  DEFINES = -DBOOST_CHRONO_NO_LIB -DBOOST_REGEX_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_NO_LIB -D_CRT_SECURE_NO_WARNINGS -D_WIN32_WINNT=0x0501
-  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 /MTd -std:c++17
-  INCLUDES = -IC:\Users\Administrateur\source\repos\Projet_CIR2_Banque\customer -external:IC:\tools\Boost\include\boost-1_80 -external:W0
-  OBJECT_DIR = socket\CMakeFiles\socket.dir
-  OBJECT_FILE_DIR = socket\CMakeFiles\socket.dir
-  TARGET_COMPILE_PDB = socket\CMakeFiles\socket.dir\
-  TARGET_PDB = socket\socket.pdb
-
-build socket\CMakeFiles\socket.dir\socket_tools.cpp.obj: CXX_COMPILER__socket_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\socket\socket_tools.cpp || cmake_object_order_depends_target_socket
-  DEFINES = -DBOOST_CHRONO_NO_LIB -DBOOST_REGEX_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_NO_LIB -D_CRT_SECURE_NO_WARNINGS -D_WIN32_WINNT=0x0501
-  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 /MTd -std:c++17
-  INCLUDES = -IC:\Users\Administrateur\source\repos\Projet_CIR2_Banque\customer -external:IC:\tools\Boost\include\boost-1_80 -external:W0
-  OBJECT_DIR = socket\CMakeFiles\socket.dir
-  OBJECT_FILE_DIR = socket\CMakeFiles\socket.dir
-  TARGET_COMPILE_PDB = socket\CMakeFiles\socket.dir\
-  TARGET_PDB = socket\socket.pdb
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target socket
-
-
-#############################################
-# Link the executable socket\socket.exe
-
-build socket\socket.exe: CXX_EXECUTABLE_LINKER__socket_Debug socket\CMakeFiles\socket.dir\socket.cpp.obj socket\CMakeFiles\socket.dir\socket_tools.cpp.obj | customer\customer.lib C$:\tools\Boost\lib\libboost_system-vc143-mt-sgd-x64-1_80.lib C$:\tools\Boost\lib\libboost_thread-vc143-mt-sgd-x64-1_80.lib C$:\tools\Boost\lib\libboost_regex-vc143-mt-sgd-x64-1_80.lib C$:\tools\Boost\lib\libboost_serialization-vc143-mt-sgd-x64-1_80.lib C$:\tools\Boost\lib\libboost_chrono-vc143-mt-sgd-x64-1_80.lib || customer\customer.lib
-  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1
-  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
-  LINK_LIBRARIES = customer\customer.lib  C:\tools\Boost\lib\libboost_system-vc143-mt-sgd-x64-1_80.lib  C:\tools\Boost\lib\libboost_thread-vc143-mt-sgd-x64-1_80.lib  C:\tools\Boost\lib\libboost_regex-vc143-mt-sgd-x64-1_80.lib  C:\tools\Boost\lib\libboost_serialization-vc143-mt-sgd-x64-1_80.lib  C:\tools\Boost\lib\libboost_chrono-vc143-mt-sgd-x64-1_80.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
-  OBJECT_DIR = socket\CMakeFiles\socket.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_COMPILE_PDB = socket\CMakeFiles\socket.dir\
-  TARGET_FILE = socket\socket.exe
-  TARGET_IMPLIB = socket\socket.lib
-  TARGET_PDB = socket\socket.pdb
-
-
-#############################################
-# Utility command for edit_cache
-
-build socket\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\Administrateur\source\repos\Projet_CIR2_Banque\out\build\x64-Debug\socket && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build socket\edit_cache: phony socket\CMakeFiles\edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build socket\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\Administrateur\source\repos\Projet_CIR2_Banque\out\build\x64-Debug\socket && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\Administrateur\source\repos\Projet_CIR2_Banque -BC:\Users\Administrateur\source\repos\Projet_CIR2_Banque\out\build\x64-Debug"
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build socket\rebuild_cache: phony socket\CMakeFiles\rebuild_cache.util
-
-# =============================================================================
-# Write statements declared in CMakeLists.txt:
-# C:/Users/Administrateur/source/repos/Projet_CIR2_Banque/CMakeLists.txt
-# =============================================================================
-
-# =============================================================================
-# Object build statements for STATIC_LIBRARY target customer
-
-
-#############################################
-# Order-only phony target for customer
-
-build cmake_object_order_depends_target_customer: phony || customer\CMakeFiles\customer.dir
-
-build customer\CMakeFiles\customer.dir\Customer.cpp.obj: CXX_COMPILER__customer_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\customer\Customer.cpp || cmake_object_order_depends_target_customer
-  DEFINES = -D_CRT_SECURE_NO_WARNINGS
-  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 /MTd -std:c++17
-  INCLUDES = -IC:\tools\Boost\include\boost-1_80 -IC:\Users\Administrateur\source\repos\Projet_CIR2_Banque\customer
-  OBJECT_DIR = customer\CMakeFiles\customer.dir
-  OBJECT_FILE_DIR = customer\CMakeFiles\customer.dir
-  TARGET_COMPILE_PDB = customer\CMakeFiles\customer.dir\customer.pdb
-  TARGET_PDB = customer\customer.pdb
-
-
-# =============================================================================
-# Link build statements for STATIC_LIBRARY target customer
-
-
-#############################################
-# Link the static library customer\customer.lib
-
-build customer\customer.lib: CXX_STATIC_LIBRARY_LINKER__customer_Debug customer\CMakeFiles\customer.dir\Customer.cpp.obj
-  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1
-  LINK_FLAGS = /machine:x64
-  OBJECT_DIR = customer\CMakeFiles\customer.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_COMPILE_PDB = customer\CMakeFiles\customer.dir\customer.pdb
-  TARGET_FILE = customer\customer.lib
-  TARGET_PDB = customer\customer.pdb
-
-
-#############################################
-# Utility command for edit_cache
-
-build customer\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\Administrateur\source\repos\Projet_CIR2_Banque\out\build\x64-Debug\customer && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build customer\edit_cache: phony customer\CMakeFiles\edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build customer\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\Administrateur\source\repos\Projet_CIR2_Banque\out\build\x64-Debug\customer && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\Administrateur\source\repos\Projet_CIR2_Banque -BC:\Users\Administrateur\source\repos\Projet_CIR2_Banque\out\build\x64-Debug"
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build customer\rebuild_cache: phony customer\CMakeFiles\rebuild_cache.util
-
-# =============================================================================
 # Target aliases.
 
-build customer: phony customer\customer.lib
-
-build customer.lib: phony customer\customer.lib
-
-build socket: phony socket\socket.exe
-
-build socket.exe: phony socket\socket.exe
+build PATHYS: phony PATHYS.exe
 
 # =============================================================================
 # Folder targets.
@@ -221,21 +142,7 @@ build socket.exe: phony socket\socket.exe
 #############################################
 # Folder: C:/Users/Administrateur/source/repos/Projet_CIR2_Banque/out/build/x64-Debug
 
-build all: phony socket\all customer\all
-
-# =============================================================================
-
-#############################################
-# Folder: C:/Users/Administrateur/source/repos/Projet_CIR2_Banque/out/build/x64-Debug/customer
-
-build customer\all: phony customer\customer.lib
-
-# =============================================================================
-
-#############################################
-# Folder: C:/Users/Administrateur/source/repos/Projet_CIR2_Banque/out/build/x64-Debug/socket
-
-build socket\all: phony socket\socket.exe
+build all: phony PATHYS.exe
 
 # =============================================================================
 # Built-in targets
@@ -244,14 +151,14 @@ build socket\all: phony socket\socket.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeFindDependencyMacro.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CheckCSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CheckIncludeFile.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CheckLibraryExists.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Compiler\MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\FindBoost.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\FindPackageMessage.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\FindThreads.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Internal\CheckSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\CMakeLists.txt C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\customer\CMakeLists.txt C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\socket\CMakeLists.txt C$:\tools\Boost\lib\cmake\Boost-1.80.0\BoostConfig.cmake C$:\tools\Boost\lib\cmake\Boost-1.80.0\BoostConfigVersion.cmake C$:\tools\Boost\lib\cmake\BoostDetectToolset-1.80.0.cmake C$:\tools\Boost\lib\cmake\boost_chrono-1.80.0\boost_chrono-config-version.cmake C$:\tools\Boost\lib\cmake\boost_chrono-1.80.0\boost_chrono-config.cmake C$:\tools\Boost\lib\cmake\boost_chrono-1.80.0\libboost_chrono-variant-vc143-mt-s-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_chrono-1.80.0\libboost_chrono-variant-vc143-mt-sgd-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_headers-1.80.0\boost_headers-config-version.cmake C$:\tools\Boost\lib\cmake\boost_headers-1.80.0\boost_headers-config.cmake C$:\tools\Boost\lib\cmake\boost_regex-1.80.0\boost_regex-config-version.cmake C$:\tools\Boost\lib\cmake\boost_regex-1.80.0\boost_regex-config.cmake C$:\tools\Boost\lib\cmake\boost_regex-1.80.0\libboost_regex-variant-vc143-mt-s-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_regex-1.80.0\libboost_regex-variant-vc143-mt-sgd-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_serialization-1.80.0\boost_serialization-config-version.cmake C$:\tools\Boost\lib\cmake\boost_serialization-1.80.0\boost_serialization-config.cmake C$:\tools\Boost\lib\cmake\boost_serialization-1.80.0\libboost_serialization-variant-vc143-mt-s-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_serialization-1.80.0\libboost_serialization-variant-vc143-mt-sgd-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_system-1.80.0\boost_system-config-version.cmake C$:\tools\Boost\lib\cmake\boost_system-1.80.0\boost_system-config.cmake C$:\tools\Boost\lib\cmake\boost_system-1.80.0\libboost_system-variant-vc143-mt-s-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_system-1.80.0\libboost_system-variant-vc143-mt-sgd-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_thread-1.80.0\boost_thread-config-version.cmake C$:\tools\Boost\lib\cmake\boost_thread-1.80.0\boost_thread-config.cmake C$:\tools\Boost\lib\cmake\boost_thread-1.80.0\libboost_thread-variant-vc143-mt-s-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_thread-1.80.0\libboost_thread-variant-vc143-mt-sgd-x64-1_80-static.cmake CMakeCache.txt CMakeFiles\3.24.202208181-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.24.202208181-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.24.202208181-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.24.202208181-MSVC_2\CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Compiler\MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\FindBoost.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\FindPackageMessage.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\FindwxWidgets.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\UsewxWidgets.cmake C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\CMakeLists.txt C$:\tools\Boost\lib\cmake\Boost-1.80.0\BoostConfig.cmake C$:\tools\Boost\lib\cmake\Boost-1.80.0\BoostConfigVersion.cmake C$:\tools\Boost\lib\cmake\BoostDetectToolset-1.80.0.cmake C$:\tools\Boost\lib\cmake\boost_container-1.80.0\boost_container-config-version.cmake C$:\tools\Boost\lib\cmake\boost_container-1.80.0\boost_container-config.cmake C$:\tools\Boost\lib\cmake\boost_container-1.80.0\libboost_container-variant-vc143-mt-s-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_container-1.80.0\libboost_container-variant-vc143-mt-sgd-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_headers-1.80.0\boost_headers-config-version.cmake C$:\tools\Boost\lib\cmake\boost_headers-1.80.0\boost_headers-config.cmake C$:\tools\Boost\lib\cmake\boost_json-1.80.0\boost_json-config-version.cmake C$:\tools\Boost\lib\cmake\boost_json-1.80.0\boost_json-config.cmake C$:\tools\Boost\lib\cmake\boost_json-1.80.0\libboost_json-variant-vc143-mt-s-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_json-1.80.0\libboost_json-variant-vc143-mt-sgd-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_serialization-1.80.0\boost_serialization-config-version.cmake C$:\tools\Boost\lib\cmake\boost_serialization-1.80.0\boost_serialization-config.cmake C$:\tools\Boost\lib\cmake\boost_serialization-1.80.0\libboost_serialization-variant-vc143-mt-s-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_serialization-1.80.0\libboost_serialization-variant-vc143-mt-sgd-x64-1_80-static.cmake CMakeCache.txt CMakeFiles\3.24.202208181-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.24.202208181-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.24.202208181-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.24.202208181-MSVC_2\CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeFindDependencyMacro.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CheckCSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CheckIncludeFile.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CheckLibraryExists.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Compiler\MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\FindBoost.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\FindPackageMessage.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\FindThreads.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Internal\CheckSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\CMakeLists.txt C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\customer\CMakeLists.txt C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\socket\CMakeLists.txt C$:\tools\Boost\lib\cmake\Boost-1.80.0\BoostConfig.cmake C$:\tools\Boost\lib\cmake\Boost-1.80.0\BoostConfigVersion.cmake C$:\tools\Boost\lib\cmake\BoostDetectToolset-1.80.0.cmake C$:\tools\Boost\lib\cmake\boost_chrono-1.80.0\boost_chrono-config-version.cmake C$:\tools\Boost\lib\cmake\boost_chrono-1.80.0\boost_chrono-config.cmake C$:\tools\Boost\lib\cmake\boost_chrono-1.80.0\libboost_chrono-variant-vc143-mt-s-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_chrono-1.80.0\libboost_chrono-variant-vc143-mt-sgd-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_headers-1.80.0\boost_headers-config-version.cmake C$:\tools\Boost\lib\cmake\boost_headers-1.80.0\boost_headers-config.cmake C$:\tools\Boost\lib\cmake\boost_regex-1.80.0\boost_regex-config-version.cmake C$:\tools\Boost\lib\cmake\boost_regex-1.80.0\boost_regex-config.cmake C$:\tools\Boost\lib\cmake\boost_regex-1.80.0\libboost_regex-variant-vc143-mt-s-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_regex-1.80.0\libboost_regex-variant-vc143-mt-sgd-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_serialization-1.80.0\boost_serialization-config-version.cmake C$:\tools\Boost\lib\cmake\boost_serialization-1.80.0\boost_serialization-config.cmake C$:\tools\Boost\lib\cmake\boost_serialization-1.80.0\libboost_serialization-variant-vc143-mt-s-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_serialization-1.80.0\libboost_serialization-variant-vc143-mt-sgd-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_system-1.80.0\boost_system-config-version.cmake C$:\tools\Boost\lib\cmake\boost_system-1.80.0\boost_system-config.cmake C$:\tools\Boost\lib\cmake\boost_system-1.80.0\libboost_system-variant-vc143-mt-s-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_system-1.80.0\libboost_system-variant-vc143-mt-sgd-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_thread-1.80.0\boost_thread-config-version.cmake C$:\tools\Boost\lib\cmake\boost_thread-1.80.0\boost_thread-config.cmake C$:\tools\Boost\lib\cmake\boost_thread-1.80.0\libboost_thread-variant-vc143-mt-s-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_thread-1.80.0\libboost_thread-variant-vc143-mt-sgd-x64-1_80-static.cmake CMakeCache.txt CMakeFiles\3.24.202208181-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.24.202208181-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.24.202208181-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.24.202208181-MSVC_2\CMakeSystem.cmake: phony
+build C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Compiler\MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\FindBoost.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\FindPackageMessage.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\FindwxWidgets.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.24\Modules\UsewxWidgets.cmake C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\CMakeLists.txt C$:\tools\Boost\lib\cmake\Boost-1.80.0\BoostConfig.cmake C$:\tools\Boost\lib\cmake\Boost-1.80.0\BoostConfigVersion.cmake C$:\tools\Boost\lib\cmake\BoostDetectToolset-1.80.0.cmake C$:\tools\Boost\lib\cmake\boost_container-1.80.0\boost_container-config-version.cmake C$:\tools\Boost\lib\cmake\boost_container-1.80.0\boost_container-config.cmake C$:\tools\Boost\lib\cmake\boost_container-1.80.0\libboost_container-variant-vc143-mt-s-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_container-1.80.0\libboost_container-variant-vc143-mt-sgd-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_headers-1.80.0\boost_headers-config-version.cmake C$:\tools\Boost\lib\cmake\boost_headers-1.80.0\boost_headers-config.cmake C$:\tools\Boost\lib\cmake\boost_json-1.80.0\boost_json-config-version.cmake C$:\tools\Boost\lib\cmake\boost_json-1.80.0\boost_json-config.cmake C$:\tools\Boost\lib\cmake\boost_json-1.80.0\libboost_json-variant-vc143-mt-s-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_json-1.80.0\libboost_json-variant-vc143-mt-sgd-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_serialization-1.80.0\boost_serialization-config-version.cmake C$:\tools\Boost\lib\cmake\boost_serialization-1.80.0\boost_serialization-config.cmake C$:\tools\Boost\lib\cmake\boost_serialization-1.80.0\libboost_serialization-variant-vc143-mt-s-x64-1_80-static.cmake C$:\tools\Boost\lib\cmake\boost_serialization-1.80.0\libboost_serialization-variant-vc143-mt-sgd-x64-1_80-static.cmake CMakeCache.txt CMakeFiles\3.24.202208181-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.24.202208181-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.24.202208181-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.24.202208181-MSVC_2\CMakeSystem.cmake: phony
 
 
 #############################################
