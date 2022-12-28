@@ -11,6 +11,7 @@
 #include <string>
 #include <utility>
 #include <vector>
+#include <random>
 
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/property_tree/ptree.hpp>
@@ -32,8 +33,9 @@ public:
 	Client();
 	Client(const int num_client, std::string name, std::string surname, std::vector<int> vec_compte, std::string password);
 	Client(ptree pt);
+	void add_account(int num);
 	ptree creer_ptree_client();
-	void ajout_compte(Compte compte);
+	
 };
 
 class Compte {

@@ -8,7 +8,7 @@ int main() {
 	ptree pt_comptes;
 	pt_comptes.push_back({ "",arbre1 });
 	pt_comptes.push_back({ "",arbre2 });
-	ecrire_json_client(pt_comptes);
+	add_json_client(pt_comptes);
 	ptree testlec = lire_json_client();
 	Client search = recherche_numclient(testlec, 89);
 	return 1;

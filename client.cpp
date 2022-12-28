@@ -84,8 +84,8 @@ ptree Compte::creer_ptree_compte() {
 	return pt;
 }
 
-void Client::ajout_compte(Compte compte) {
-	num_compte.push_back(compte.numcompte);
+void Client::add_account(int num) {
+	num_compte.push_back(num);
 }
 
 int Compte::transaction(Compte compte, int montant) {
@@ -126,6 +126,7 @@ int Compte::transfert(Compte compte, int montant) {
 	else {
 		solde -= montant;
 		compte.solde += montant;
+		return 1;
 	}
 }
 
