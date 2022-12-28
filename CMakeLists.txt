@@ -26,7 +26,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 find_package(wxWidgets REQUIRED COMPONENTS net core base)
 include(${wxWidgets_USE_FILE})
 
-add_executable(PATHYS main.cpp main.h client.cpp client.h socket_serveur.cpp socket_client.cpp ope_json.h ope_json.cpp resource.rc)
+add_executable(PATHYS main.cpp main.h client.cpp client.h ope_json.h ope_json.cpp resource.rc)
 
 if(MSVC)
     set_target_properties(PATHYS PROPERTIES LINK_FLAGS /SUBSYSTEM:WINDOWS)
