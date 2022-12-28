@@ -41,70 +41,70 @@ include CMakeFiles\rules.ninja
 
 cmake_ninja_workdir = C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\out\build\x64-Debug\
 # =============================================================================
-# Object build statements for EXECUTABLE target PATHYS
+# Object build statements for EXECUTABLE target PATHYS.exe
 
 
 #############################################
-# Order-only phony target for PATHYS
+# Order-only phony target for PATHYS.exe
 
-build cmake_object_order_depends_target_PATHYS: phony || CMakeFiles\PATHYS.dir
+build cmake_object_order_depends_target_PATHYS.exe: phony || CMakeFiles\PATHYS.exe.dir
 
-build CMakeFiles\PATHYS.dir\main.cpp.obj: CXX_COMPILER__PATHYS_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\main.cpp || cmake_object_order_depends_target_PATHYS
+build CMakeFiles\PATHYS.exe.dir\main.cpp.obj: CXX_COMPILER__PATHYS.2eexe_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\main.cpp || cmake_object_order_depends_target_PATHYS.exe
   DEFINES = -DBOOST_CONTAINER_NO_LIB -DBOOST_JSON_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MTd /MTd
   INCLUDES = -external:IC:\tools\Boost\include\boost-1_80 -external:IC:\tools\wxWidgets\lib\vc_x64_lib\mswu -external:IC:\tools\wxWidgets\include -external:W0
-  OBJECT_DIR = CMakeFiles\PATHYS.dir
-  OBJECT_FILE_DIR = CMakeFiles\PATHYS.dir
-  TARGET_COMPILE_PDB = CMakeFiles\PATHYS.dir\
-  TARGET_PDB = PATHYS.pdb
+  OBJECT_DIR = CMakeFiles\PATHYS.exe.dir
+  OBJECT_FILE_DIR = CMakeFiles\PATHYS.exe.dir
+  TARGET_COMPILE_PDB = CMakeFiles\PATHYS.exe.dir\
+  TARGET_PDB = PATHYS.exe.pdb
 
-build CMakeFiles\PATHYS.dir\client.cpp.obj: CXX_COMPILER__PATHYS_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\client.cpp || cmake_object_order_depends_target_PATHYS
+build CMakeFiles\PATHYS.exe.dir\client.cpp.obj: CXX_COMPILER__PATHYS.2eexe_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\client.cpp || cmake_object_order_depends_target_PATHYS.exe
   DEFINES = -DBOOST_CONTAINER_NO_LIB -DBOOST_JSON_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MTd /MTd
   INCLUDES = -external:IC:\tools\Boost\include\boost-1_80 -external:IC:\tools\wxWidgets\lib\vc_x64_lib\mswu -external:IC:\tools\wxWidgets\include -external:W0
-  OBJECT_DIR = CMakeFiles\PATHYS.dir
-  OBJECT_FILE_DIR = CMakeFiles\PATHYS.dir
-  TARGET_COMPILE_PDB = CMakeFiles\PATHYS.dir\
-  TARGET_PDB = PATHYS.pdb
+  OBJECT_DIR = CMakeFiles\PATHYS.exe.dir
+  OBJECT_FILE_DIR = CMakeFiles\PATHYS.exe.dir
+  TARGET_COMPILE_PDB = CMakeFiles\PATHYS.exe.dir\
+  TARGET_PDB = PATHYS.exe.pdb
 
-build CMakeFiles\PATHYS.dir\ope_json.cpp.obj: CXX_COMPILER__PATHYS_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\ope_json.cpp || cmake_object_order_depends_target_PATHYS
+build CMakeFiles\PATHYS.exe.dir\ope_json.cpp.obj: CXX_COMPILER__PATHYS.2eexe_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\ope_json.cpp || cmake_object_order_depends_target_PATHYS.exe
   DEFINES = -DBOOST_CONTAINER_NO_LIB -DBOOST_JSON_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MTd /MTd
   INCLUDES = -external:IC:\tools\Boost\include\boost-1_80 -external:IC:\tools\wxWidgets\lib\vc_x64_lib\mswu -external:IC:\tools\wxWidgets\include -external:W0
-  OBJECT_DIR = CMakeFiles\PATHYS.dir
-  OBJECT_FILE_DIR = CMakeFiles\PATHYS.dir
-  TARGET_COMPILE_PDB = CMakeFiles\PATHYS.dir\
-  TARGET_PDB = PATHYS.pdb
+  OBJECT_DIR = CMakeFiles\PATHYS.exe.dir
+  OBJECT_FILE_DIR = CMakeFiles\PATHYS.exe.dir
+  TARGET_COMPILE_PDB = CMakeFiles\PATHYS.exe.dir\
+  TARGET_PDB = PATHYS.exe.pdb
 
-build CMakeFiles\PATHYS.dir\resource.rc.res: RC_COMPILER__PATHYS_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\resource.rc || cmake_object_order_depends_target_PATHYS
+build CMakeFiles\PATHYS.exe.dir\resource.rc.res: RC_COMPILER__PATHYS.2eexe_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\resource.rc || cmake_object_order_depends_target_PATHYS.exe
   DEFINES = -DBOOST_CONTAINER_NO_LIB -DBOOST_JSON_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE
-  DEP_FILE = CMakeFiles\PATHYS.dir\resource.rc.res.d
+  DEP_FILE = CMakeFiles\PATHYS.exe.dir\resource.rc.res.d
   FLAGS = -DWIN32 -D_DEBUG
   INCLUDES = -I C:\tools\Boost\include\boost-1_80 -I C:\tools\wxWidgets\lib\vc_x64_lib\mswu -I C:\tools\wxWidgets\include
-  OBJECT_DIR = CMakeFiles\PATHYS.dir
-  OBJECT_FILE_DIR = CMakeFiles\PATHYS.dir
-  TARGET_COMPILE_PDB = CMakeFiles\PATHYS.dir\
-  TARGET_PDB = PATHYS.pdb
+  OBJECT_DIR = CMakeFiles\PATHYS.exe.dir
+  OBJECT_FILE_DIR = CMakeFiles\PATHYS.exe.dir
+  TARGET_COMPILE_PDB = CMakeFiles\PATHYS.exe.dir\
+  TARGET_PDB = PATHYS.exe.pdb
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target PATHYS
+# Link build statements for EXECUTABLE target PATHYS.exe
 
 
 #############################################
-# Link the executable PATHYS.exe
+# Link the executable PATHYS.exe.exe
 
-build PATHYS.exe: CXX_EXECUTABLE_LINKER__PATHYS_Debug CMakeFiles\PATHYS.dir\main.cpp.obj CMakeFiles\PATHYS.dir\client.cpp.obj CMakeFiles\PATHYS.dir\ope_json.cpp.obj CMakeFiles\PATHYS.dir\resource.rc.res | C$:\tools\Boost\lib\libboost_json-vc143-mt-sgd-x64-1_80.lib C$:\tools\Boost\lib\libboost_serialization-vc143-mt-sgd-x64-1_80.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxbase32ud_net.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxmsw32ud_core.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxbase32ud.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxpngd.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxtiffd.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxjpegd.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxzlibd.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxregexud.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxexpatd.lib C$:\tools\Boost\lib\libboost_container-vc143-mt-sgd-x64-1_80.lib
+build PATHYS.exe.exe: CXX_EXECUTABLE_LINKER__PATHYS.2eexe_Debug CMakeFiles\PATHYS.exe.dir\main.cpp.obj CMakeFiles\PATHYS.exe.dir\client.cpp.obj CMakeFiles\PATHYS.exe.dir\ope_json.cpp.obj CMakeFiles\PATHYS.exe.dir\resource.rc.res | C$:\tools\Boost\lib\libboost_json-vc143-mt-sgd-x64-1_80.lib C$:\tools\Boost\lib\libboost_serialization-vc143-mt-sgd-x64-1_80.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxbase32ud_net.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxmsw32ud_core.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxbase32ud.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxpngd.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxtiffd.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxjpegd.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxzlibd.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxregexud.lib C$:\tools\wxWidgets\lib\vc_x64_lib\wxexpatd.lib C$:\tools\Boost\lib\libboost_container-vc143-mt-sgd-x64-1_80.lib
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MTd
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console /SUBSYSTEM:WINDOWS
   LINK_LIBRARIES = C:\tools\Boost\lib\libboost_json-vc143-mt-sgd-x64-1_80.lib  C:\tools\Boost\lib\libboost_serialization-vc143-mt-sgd-x64-1_80.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxbase32ud_net.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxmsw32ud_core.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxbase32ud.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxpngd.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxtiffd.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxjpegd.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxzlibd.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxregexud.lib  C:\tools\wxWidgets\lib\vc_x64_lib\wxexpatd.lib  winmm.lib  comctl32.lib  uuid.lib  oleacc.lib  uxtheme.lib  rpcrt4.lib  shlwapi.lib  version.lib  wsock32.lib  C:\tools\Boost\lib\libboost_container-vc143-mt-sgd-x64-1_80.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
-  OBJECT_DIR = CMakeFiles\PATHYS.dir
+  OBJECT_DIR = CMakeFiles\PATHYS.exe.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\PATHYS.dir\
-  TARGET_FILE = PATHYS.exe
-  TARGET_IMPLIB = PATHYS.lib
-  TARGET_PDB = PATHYS.pdb
+  TARGET_COMPILE_PDB = CMakeFiles\PATHYS.exe.dir\
+  TARGET_FILE = PATHYS.exe.exe
+  TARGET_IMPLIB = PATHYS.exe.lib
+  TARGET_PDB = PATHYS.exe.pdb
 
 
 #############################################
@@ -132,7 +132,7 @@ build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build PATHYS: phony PATHYS.exe
+build PATHYS.exe: phony PATHYS.exe.exe
 
 # =============================================================================
 # Folder targets.
@@ -142,7 +142,7 @@ build PATHYS: phony PATHYS.exe
 #############################################
 # Folder: C:/Users/Administrateur/source/repos/Projet_CIR2_Banque/out/build/x64-Debug
 
-build all: phony PATHYS.exe
+build all: phony PATHYS.exe.exe
 
 # =============================================================================
 # Built-in targets
