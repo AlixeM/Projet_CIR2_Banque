@@ -38,7 +38,7 @@ void color(int a) {
     else if (a == 3) std::cout << "----------------Agence C----------------" << std::endl;
     SetConsoleTextAttribute(console_color, 7);
 }
-int client(std::string agence)
+int client(std::string agence, int demande_type)
 {
     try
     {
@@ -48,15 +48,20 @@ int client(std::string agence)
         tcp::resolver resolver(io_service);
         boost::asio::connect(s, resolver.resolve({ "127.0.0.1", agence })); //agence = port de l'agence ("1234","2345" ou "3333")
 
-        //Client customer(1001, "Tartempion1", "la", { 10000, 10001 }, "123");
-        Compte customer(1001, 10, 20, "okayyyy" , 30,40);
-
-        //transformation des infos du Customer en un string et affichage du Customer
-        auto line = get_string_from_data(customer);
-        std::cout << "Customer sent :" << std::endl << customer << std::endl;
-
-        //write(socket, buffer des données à communiquer)
-        boost::asio::write(s, boost::asio::buffer(line.c_str(), line.size()));
+        if (demande_type == 01) {
+            Compte customer(1001, 10, 20, "okayyyy", 30, 40);
+            //transformation des infos du Customer en un string et affichage du Customer
+            auto line = get_string_from_data(customer);
+            std::cout << "Customer sent :" << std::endl << customer << std::endl;
+            //write(socket, buffer des données à communiquer)
+            boost::asio::write(s, boost::asio::buffer(line.c_str(), line.size()));
+        }
+        else if (demande_type == 2) {
+            Client customer(1001, "Tartempion1", "la", { 10000, 10001 }, "123");
+            auto line = get_string_from_data(customer);
+            std::cout << "Customer sent :" << std::endl << customer << std::endl;
+            boost::asio::write(s, boost::asio::buffer(line.c_str(), line.size()));
+        }
 
         //
         char reply[max_size_data];
@@ -64,8 +69,8 @@ int client(std::string agence)
         size_t length = s.read_some(boost::asio::buffer(reply), error);
 
         //création du Customer et son affichage
-        Compte customer_back = get_data_from_string<Compte>(reply); 
-        std::cout << "Customer received :" << std::endl << customer_back << std::endl;
+        Client customer_back = get_data_from_string<Client>(reply);
+        //std::cout << "Customer received :" << std::endl << customer_back << std::endl;
 
     }
     catch (std::exception& e)
@@ -96,9 +101,9 @@ void session(socket_ptr sock)
             std::cout << "Customer received :" << std::endl << customer << std::endl;
 
 
-            Compte customer_back(1001, 10, 20, "okayyyy", 30, 40);
+            Client customer_back(1001, "10", "20", { 2, 30 }, "40");
 
-            std::cout << "Customer sent :" << std::endl << customer_back << std::endl;
+            //std::cout << "Customer sent :" << std::endl << customer_back << std::endl;
 
             auto line = get_string_from_data(customer_back);
 
@@ -134,7 +139,7 @@ int main(int argc, char* argv[])
 {
     try
     {
-
+        int demande_type;
         std::thread AgenceA(server, 4, 1234);
         std::thread AgenceB(server, 2, 2345);
         std::thread AgenceC(server, 3, 3333);
@@ -148,12 +153,14 @@ int main(int argc, char* argv[])
             if (tmp == "A" || tmp == "a") tmp = "1234";
             else if (tmp == "B" || tmp == "b") tmp = "2345";
             else if (tmp == "C" || tmp == "c") tmp = "3333";
-            else if(tmp!="s") {
+            else if (tmp != "s") {
                 std::cout << "cette agence n'exite pas" << std::endl;
                 tmp = "error";
             }
             if (tmp != "error") {
-                std::thread client0(client, tmp);
+                std::cout << "Quelle num de demande voulez-vous faire ?";
+                std::cin >> demande_type;
+                std::thread client0(client, tmp, demande_type);
                 client0.join();
             }
         }
