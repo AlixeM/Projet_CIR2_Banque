@@ -1,4 +1,4 @@
-#include "main.h"
+#include "main.hpp"
 
 Client::Client() {
 	numclient = 69420;

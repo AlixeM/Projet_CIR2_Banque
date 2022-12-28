@@ -77,9 +77,7 @@ void add_agence3(ptree pt);
 
 void add_subclient(ptree pt);
 
-void add_json_client(ptree pt);
 
-void add_json_compte(ptree pt);
 
 Client recherche_numclient(ptree pt, int num);
 

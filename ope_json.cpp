@@ -1,4 +1,4 @@
-#include "main.h"
+#include "main.hpp"
 
 ptree lire_json_client() {
 	ptree pt_lecture;
@@ -16,37 +16,7 @@ ptree lire_json_compte() {
 	return pt_lecture;
 }
 
-void add_json_client(ptree pt) {
-	//on ajoute à l'arbre en paramètre les données déjà présentes sur le json
-	ptree pt_save = lire_json_client();
-	for (ptree::value_type& client : pt_save.get_child("Clients")) {
-		Client custom(client.second);
-		ptree arbre = custom.creer_ptree_client();
-		pt.push_back({ "", arbre });
-	}
-	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
-	ptree pt_write;
-	pt_write.add_child("Clients", pt);
-	std::ofstream file_out("client.json");
-	write_json(file_out, pt_write);
-	file_out.close();
-}
 
-void add_json_compte(ptree pt) {
-	//on ajoute à l'arbre en paramètre les données déjà présentes sur le json
-	ptree pt_save = lire_json_compte();
-	for (ptree::value_type& compte : pt_save.get_child("Comptes")) {
-		Compte acc(compte.second);
-		ptree arbre = acc.creer_ptree_compte();
-		pt.push_back({ "",arbre });
-	}
-	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
-	ptree pt_write;
-	pt_write.add_child("Comptes", pt);
-	std::ofstream file_out("compte.json");
-	write_json(file_out, pt_write);
-	file_out.close();
-}
 
 Client recherche_numclient(ptree pt, int num) {
 	for (ptree::value_type& client : pt.get_child("Clients"))
