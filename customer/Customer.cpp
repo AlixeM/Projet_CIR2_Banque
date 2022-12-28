@@ -1,4 +1,4 @@
-/*#include "Customer.hpp"
+#include "Customer.hpp"
 
 Client::Client(){}
 
@@ -92,5 +92,3 @@ std::ostream& operator<<(std::ostream& os, const Compte& compte) {
 	os << "agence : " << compte.agence << std::endl;
 	return os;
 }
-
-*/

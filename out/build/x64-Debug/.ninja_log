@@ -2,5 +2,13 @@
 18	3929	6935160157604344	CMakeFiles/PATHYS.dir/socket_client.cpp.obj	406de02a90fd293c
 13	3977	6935160158007287	CMakeFiles/PATHYS.dir/socket_serveur.cpp.obj	3ab1f7823798ab1f
 5	4694	6935160165208496	CMakeFiles/PATHYS.dir/main.cpp.obj	4b2d52eb6335390c
-9	4880	6935160167125146	CMakeFiles/PATHYS.dir/client.cpp.obj	e67c8aa15ad073a5
-23	4968	6935160168062614	CMakeFiles/PATHYS.dir/ope_json.cpp.obj	929e7e458cd996f3
+44	8958	6939467021197510	CMakeFiles/PATHYS.dir/client.cpp.obj	e67c8aa15ad073a5
+84	7381	6939471965085263	socket/CMakeFiles/socket.dir/socket_tools.cpp.obj	d82facafa66f28c4
+54	9020	6939467021788912	CMakeFiles/PATHYS.dir/ope_json.cpp.obj	929e7e458cd996f3
+74	1139	6939466942946241	CMakeFiles/PATHYS.dir/resource.rc.res	ae7592f541df149f
+5	259	6939473603975869	build.ninja	43497c92752f6b84
+4689	4801	6939471939413245	customer/customer.lib	e49fd0d51d1c6fc6
+100	4688	6939471938243926	customer/CMakeFiles/customer.dir/Customer.cpp.obj	b3c43da79c44a982
+43	181	6939469182366037	customer/CMakeFiles/customer.dir/Customer_for_JSON.cpp.obj	7cbd5b70d03928df
+78	9102	6939471982142465	socket/CMakeFiles/socket.dir/socket.cpp.obj	340410e63bbe6922
+26	92	6939473604886827	customer/customer.lib	48f0b15b0a5e9797
