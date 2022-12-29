@@ -324,31 +324,31 @@ void Frame::OnSubmitUpdate(wxCommandEvent& WXUNUSED(event))
     }
     else {
         if(valid_mdp(idClient,mdp_client)==1) {
-    Dialog dialog(NULL, -1, "Choisissez votre agence", Chiffre);
-    if (dialog.ShowModal() == wxID_OK) {
-        wxString st = "Aucun";
-        Chiffre = dialog.GetValue();
-        switch (Chiffre) {
-            case 1 :
-                st = "Listenbourg";
-                break;
-            case 2 :
-                st = "Lille";
-                break;
-            case 3 :
-                st = "Londres";
-                break;
+            Dialog dialog(NULL, -1, "Choisissez votre agence", Chiffre);
+            if (dialog.ShowModal() == wxID_OK) {
+                wxString st = "Aucun";
+                Chiffre = dialog.GetValue();
+                switch (Chiffre) {
+                    case 1 :
+                        st = "Listenbourg";
+                        break;
+                    case 2 :
+                        st = "Lille";
+                        break;
+                    case 3 :
+                        st = "Londres";
+                        break;
+                }
+                Agence = st;
+            }
+            Close();
+            Frame3* frame = new Frame3("Pathys Bank", wxPoint(150, 150), wxSize(480, 360));
+            frame->Show(true);
         }
-        Agence = st;
+        else{
+            wxMessageBox("Mot de passe ou identifiant incorrect","ERREUR", wxOK | wxICON_ERROR);
+        }
     }
-    Close();
-    Frame3* frame = new Frame3("Pathys Bank", wxPoint(150, 150), wxSize(480, 360));
-    frame->Show(true);
-    }
-    else{
-        wxMessageBox("Mot de passe ou identifiant incorrect","ERREUR", wxOK | wxICON_ERROR);
-    }
-}
 }
 
 
