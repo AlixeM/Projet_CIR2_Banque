@@ -386,7 +386,7 @@ void Frame2::Submit(wxCommandEvent& WXUNUSED(event))
     add_subclient(tamere);
 
     wxString message = wxString::Format("Votre identifiant client est le : %d", num);
-    wxMessageBox("message", "INFORMATION", wxOK | wxICON_INFORMATION, this);
+    wxMessageBox(message, "INFORMATION", wxOK | wxICON_INFORMATION, this);
     Close();
     }
 }
