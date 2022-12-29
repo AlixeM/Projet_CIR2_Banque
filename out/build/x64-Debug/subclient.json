@@ -1,6 +1,22 @@
 {
     "Clients": [
         {
+            "Numclient": "8904",
+            "Nom": "truc",
+            "Prenom": "bidule",
+            "Adresse": "machin",
+            "MDP": "chouette",
+            "Num_comptes": ""
+        },
+        {
+            "Numclient": "8453",
+            "Nom": "Michel",
+            "Prenom": "Francis",
+            "Adresse": "fdp",
+            "MDP": "blblbl",
+            "Num_comptes": ""
+        },
+        {
             "Numclient": "1",
             "Nom": "d",
             "Prenom": "d",
