@@ -37,10 +37,10 @@ Compte::Compte(const int num_client, const int num_compte, const int compte_type
 }
 Client::Client(ptree pt) {
 	numclient = pt.get<int>("Numclient", 0);
-	nom = pt.get<std::string>("Nom");
-	prenom = pt.get<std::string>("Prenom");
-	adresse = pt.get<std::string>("Adresse");
-	mdp = pt.get<std::string>("MDP");
+	nom = pt.get<std::string>("Nom","erreur");
+	prenom = pt.get<std::string>("Prenom","erreur");
+	adresse = pt.get<std::string>("Adresse","erreur");
+	mdp = pt.get<std::string>("MDP","erreur");
 	std::vector<int>num_comptes;
 
 	for (ptree::value_type& num_compte : pt.get_child("Num_comptes")) {
@@ -52,10 +52,10 @@ Client::Client(ptree pt) {
 Compte::Compte(ptree pt) {
 	numclient = pt.get<int>("Numclient", 0);
 	numcompte = pt.get<int>("Numcompte", 0);
-	type = pt.get<int>("Type");
-	nom = pt.get<std::string>("Nom");
+	type = pt.get<int>("Type",0);
+	nom = pt.get<std::string>("Nom","erreur");
 	solde = pt.get<int>("Solde", 0);
-	agence = pt.get<int>("Agence");
+	agence = pt.get<int>("Agence",0);
 }
 ptree Client::creer_ptree_client() {
 	ptree pt;
