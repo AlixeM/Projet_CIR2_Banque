@@ -2,17 +2,28 @@
 18	3929	6935160157604344	CMakeFiles/PATHYS.dir/socket_client.cpp.obj	406de02a90fd293c
 13	3977	6935160158007287	CMakeFiles/PATHYS.dir/socket_serveur.cpp.obj	3ab1f7823798ab1f
 27	3214	6939485090990358	CMakeFiles/PATHYS.dir/main.cpp.obj	4b2d52eb6335390c
+<<<<<<< HEAD
 109	4257	6940190395834608	CMakeFiles/PATHYS.exe.dir/ope_json.cpp.obj	d13dc8626f7932cc
+=======
+19	4239	6940213215108592	CMakeFiles/PATHYS.exe.dir/ope_json.cpp.obj	d13dc8626f7932cc
+>>>>>>> 349c58b405244cd339c1836795deb9addd57f2ba
 25	4118	6939477187023915	CMakeFiles/PATHYS.dir/client.cpp.obj	e67c8aa15ad073a5
-84	7381	6939471965085263	socket/CMakeFiles/socket.dir/socket_tools.cpp.obj	d82facafa66f28c4
+45	4042	6940213344811800	socket/CMakeFiles/socket.dir/socket_tools.cpp.obj	fa63d205d53532b5
 28	4214	6939477188015139	CMakeFiles/PATHYS.dir/ope_json.cpp.obj	929e7e458cd996f3
 35	374	6939477149655566	CMakeFiles/PATHYS.dir/resource.rc.res	ae7592f541df149f
+<<<<<<< HEAD
 30	448	6939537300118610	build.ninja	43497c92752f6b84
 26	92	6939473604886827	customer/customer.lib	48f0b15b0a5e9797
 100	4688	6939471938243926	customer/CMakeFiles/customer.dir/Customer.cpp.obj	b3c43da79c44a982
+=======
+22	535	6940214030559174	build.ninja	43497c92752f6b84
+26	2813	6940206774081337	customer/CMakeFiles/customer.dir/Customer.cpp.obj	1e187c8498918b91
+2818	2879	6940206774785858	customer/customer.lib	48f0b15b0a5e9797
+>>>>>>> 349c58b405244cd339c1836795deb9addd57f2ba
 43	181	6939469182366037	customer/CMakeFiles/customer.dir/Customer_for_JSON.cpp.obj	7cbd5b70d03928df
-78	9102	6939471982142465	socket/CMakeFiles/socket.dir/socket.cpp.obj	340410e63bbe6922
+38	5496	6940213359251267	socket/CMakeFiles/socket.dir/socket.cpp.obj	d842f59231f623ca
 4214	7552	6939477221131683	PATHYS.exe	506ed3c580e05ecd
+<<<<<<< HEAD
 75	189	6939499699242825	CMakeFiles/PATHYS.exe.dir/resource.rc.res	bd5eee633d2f6728
 53	3631	6940196302968409	CMakeFiles/PATHYS.exe.dir/main.cpp.obj	5a10bbc53bde573c
 58	4599	6939556382837023	CMakeFiles/PATHYS.exe.dir/client.cpp.obj	6049aa12275ac761
@@ -89,3 +100,10 @@
 3930	4841	6940253374879847	PATHYS.exe.exe	8cdb8fdf337caff8
 67	3509	6940256626653859	CMakeFiles/PATHYS.exe.dir/main.cpp.obj	5a10bbc53bde573c
 3510	3867	6940256629788982	PATHYS.exe.exe	8cdb8fdf337caff8
+=======
+5639	6277	6940206808095075	socket/socket.exe	b7d3d494e0702c61
+23	499	6940213177813860	CMakeFiles/PATHYS.exe.dir/resource.rc.res	bd5eee633d2f6728
+10	3779	6940213210480361	CMakeFiles/PATHYS.exe.dir/main.cpp.obj	5a10bbc53bde573c
+15	4129	6940213213992454	CMakeFiles/PATHYS.exe.dir/client.cpp.obj	6049aa12275ac761
+4239	4875	6940213220949850	PATHYS.exe.exe	8cdb8fdf337caff8
+>>>>>>> 349c58b405244cd339c1836795deb9addd57f2ba
