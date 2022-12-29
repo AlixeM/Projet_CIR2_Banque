@@ -75,10 +75,16 @@ int client(std::string agence,int demande_type)
             std::string line = "Demande Transaction BDD 13";
             boost::asio::write(s, boost::asio::buffer(line));
         }
-        else if (demande_type == 10) {
-            //demande de la BDD pour recuperer les nouvelles infos
-            std::string line = "Passez les infos plz 10";
+        else if (demande_type == 9) {
+            //demande aux agences d'envoyer les nouvelles infos + envoyer siganl pour les interet 
+            std::string line = "Passez les infos plz + les interets plz 9";
             boost::asio::write(s, boost::asio::buffer(line));
+        }
+        else if (demande_type == 19) {
+            //demande à la BDD pour recuperer les nouvelles infos
+            std::string line = "Passez les infos plz + les interets plz 19";
+            boost::asio::write(s, boost::asio::buffer(line));
+
         }
 
         //REPONSE
@@ -99,6 +105,9 @@ int client(std::string agence,int demande_type)
         }
         else if (get_data_from_string0(reply) == "13") {
             std::cout << reply << std::endl;
+        }
+        else if (get_data_from_string0(reply) == "9") {
+
         }
         else std::cout << "error : " << std::endl << get_data_from_string0(reply) << std::endl;
 
@@ -155,10 +164,15 @@ void session(socket_ptr sock)
                 boost::asio::write(*sock, boost::asio::buffer("Nous avons bien recu votre demande de BDD 13"));
 
             }
-            else if (get_data_from_string0(data) == "13") {
-                //jrecup les petits infos pepouz(a detailler)
-
-                boost::asio::write(*sock, boost::asio::buffer(" "/*infos sous forme de vecteur ??? ou plusieurs boost::asio::write ????*/));
+            else if (get_data_from_string0(data) == " 9") {
+                //établi la connexion entre les agences et la BDD
+                client("777", 19);
+                boost::asio::write(*sock, boost::asio::buffer("message de confirmation 9"));
+            }
+            else if (get_data_from_string0(data) == "19") {
+                //recuperation des infos par la BDD
+                //fonction appelé pour envoie dans la BDD
+                boost::asio::write(*sock, boost::asio::buffer("message de confirmation 19"/*infos sous forme de vecteur ??? ou plusieurs boost::asio::write ????*/));
             }
             else std::cout << "Customer received :" << std::endl << get_data_from_string0(data) << std::endl;
 
@@ -176,9 +190,9 @@ void BDD() {
         std::chrono::seconds five_seconds = std::chrono::seconds(5);
         std::this_thread::sleep_for(five_seconds);
         //demande à A1,A2 et A3 les nouvelles infos
-        //client("1234", 10);
-        //client("2345", 10);
-        //client("3333", 10);
+        //client("1234", 9);
+        //client("2345", 9);
+        //client("3333", 9);
     }
 }
 
