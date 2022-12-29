@@ -308,31 +308,31 @@ void Frame::OnSubmitUpdate(wxCommandEvent& WXUNUSED(event))
     }
     else {
         if(valid_mdp(idClient,mdp_client)==1) {
-            Dialog dialog(NULL, -1, "Choisissez votre agence", Chiffre);
-            if (dialog.ShowModal() == wxID_OK) {
-                wxString st = "Aucun";
-                Chiffre = dialog.GetValue();
-                switch (Chiffre) {
-                    case 1 :
-                        st = "Listenbourg";
-                        break;
-                    case 2 :
-                        st = "Lille";
-                        break;
-                    case 3 :
-                        st = "Londres";
-                        break;
-                }
-                Agence = st;
-            }
-            Close();
-            Frame3* frame = new Frame3("Pathys Bank", wxPoint(150, 150), wxSize(480, 360));
-            frame->Show(true);
+    Dialog dialog(NULL, -1, "Choisissez votre agence", Chiffre);
+    if (dialog.ShowModal() == wxID_OK) {
+        wxString st = "Aucun";
+        Chiffre = dialog.GetValue();
+        switch (Chiffre) {
+            case 1 :
+                st = "Listenbourg";
+                break;
+            case 2 :
+                st = "Lille";
+                break;
+            case 3 :
+                st = "Londres";
+                break;
         }
-        else{
-            wxMessageBox("Mot de passe ou identifiant incorrect","ERREUR", wxOK | wxICON_ERROR);
-        }
+        Agence = st;
     }
+    Close();
+    Frame3* frame = new Frame3("Pathys Bank", wxPoint(150, 150), wxSize(480, 360));
+    frame->Show(true);
+    }
+    else{
+        wxMessageBox("Mot de passe ou identifiant incorrect","ERREUR", wxOK | wxICON_ERROR);
+    }
+}
 }
 
 
@@ -383,7 +383,7 @@ void Frame2::Submit(wxCommandEvent& WXUNUSED(event))
     add_subclient(tamere);
 
     wxString message = wxString::Format("Votre identifiant client est le : %d", num);
-    wxMessageBox(message, "INFORMATION", wxOK | wxICON_INFORMATION, this);
+    wxMessageBox("message", "INFORMATION", wxOK | wxICON_INFORMATION, this);
     Close();
     }
 }
