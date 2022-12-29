@@ -1,5 +1,3 @@
 C:/Users/Administrateur/source/repos/Projet_CIR2_Banque/out/build/x64-Debug/CMakeFiles/PATHYS.exe.dir
-C:/Users/Administrateur/source/repos/Projet_CIR2_Banque/out/build/x64-Debug/CMakeFiles/customer.dir
-C:/Users/Administrateur/source/repos/Projet_CIR2_Banque/out/build/x64-Debug/CMakeFiles/socket.dir
 C:/Users/Administrateur/source/repos/Projet_CIR2_Banque/out/build/x64-Debug/CMakeFiles/edit_cache.dir
 C:/Users/Administrateur/source/repos/Projet_CIR2_Banque/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
