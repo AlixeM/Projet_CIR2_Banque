@@ -14,7 +14,7 @@
 #include <boost/bind/bind.hpp>
 #include <boost/smart_ptr.hpp>
 #include <boost/asio.hpp>
-#include <boost/thread.hpp>
+//#include <boost/thread.hpp>
 #include <thread>
 #include <chrono>
 

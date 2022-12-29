@@ -34,6 +34,3 @@ if(MSVC)
 endif (MSVC)
 
 target_link_libraries (PATHYS.exe LINK_PUBLIC ${Boost_LIBRARIES} ${wxWidgets_LIBRARIES})
-
-#include_directories(/path/to/pthreads/headers)
-#target_link_libraries(my_target pthread)

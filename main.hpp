@@ -115,6 +115,7 @@ private:
     wxTextCtrl *MDP_client;
     wxButton *submit;
     int Chiffre;
+    int GetIDClient();
     void OnQuit(wxCommandEvent& event);
     void Client(wxCommandEvent& event);
     void OnTextUpdate(wxCommandEvent& event);
@@ -129,11 +130,10 @@ private:
         Btsubmit,
     };
 
-    DECLARE_EVENT_TABLE()
+DECLARE_EVENT_TABLE()
 };
 
 //------------------------------------------------------------------------------
-
 class Frame2 : public wxFrame
 {
 public:
@@ -162,14 +162,37 @@ private:
         Inscription,
     };
 
-    DECLARE_EVENT_TABLE()
+DECLARE_EVENT_TABLE()
 };
-//------------------------------------------------------------------------------
 
+//------------------------------------------------------------------------------
 class Frame3 : public wxFrame
 {
 public:
     Frame3(const wxString& title, const wxPoint& pos, const wxSize& size,
+           long style = wxDEFAULT_FRAME_STYLE);
+
+private:
+    wxPanel* m_panel1;
+    wxPanel* m_panel2;
+    wxButton* addButton;
+    wxBoxSizer* m_hBoxSizer;
+    void Quit(wxCommandEvent& event);
+    void OnCreateAccount(wxCommandEvent& event);
+    void OnNewAccount(wxCommandEvent& event);
+    enum
+    {
+        App_Quit = 1,
+    };
+
+DECLARE_EVENT_TABLE()
+};
+
+//------------------------------------------------------------------------------
+class Frame4 : public wxFrame
+{
+public:
+    Frame4(const wxString& title, const wxPoint& pos, const wxSize& size,
            long style = wxDEFAULT_FRAME_STYLE);
 private:
     wxButton *tran;
@@ -190,7 +213,7 @@ private:
         Trans,
     };
 
-    DECLARE_EVENT_TABLE()
+DECLARE_EVENT_TABLE()
 };
 
 //------------------------------------------------------------------------------
@@ -207,3 +230,72 @@ private:
     wxString Agence;
 };
 
+//------------------------------------------------------------------------------
+class TransactionDialog : public wxDialog
+{
+public:
+    TransactionDialog(wxWindow *parent,
+                      wxWindowID id,
+                      const wxString &title,
+                      const wxPoint &pos = wxDefaultPosition,
+                      const wxSize &size = wxDefaultSize,
+                      long style = wxDEFAULT_DIALOG_STYLE);
+
+private:
+    void CreateControls();
+
+    wxTextCtrl *m_account2Ctrl;
+    wxTextCtrl *m_amountCtrl;
+};
+
+//------------------------------------------------------------------------------
+class DepotDialog : public wxDialog
+{
+public:
+    DepotDialog(wxWindow *parent,
+                wxWindowID id,
+                const wxString &title,
+                const wxPoint &pos = wxDefaultPosition,
+                const wxSize &size = wxDefaultSize,
+                long style = wxDEFAULT_DIALOG_STYLE);
+
+private:
+    void CreateControls();
+
+    wxTextCtrl *m_amountCtrl;
+};
+
+//------------------------------------------------------------------------------
+class RetraitDialog : public wxDialog
+{
+public:
+    RetraitDialog(wxWindow *parent,
+                  wxWindowID id,
+                  const wxString &title,
+                  const wxPoint &pos = wxDefaultPosition,
+                  const wxSize &size = wxDefaultSize,
+                  long style = wxDEFAULT_DIALOG_STYLE);
+
+private:
+    void CreateControls();
+
+    wxTextCtrl *m_amountCtrl;
+};
+
+//------------------------------------------------------------------------------
+class TransferDialog : public wxDialog
+{
+public:
+    TransferDialog(wxWindow *parent,
+                   wxWindowID id,
+                   const wxString &title,
+                   const wxPoint &pos = wxDefaultPosition,
+                   const wxSize &size = wxDefaultSize,
+                   long style = wxDEFAULT_DIALOG_STYLE);
+
+private:
+    void CreateControls();
+
+    wxTextCtrl *m_accountCtrl;
+    wxTextCtrl *m_amountCtrl;
+};
