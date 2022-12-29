@@ -16,6 +16,7 @@
 #include <boost/asio.hpp>
 #include <boost/thread.hpp>
 #include <thread>
+#include <chrono>
 
 #include "Customer.hpp" //a effacer
 /*#include "client.h"*/
@@ -36,8 +37,11 @@ void color(int a) {
     if (a == 4) std::cout << "----------------Agence A----------------" << std::endl;
     else if (a == 2) std::cout << "----------------Agence B----------------" << std::endl;
     else if (a == 3) std::cout << "----------------Agence C----------------" << std::endl;
+    else if (a == 8) std::cout << "------------------BDD-------------------" << std::endl;
+    else if (a == 1) std::cout << "-----------------Client-----------------" << std::endl;
     SetConsoleTextAttribute(console_color, 7);
 }
+
 int client(std::string agence,int demande_type)
 {
     try
@@ -46,31 +50,57 @@ int client(std::string agence,int demande_type)
         tcp::socket s(io_service);
 
         tcp::resolver resolver(io_service);
-        boost::asio::connect(s, resolver.resolve({ "127.0.0.1", agence })); //agence = port de l'agence ("1234","2345" ou "3333")
+        boost::asio::connect(s, resolver.resolve({ "127.0.0.1", agence })); //agence = port de l'agence ("1234","2345" ou "3333") ("777 pour l'agence centrale)
 
-        if (demande_type == 01) {
+        if (demande_type == 1) {
             Compte customer(1001, 10, 20, "okayyyy", 30, 40);
             //transformation des infos du Customer en un string et affichage du Customer
-            auto line = get_string_from_data(customer);
-            std::cout << "Customer sent :" << std::endl << customer << std::endl;
+            auto line = get_string_from_data(customer,demande_type);
+            //std::cout << "Customer sent :" << std::endl << customer << std::endl;
+
             //write(socket, buffer des données à communiquer)
-            boost::asio::write(s, boost::asio::buffer(line.c_str(), line.size()));
+            boost::asio::write(s, boost::asio::buffer(line));
         }
         else if (demande_type == 2) {
             Client customer(1001, "Tartempion1", "la", { 10000, 10001 }, "123");
-            auto line = get_string_from_data(customer);
-            std::cout << "Customer sent :" << std::endl << customer << std::endl;
-            boost::asio::write(s, boost::asio::buffer(line.c_str(), line.size()));
+            auto line = get_string_from_data(customer,demande_type);
+            //std::cout << "Customer sent :" << std::endl << customer << std::endl;
+            boost::asio::write(s, boost::asio::buffer(line));
+        }
+        else if (demande_type == 3) {
+            std::string line = "Demande Transaction 3";
+            boost::asio::write(s, boost::asio::buffer(line));
+        }
+        else if (demande_type == 13) {
+            std::string line = "Demande Transaction BDD 13";
+            boost::asio::write(s, boost::asio::buffer(line));
+        }
+        else if (demande_type == 10) {
+            //demande de la BDD pour recuperer les nouvelles infos
+            std::string line = "Passez les infos plz 10";
+            boost::asio::write(s, boost::asio::buffer(line));
         }
 
-        //
+        //REPONSE
         char reply[max_size_data];
         boost::system::error_code error;
         size_t length = s.read_some(boost::asio::buffer(reply), error);
 
-        //création du Customer et son affichage
-        Client customer_back = get_data_from_string<Client>(reply); 
-        //std::cout << "Customer received :" << std::endl << customer_back << std::endl;
+        if (get_data_from_string0(reply) == " 1") {
+            Compte customer_back = get_data_from_string<Compte>(reply);
+            std::cout << "Customer received :" << std::endl << customer_back << std::endl; 
+        }
+        else if (get_data_from_string0(reply) == " 2") { 
+            Client customer_back = get_data_from_string<Client>(reply);
+            std::cout << "Customer received :" << std::endl << customer_back << std::endl;
+        }
+        else if (get_data_from_string0(reply) == " 3") {
+            std::cout << reply << std::endl;
+        }
+        else if (get_data_from_string0(reply) == "13") {
+            std::cout << reply << std::endl;
+        }
+        else std::cout << "error : " << std::endl << get_data_from_string0(reply) << std::endl;
 
     }
     catch (std::exception& e)
@@ -83,31 +113,55 @@ int client(std::string agence,int demande_type)
 
 void session(socket_ptr sock)
 {
-    try
-    {
-        for (;;)
-        {
-            char data[max_size_data] = {};
+    try{
+        for (;;){
 
+            char data[max_size_data] = {};
             boost::system::error_code error;
             size_t length = sock->read_some(boost::asio::buffer(data), error);
-
             if (error == boost::asio::error::eof)
                 break; // Connection closed cleanly by peer.
             else if (error)
                 throw boost::system::system_error(error); // Some other error.
+            
 
-            Compte customer = get_data_from_string<Compte>(data);
-            std::cout << "Customer received :" << std::endl << customer << std::endl;
+            if (get_data_from_string0(data) == " 1") {
+                Compte customer = get_data_from_string<Compte>(data);
+                std::cout << "Customer received :" << std::endl << customer << std::endl;
+                ///////////////////////////////////////////////////
+                Client customer_back(1001, "10", "20", { 2, 30 }, "40");
+                std::cout << "Customer sent :" << std::endl << customer_back << std::endl;
+                auto line = get_string_from_data(customer_back, 2);
+                boost::asio::write(*sock, boost::asio::buffer(line));
+            }
+            else if (get_data_from_string0(data) == " 2") {
+                Client customer = get_data_from_string<Client>(data);
+                std::cout << "Customer received :" << std::endl << customer << std::endl;
+                /////////////////////////////////////////
+                Client customer_back(1001, "10", "20", { 2, 30 }, "40");
+                std::cout << "Customer sent :" << std::endl << customer_back << std::endl;
+                auto line = get_string_from_data(customer_back, 2);
+                boost::asio::write(*sock, boost::asio::buffer(line));
+            }
+            else if (get_data_from_string0(data) == " 3") {
+                std::cout << "demande de transaction recu" << std::endl;
 
+                client("777", 13);
 
-            Client customer_back(1001, "10", "20", { 2, 30 }, "40");
+                boost::asio::write(*sock, boost::asio::buffer("Nous avons bien recu votre demande de transaction 3"));
+            }
+            else if (get_data_from_string0(data) == "13") {
+                std::cout << "demande BDD recu" << std::endl;
+                boost::asio::write(*sock, boost::asio::buffer("Nous avons bien recu votre demande de BDD 13"));
 
-            //std::cout << "Customer sent :" << std::endl << customer_back << std::endl;
+            }
+            else if (get_data_from_string0(data) == "13") {
+                //jrecup les petits infos pepouz(a detailler)
 
-            auto line = get_string_from_data(customer_back);
+                boost::asio::write(*sock, boost::asio::buffer(" "/*infos sous forme de vecteur ??? ou plusieurs boost::asio::write ????*/));
+            }
+            else std::cout << "Customer received :" << std::endl << get_data_from_string0(data) << std::endl;
 
-            boost::asio::write(*sock, boost::asio::buffer(line.c_str(), line.size()));
         }
     }
     catch (std::exception& e)
@@ -115,24 +169,33 @@ void session(socket_ptr sock)
         std::cerr << "Exception in thread: " << e.what() << "\n";
     }
 }
+void BDD() {
+    for (;;) {
+        //toutes les 30 secondes interroge et rassemble l’ensemble des modifications sur les transactions, situations financières,création de comptes...
+        //effectuées dans les agences décentralisées et met à jour sa base de données.
+        std::chrono::seconds five_seconds = std::chrono::seconds(5);
+        std::this_thread::sleep_for(five_seconds);
+        //demande à A1,A2 et A3 les nouvelles infos
+        //client("1234", 10);
+        //client("2345", 10);
+        //client("3333", 10);
+    }
+}
 
 void server(int couleur, short port)
 {
     boost::asio::io_service io_service;
     tcp::acceptor a(io_service, tcp::endpoint(tcp::v4(), port));
+
     for (;;)
     {
-        //std::cout << "ah" << std::endl;
         socket_ptr sock(new tcp::socket(io_service));
-        //std::cout << "bh" << std::endl;
+        //add boucle pour BDD pour savoir si socket recu ou non piur pas bloquer programme pour la boucle 5s
         a.accept(*sock); //moment où ça ecrit dans l'interface 
-        //std::cout << "ch" << std::endl;
         boost::thread t(boost::bind(session, sock));
         color(couleur);
-        //std::cout << "euh" << std::endl;
 
     }
-
 }
 
 int main(int argc, char* argv[])
@@ -143,34 +206,35 @@ int main(int argc, char* argv[])
         std::thread AgenceA(server, 4, 1234);
         std::thread AgenceB(server, 2, 2345);
         std::thread AgenceC(server, 3, 3333);
+        std::thread AgenceBDD(server, 8, 777);
+        std::thread BDD(BDD);
 
-        std::string tmp;
+        std::string Agence;
+        std::cout << "Dans quelle agence êtes-vous ? (A) , (B) ou (C) ";
+        std::cin >> Agence;
 
-        while (tmp != "s") {
-            std::cout << "Envoyer socket a l'agence A , B ou C ? ";
-            std::cin >> tmp;
+        if (Agence == "A" || Agence == "a") Agence = "1234";
+        else if (Agence == "B" || Agence == "b") Agence = "2345";
+        else if (Agence == "C" || Agence == "c") Agence = "3333";
+        else std::cout << "cette agence n'exite pas" << std::endl;
 
-            if (tmp == "A" || tmp == "a") tmp = "1234";
-            else if (tmp == "B" || tmp == "b") tmp = "2345";
-            else if (tmp == "C" || tmp == "c") tmp = "3333";
-            else if(tmp!="s") {
-                std::cout << "cette agence n'exite pas" << std::endl;
-                tmp = "error";
-            }
-            if (tmp != "error") {
-                std::cout << "Quelle num de demande voulez-vous faire ?";
-                std::cin >> demande_type;
-                std::thread client0(client, tmp,demande_type);
-                client0.join();
-            }
+
+        while(Agence == "1234"|| Agence == "2345" || Agence == "3333") {
+            color(1);
+            std::cout << "Quelle numero de demande voulez-vous faire ?"<<std::endl<<"(1) Compte"<<std::endl<<"(2) Client"<<std::endl<< "(3) Demande de transaction"<<std::endl;
+            std::cin >> demande_type;
+            std::thread client0(client, Agence,demande_type);
+            client0.join();
         }
-        if (tmp == "s") {
+        if (Agence == "s") {
+            AgenceBDD.detach();
             AgenceA.detach();
             AgenceB.detach();
             AgenceC.detach();
 
         }
         else {
+            AgenceBDD.join();
             AgenceA.join();
             AgenceB.join();
             AgenceC.join();

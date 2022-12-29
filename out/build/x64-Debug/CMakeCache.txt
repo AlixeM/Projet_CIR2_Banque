@@ -245,6 +245,15 @@ PROJECT_CIR2_Banque_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 PROJECT_CIR2_Banque_SOURCE_DIR:STATIC=C:/Users/Administrateur/source/repos/Projet_CIR2_Banque
 
+//Value Computed by CMake
+Pathys_BINARY_DIR:STATIC=C:/Users/Administrateur/source/repos/Projet_CIR2_Banque/out/build/x64-Debug
+
+//Value Computed by CMake
+Pathys_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Pathys_SOURCE_DIR:STATIC=C:/Users/Administrateur/source/repos/Projet_CIR2_Banque
+
 //Cleared.
 WX_adv:FILEPATH=C:/tools/wxWidgets/lib/vc_x64_lib/wxmsw32u_adv.lib
 
