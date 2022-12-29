@@ -16,10 +16,23 @@
 #include "main.hpp"
 
 int main() {
-    ptree root=lire_json_client();
-    Client truc=recherche_numclient(root, 57);
-    cout << truc.nom << endl;
-    return 1;
+    Compte compte1(69, 420, 1, "bruh big chungus", 54, 2);
+    Compte compte2(3, 4, 2, "numba twelve", 4, 1);
+    ptree arbre = compte1.creer_ptree_compte();
+    ptree tree = compte2.creer_ptree_compte();
+    ptree assemble;
+    assemble.push_back({ "",arbre });
+    assemble.push_back({ "",tree});
+    Client t(1, "bruh", "big", "chungus", { 15 }, "haha");
+    ptree a = t.creer_ptree_client();
+    ptree lec1 = lire_agence1();
+    ptree lec2 = lire_agence2();
+    ptree lec3 = lire_agence3();
+    ptree clilec = lire_subclient();
+    ptree sum = json_assemble(lec1, lec2, lec3);
+    update_centrale_client(clilec);
+
+    
 }
 
 
@@ -311,31 +324,31 @@ void Frame::OnSubmitUpdate(wxCommandEvent& WXUNUSED(event))
     }
     else {
         if(valid_mdp(idClient,mdp_client)==1) {
-            Dialog dialog(NULL, -1, "Choisissez votre agence", Chiffre);
-            if (dialog.ShowModal() == wxID_OK) {
-                wxString st = "Aucun";
-                Chiffre = dialog.GetValue();
-                switch (Chiffre) {
-                    case 1 :
-                        st = "Listenbourg";
-                        break;
-                    case 2 :
-                        st = "Lille";
-                        break;
-                    case 3 :
-                        st = "Londres";
-                        break;
-                }
-                Agence = st;
-            }
-            Close();
-            Frame3* frame = new Frame3("Pathys Bank", wxPoint(150, 150), wxSize(480, 360));
-            frame->Show(true);
+    Dialog dialog(NULL, -1, "Choisissez votre agence", Chiffre);
+    if (dialog.ShowModal() == wxID_OK) {
+        wxString st = "Aucun";
+        Chiffre = dialog.GetValue();
+        switch (Chiffre) {
+            case 1 :
+                st = "Listenbourg";
+                break;
+            case 2 :
+                st = "Lille";
+                break;
+            case 3 :
+                st = "Londres";
+                break;
         }
-        else{
-            wxMessageBox("Mot de passe ou identifiant incorrect","ERREUR", wxOK | wxICON_ERROR);
-        }
+        Agence = st;
     }
+    Close();
+    Frame3* frame = new Frame3("Pathys Bank", wxPoint(150, 150), wxSize(480, 360));
+    frame->Show(true);
+    }
+    else{
+        wxMessageBox("Mot de passe ou identifiant incorrect","ERREUR", wxOK | wxICON_ERROR);
+    }
+}
 }
 
 
@@ -386,7 +399,7 @@ void Frame2::Submit(wxCommandEvent& WXUNUSED(event))
     add_subclient(tamere);
 
     wxString message = wxString::Format("Votre identifiant client est le : %d", num);
-    wxMessageBox(message, "INFORMATION", wxOK | wxICON_INFORMATION, this);
+    wxMessageBox("message", "INFORMATION", wxOK | wxICON_INFORMATION, this);
     Close();
     }
 }
