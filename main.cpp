@@ -135,8 +135,7 @@ Frame2::Frame2(const wxString& title, const wxPoint& pos, const wxSize& size,
 }
 
 //------------------------------------------------------------------------------
-Frame3::Frame3(const wxString& title, const wxPoint& pos, const wxSize& size,
-               long style) : wxFrame(NULL, -1, title, pos, size, style)
+Frame3::Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, long style, int idClient) : wxFrame(NULL, -1, title, pos, size, style)
 {
     SetIcon(wxICON(monicone));
     SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_BTNFACE));
@@ -156,7 +155,13 @@ Frame3::Frame3(const wxString& title, const wxPoint& pos, const wxSize& size,
     wxBoxSizer* vBoxSizer = new wxBoxSizer(wxVERTICAL);
 
     // Création des contrôles de texte pour chaque ligne de texte
-    wxStaticText* nameText = new wxStaticText(m_panel1, wxID_ANY, "Nom : var", wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
+    ptree nom = lire_json_client();
+    Client client = recherche_numclient(nom,m_idClient);
+    std::string name = client.nom;
+    wxString name1 = wxString::Format("Nom : %s", name);
+    wxStaticText* nameText = new wxStaticText(m_panel1, wxID_ANY, name1, wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
+
+
     wxStaticText* firstNameText = new wxStaticText(m_panel1, wxID_ANY, "Prenom : var", wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
     wxStaticText* idText = new wxStaticText(m_panel1, wxID_ANY, "Identifiant : num", wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
     wxStaticText* accountNumberText = new wxStaticText(m_panel1, wxID_ANY, "Nombre de comptes :", wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
@@ -326,7 +331,7 @@ void Frame::OnSubmitUpdate(wxCommandEvent& WXUNUSED(event))
         Agence = st;
     }
     Close();
-    Frame3* frame = new Frame3("Pathys Bank", wxPoint(150, 150), wxSize(480, 360));
+    Frame3* frame = new Frame3("Pathys Bank", wxPoint(150, 150), wxSize(480, 360), wxDEFAULT_FRAME_STYLE, idClient);
     frame->Show(true);
     }
     else{
@@ -376,15 +381,17 @@ void Frame2::Submit(wxCommandEvent& WXUNUSED(event))
     wxMessageBox("Il y a un champ vide !", "Erreur", wxOK | wxICON_ERROR);
     }
     else {
-    int num = random_number_client();
-    std::vector<int> vect;
-    Client client(num, nom, prenom, adresse, vect, mdp);
-    ptree tamere = client.creer_ptree_client();
-    add_subclient(tamere);
+        int num = random_number_client();
+        std::vector<int> vect;
+        Client client(num, nom, prenom, adresse, vect, mdp);
+        ptree tamere = client.creer_ptree_client();
+        add_subclient(tamere);
+        ptree tonpere = lire_subclient();
+        update_centrale_client(tonpere);
 
-    wxString message = wxString::Format("Votre identifiant client est le : %d", num);
-    wxMessageBox("message", "INFORMATION", wxOK | wxICON_INFORMATION, this);
-    Close();
+        wxString message = wxString::Format("Votre identifiant client est le : %d", num);
+        wxMessageBox(message, "INFORMATION", wxOK | wxICON_INFORMATION, this);
+        Close();
     }
 }
 

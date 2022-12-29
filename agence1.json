@@ -1,0 +1,28 @@
+{
+    "Comptes": [
+        {
+            "Numclient": "69",
+            "Numcompte": "420",
+            "Type": "1",
+            "Nom": "bruh big chungus",
+            "Solde": "54",
+            "Agence": "2"
+        },
+        {
+            "Numclient": "3",
+            "Numcompte": "4",
+            "Type": "2",
+            "Nom": "numba twelve",
+            "Solde": "4",
+            "Agence": "1"
+        },
+        {
+            "Numclient": "69",
+            "Numcompte": "420",
+            "Type": "1",
+            "Nom": "bruh big chungus",
+            "Solde": "54",
+            "Agence": "2"
+        }
+    ]
+}

@@ -2,7 +2,7 @@
 
 ptree lire_json_client() {
 	ptree pt_lecture;
-	std::ifstream file_in("client.json");
+	std::ifstream file_in("../client.json");
 	read_json(file_in, pt_lecture);
 	file_in.close();
 	return pt_lecture;
@@ -10,7 +10,7 @@ ptree lire_json_client() {
 
 ptree lire_json_compte() {
 	ptree pt_lecture;
-	std::ifstream file_in("compte.json");
+	std::ifstream file_in("../compte.json");
 	read_json(file_in, pt_lecture);
 	file_in.close();
 	return pt_lecture;
@@ -64,7 +64,7 @@ int valid_mdp(int numclient, std::string mdp) {
 
 ptree lire_agence1() {
 	ptree pt_lecture;
-	std::ifstream file_in("agence1.json");
+	std::ifstream file_in("../agence1.json");
 	read_json(file_in, pt_lecture);
 	file_in.close();
 	return pt_lecture;
@@ -72,7 +72,7 @@ ptree lire_agence1() {
 
 ptree lire_agence2() {
 	ptree pt_lecture;
-	std::ifstream file_in("agence2.json");
+	std::ifstream file_in("../agence2.json");
 	read_json(file_in, pt_lecture);
 	file_in.close();
 	return pt_lecture;
@@ -80,7 +80,7 @@ ptree lire_agence2() {
 
 ptree lire_agence3() {
 	ptree pt_lecture;
-	std::ifstream file_in("agence3.json");
+	std::ifstream file_in("../agence3.json");
 	read_json(file_in, pt_lecture);
 	file_in.close();
 	return pt_lecture;
@@ -88,7 +88,7 @@ ptree lire_agence3() {
 
 ptree lire_subclient() {
 	ptree pt_lecture;
-	std::ifstream file_in("subclient.json");
+	std::ifstream file_in("../subclient.json");
 	read_json(file_in, pt_lecture);
 	file_in.close();
 	return pt_lecture;
@@ -106,7 +106,7 @@ void add_agence1(ptree pt) {
 	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
 	ptree pt_write;
 	pt_write.add_child("Comptes", groupe_acc);
-	std::ofstream file_out("agence1.json");
+	std::ofstream file_out("../agence1.json");
 	write_json(file_out, pt_write);
 	file_out.close();
 }
@@ -123,7 +123,7 @@ void add_agence2(ptree pt) {
 	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
 	ptree pt_write;
 	pt_write.add_child("Comptes", groupe_acc);
-	std::ofstream file_out("agence2.json");
+	std::ofstream file_out("../agence2.json");
 	write_json(file_out, pt_write);
 	file_out.close();
 }
@@ -140,7 +140,7 @@ void add_agence3(ptree pt) {
 	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
 	ptree pt_write;
 	pt_write.add_child("Comptes", groupe_acc);
-	std::ofstream file_out("agence3.json");
+	std::ofstream file_out("../agence3.json");
 	write_json(file_out, pt_write);
 	file_out.close();
 }
@@ -157,7 +157,7 @@ void add_subclient(ptree pt) {
 	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
 	ptree pt_write;
 	pt_write.add_child("Clients", groupe_custom);
-	std::ofstream file_out("subclient.json");
+	std::ofstream file_out("../subclient.json");
 	write_json(file_out, pt_write);
 	file_out.close();
 }
@@ -185,13 +185,13 @@ ptree json_assemble(ptree pt1, ptree pt2, ptree pt3) {
 void update_centrale_compte(ptree pt) {
 	ptree pt_write;
 	pt_write.add_child("Comptes", pt);
-	std::ofstream file_out("compte.json");
+	std::ofstream file_out("../compte.json");
 	write_json(file_out, pt_write);
 	file_out.close();
 }
 
 void update_centrale_client(ptree pt) {
-	std::ofstream file_out("client.json");
+	std::ofstream file_out("../client.json");
 	write_json(file_out, pt);
 	file_out.close();
 }
@@ -263,7 +263,7 @@ void tri_json() {
 void tri1(ptree pt) {
 	ptree pt1;
 	pt1.add_child("Comptes", pt);
-	std::ofstream file_out("agence1.json");
+	std::ofstream file_out("../agence1.json");
 	write_json(file_out, pt1);
 	file_out.close();
 }
@@ -271,7 +271,7 @@ void tri1(ptree pt) {
 void tri2(ptree pt) {
 	ptree pt2;
 	pt2.add_child("Comptes", pt);
-	std::ofstream file_out("agence2.json");
+	std::ofstream file_out("../agence2.json");
 	write_json(file_out, pt2);
 	file_out.close();
 }
@@ -279,7 +279,7 @@ void tri2(ptree pt) {
 void tri3(ptree pt) {
 	ptree pt3;
 	pt3.add_child("Comptes", pt);
-	std::ofstream file_out("agence3.json");
+	std::ofstream file_out("../agence3.json");
 	write_json(file_out, pt3);
 	file_out.close();
 }

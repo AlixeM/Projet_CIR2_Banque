@@ -189,10 +189,9 @@ DECLARE_EVENT_TABLE()
 class Frame3 : public wxFrame
 {
 public:
-    Frame3(const wxString& title, const wxPoint& pos, const wxSize& size,
-           long style = wxDEFAULT_FRAME_STYLE);
-
+    Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, long style, int idClient);
 private:
+    int m_idClient;
     wxPanel* m_panel1;
     wxPanel* m_panel2;
     wxButton* addButton;
@@ -207,6 +206,7 @@ private:
 
 DECLARE_EVENT_TABLE()
 };
+
 
 //------------------------------------------------------------------------------
 class Frame4 : public wxFrame

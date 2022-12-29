@@ -1,15 +1,71 @@
 {
-  "Clients": [
-    {
-      "Numclient": "1500",
-      "Nom": "Michel",
-      "Prenom": "Francis",
-      "Adresse": "221B Baker Street",
-      "MDP": "vivegiroud",
-      "Num_comptes": [
-        "540",
-        "412"
-      ]
-    }
-  ]
+    "Clients": [
+        {
+            "Numclient": "7100",
+            "Nom": "Maerte",
+            "Prenom": "Alixe",
+            "Adresse": "danstoncul",
+            "MDP": "test",
+            "Num_comptes": ""
+        },
+        {
+            "Numclient": "6176",
+            "Nom": "gfd",
+            "Prenom": "gbfd",
+            "Adresse": "ngfbcf",
+            "MDP": "test",
+            "Num_comptes": ""
+        },
+        {
+            "Numclient": "1",
+            "Nom": "d",
+            "Prenom": "d",
+            "Adresse": "e",
+            "MDP": "mdp",
+            "Num_comptes": [
+                "15"
+            ]
+        },
+        {
+            "Numclient": "35",
+            "Nom": "sdqg",
+            "Prenom": "sdqg",
+            "Adresse": "sdqg",
+            "MDP": "sdqg",
+            "Num_comptes": [
+                "10",
+                "20"
+            ]
+        },
+        {
+            "Numclient": "7",
+            "Nom": "sdgj",
+            "Prenom": "sdgj",
+            "Adresse": "sdgj",
+            "MDP": "sdgj",
+            "Num_comptes": [
+                "10",
+                "20",
+                "30"
+            ]
+        },
+        {
+            "Numclient": "72",
+            "Nom": "Michel",
+            "Prenom": "fldsgn",
+            "Adresse": "sdjfn",
+            "MDP": "dknfgsdk",
+            "Num_comptes": [
+                "13"
+            ]
+        },
+        {
+            "Numclient": "84",
+            "Nom": "sdklgn",
+            "Prenom": "sdklgn",
+            "Adresse": "sdklgn",
+            "MDP": "sdklgn",
+            "Num_comptes": ""
+        }
+    ]
 }
