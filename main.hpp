@@ -121,6 +121,7 @@ class Application : public wxApp
 {
 public:
     virtual bool OnInit();
+    int m_idClient;
 };
 
 //------------------------------------------------------------------------------
@@ -189,9 +190,8 @@ DECLARE_EVENT_TABLE()
 class Frame3 : public wxFrame
 {
 public:
-    Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, long style, int idClient);
+    Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, long style);
 private:
-    int m_idClient;
     wxPanel* m_panel1;
     wxPanel* m_panel2;
     wxButton* addButton;

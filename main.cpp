@@ -135,7 +135,7 @@ Frame2::Frame2(const wxString& title, const wxPoint& pos, const wxSize& size,
 }
 
 //------------------------------------------------------------------------------
-Frame3::Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, long style, int idClient) : wxFrame(NULL, -1, title, pos, size, style)
+Frame3::Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, long style) : wxFrame(NULL, -1, title, pos, size, style)
 {
     SetIcon(wxICON(monicone));
     SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_BTNFACE));
@@ -156,14 +156,21 @@ Frame3::Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, lo
 
     // Création des contrôles de texte pour chaque ligne de texte
     ptree nom = lire_json_client();
-    Client client = recherche_numclient(nom,m_idClient);
+    Client client = recherche_numclient(nom,wxGetApp().m_idClient);
+
     std::string name = client.nom;
     wxString name1 = wxString::Format("Nom : %s", name);
     wxStaticText* nameText = new wxStaticText(m_panel1, wxID_ANY, name1, wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
 
+    std::string name2 = client.prenom;
+    wxString name3 = wxString::Format("Prenom : %s", name);
+    wxStaticText* firstNameText = new wxStaticText(m_panel1, wxID_ANY, name3, wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
 
-    wxStaticText* firstNameText = new wxStaticText(m_panel1, wxID_ANY, "Prenom : var", wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
-    wxStaticText* idText = new wxStaticText(m_panel1, wxID_ANY, "Identifiant : num", wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
+    wxString id = wxString::Format("Identifiant : %s", wxGetApp().m_idClient);
+    wxStaticText* idText = new wxStaticText(m_panel1, wxID_ANY, id, wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
+
+    //size_t str = client.num_compte.size();
+    //wxString nbc = wxString::Format("Identifiant : %s", str);
     wxStaticText* accountNumberText = new wxStaticText(m_panel1, wxID_ANY, "Nombre de comptes :", wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
 
     // Chargement de l'icône de silhouette
@@ -306,13 +313,13 @@ void Frame::Client(wxCommandEvent& WXUNUSED(event))
 //------------------------------------------------------------------------------
 void Frame::OnSubmitUpdate(wxCommandEvent& WXUNUSED(event))
 {
-    int idClient = wxAtoi(ID_client->GetValue());
+    wxGetApp().m_idClient = wxAtoi(ID_client->GetValue());
     std::string mdp_client = MDP_client->GetValue().ToStdString();
-    if (mdp_client.empty()||idClient == 0) {
+    if (mdp_client.empty()||wxGetApp().m_idClient == 0) {
         wxMessageBox("Il y a un champ vide !", "Erreur", wxOK | wxICON_ERROR);
     }
     else {
-        if(valid_mdp(idClient,mdp_client)==1) {
+        if(valid_mdp(wxGetApp().m_idClient,mdp_client)==1) {
     Dialog dialog(NULL, -1, "Choisissez votre agence", Chiffre);
     if (dialog.ShowModal() == wxID_OK) {
         wxString st = "Aucun";
@@ -331,7 +338,7 @@ void Frame::OnSubmitUpdate(wxCommandEvent& WXUNUSED(event))
         Agence = st;
     }
     Close();
-    Frame3* frame = new Frame3("Pathys Bank", wxPoint(150, 150), wxSize(480, 360), wxDEFAULT_FRAME_STYLE, idClient);
+    Frame3* frame = new Frame3("Pathys Bank", wxPoint(150, 150), wxSize(480, 360), wxDEFAULT_FRAME_STYLE);
     frame->Show(true);
     }
     else{
