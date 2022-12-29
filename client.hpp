@@ -35,12 +35,7 @@ public :
 	std::string mdp;
 	Client();
 	Client(const int& numclient, std::string&& name, std::string&& prenom,std::vector<int>&& num_compte,std::string&& password);
-	friend std::ostream& operator<<(std::ostream& os, const Client& customer);
-	template <class Archive>
-	void serialize(Archive& ar, unsigned int version)
-	{
-		ar& numclient& nom& prenom& num_compte& mdp;
-	}
+	
 
 };
 

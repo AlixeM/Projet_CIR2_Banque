@@ -34,6 +34,12 @@ public:
 	Client(ptree pt);
 	void add_account(int num);
 	ptree creer_ptree_client();
+    friend std::ostream& operator<<(std::ostream& os, const Client& customer);
+    template <class Archive>
+    void serialize(Archive& ar, unsigned int version)
+    {
+        ar& numclient& nom& prenom& num_compte& mdp;
+    }
 	
 };
 

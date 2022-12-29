@@ -18,7 +18,7 @@
 #include <thread>
 #include <chrono>
 
-#include "client.hpp"
+#include "main.hpp"
 #include "socket_tools.hpp"
 
 //Taken from "https://www.boost.org/doc/libs/1_80_0/doc/html/boost_asio/example/cpp11/echo/blocking_tcp_echo_server.cpp" with modifications
