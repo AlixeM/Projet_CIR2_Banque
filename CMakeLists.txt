@@ -6,6 +6,7 @@ set(Boost_USE_RELEASE_LIBS ON)
 
 if(MSVC)
     add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
+    add_compile_definitions(_WIN32_WINNT=0x0501)
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
     set(Boost_USE_STATIC_RUNTIME ON)
     set(Boost_DIR "C:/tools/Boost/lib/cmake/Boost-1.80.0")
@@ -26,7 +27,14 @@ include_directories(${Boost_INCLUDE_DIRS})
 find_package(wxWidgets REQUIRED COMPONENTS net core base)
 include(${wxWidgets_USE_FILE})
 
-add_executable(PATHYS.exe main.cpp main.hpp client.cpp client.hpp ope_json.h ope_json.cpp resource.rc)
+
+##add_library (customer "Client.cpp" )#####
+##target_include_directories (customer PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})#####
+##find_package(Boost 1.80.0 COMPONENTS system thread regex serialization REQUIRED)#####
+##add_executable(socket socket.cpp socket_tools.cpp)###
+##target_link_libraries (socket LINK_PUBLIC customer ${Boost_LIBRARIES})#####
+
+add_executable(PATHYS.exe main.cpp main.hpp client.cpp client.hpp ope_json.h ope_json.cpp resource.rc socket)
 
 if(MSVC)
     set_target_properties(PATHYS.exe PROPERTIES LINK_FLAGS /SUBSYSTEM:WINDOWS)
@@ -36,6 +44,7 @@ endif (MSVC)
 target_link_libraries (PATHYS.exe LINK_PUBLIC ${Boost_LIBRARIES} ${wxWidgets_LIBRARIES})
 
 
+<<<<<<< HEAD
 #add_library (customer "Client.cpp" )
 #target_include_directories (customer PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
@@ -43,5 +52,7 @@ target_link_libraries (PATHYS.exe LINK_PUBLIC ${Boost_LIBRARIES} ${wxWidgets_LIB
 #find_package(Boost 1.80.0 COMPONENTS system thread regex serialization REQUIRED)
 #add_executable(socket socket.cpp socket_tools.cpp)
 #target_link_libraries (socket LINK_PUBLIC customer ${Boost_LIBRARIES})
+=======
+>>>>>>> 5420ec8c11691f069620367224ecaff8d7e407cd
 
 

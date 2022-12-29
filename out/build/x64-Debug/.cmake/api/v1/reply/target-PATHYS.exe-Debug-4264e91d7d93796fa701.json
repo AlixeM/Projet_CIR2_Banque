@@ -39,19 +39,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 29,
+				"line" : 37,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 36,
+				"line" : 44,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 23,
+				"line" : 24,
 				"parent" : 0
 			},
 			{
@@ -93,13 +93,13 @@
 			{
 				"command" : 5,
 				"file" : 0,
-				"line" : 16,
+				"line" : 17,
 				"parent" : 0
 			},
 			{
 				"command" : 6,
 				"file" : 0,
-				"line" : 27,
+				"line" : 28,
 				"parent" : 0
 			},
 			{
@@ -119,9 +119,15 @@
 				"parent" : 0
 			},
 			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 9,
+				"parent" : 0
+			},
+			{
 				"command" : 8,
 				"file" : 0,
-				"line" : 24,
+				"line" : 25,
 				"parent" : 0
 			},
 			{
@@ -170,22 +176,26 @@
 				{
 					"backtrace" : 14,
 					"define" : "_UNICODE"
+				},
+				{
+					"backtrace" : 16,
+					"define" : "_WIN32_WINNT=0x0501"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 16,
+					"backtrace" : 17,
 					"isSystem" : true,
 					"path" : "C:/tools/Boost/include/boost-1_80"
 				},
 				{
-					"backtrace" : 17,
+					"backtrace" : 18,
 					"isSystem" : true,
 					"path" : "C:/tools/wxWidgets/lib/vc_x64_lib/mswu"
 				},
 				{
-					"backtrace" : 17,
+					"backtrace" : 18,
 					"isSystem" : true,
 					"path" : "C:/tools/wxWidgets/include"
 				}
@@ -230,22 +240,26 @@
 				{
 					"backtrace" : 14,
 					"define" : "_UNICODE"
+				},
+				{
+					"backtrace" : 16,
+					"define" : "_WIN32_WINNT=0x0501"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 16,
+					"backtrace" : 17,
 					"isSystem" : true,
 					"path" : "C:/tools/Boost/include/boost-1_80"
 				},
 				{
-					"backtrace" : 17,
+					"backtrace" : 18,
 					"isSystem" : true,
 					"path" : "C:/tools/wxWidgets/lib/vc_x64_lib/mswu"
 				},
 				{
-					"backtrace" : 17,
+					"backtrace" : 18,
 					"isSystem" : true,
 					"path" : "C:/tools/wxWidgets/include"
 				}
@@ -409,6 +423,13 @@
 				3,
 				4
 			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				7
+			]
 		}
 	],
 	"sources" : 
@@ -451,6 +472,11 @@
 			"compileGroupIndex" : 1,
 			"path" : "resource.rc",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-Debug/socket",
+			"sourceGroupIndex" : 2
 		}
 	],
 	"type" : "EXECUTABLE"

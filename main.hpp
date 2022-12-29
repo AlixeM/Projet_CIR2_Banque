@@ -59,6 +59,12 @@ public:
 	int paiement(int montant);
 	void depot(int montant);
 	int transfert(Compte compte,int montant);
+    friend std::ostream& operator<<(std::ostream& os, const Compte& compte);
+    template <class Archive>
+    void serialize(Archive& ar, unsigned int version)
+    {
+        ar& numclient& numcompte& nom& type& solde& agence;
+    }
 };
 
 ptree lire_json_client();

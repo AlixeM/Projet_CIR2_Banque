@@ -50,7 +50,7 @@ cmake_ninja_workdir = C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\o
 build cmake_object_order_depends_target_PATHYS.exe: phony || CMakeFiles\PATHYS.exe.dir
 
 build CMakeFiles\PATHYS.exe.dir\main.cpp.obj: CXX_COMPILER__PATHYS.2eexe_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\main.cpp || cmake_object_order_depends_target_PATHYS.exe
-  DEFINES = -DBOOST_CONTAINER_NO_LIB -DBOOST_JSON_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE
+  DEFINES = -DBOOST_CONTAINER_NO_LIB -DBOOST_JSON_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE -D_WIN32_WINNT=0x0501
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MTd /MTd
   INCLUDES = -external:IC:\tools\Boost\include\boost-1_80 -external:IC:\tools\wxWidgets\lib\vc_x64_lib\mswu -external:IC:\tools\wxWidgets\include -external:W0
   OBJECT_DIR = CMakeFiles\PATHYS.exe.dir
@@ -59,7 +59,7 @@ build CMakeFiles\PATHYS.exe.dir\main.cpp.obj: CXX_COMPILER__PATHYS.2eexe_Debug C
   TARGET_PDB = PATHYS.exe.pdb
 
 build CMakeFiles\PATHYS.exe.dir\client.cpp.obj: CXX_COMPILER__PATHYS.2eexe_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\client.cpp || cmake_object_order_depends_target_PATHYS.exe
-  DEFINES = -DBOOST_CONTAINER_NO_LIB -DBOOST_JSON_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE
+  DEFINES = -DBOOST_CONTAINER_NO_LIB -DBOOST_JSON_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE -D_WIN32_WINNT=0x0501
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MTd /MTd
   INCLUDES = -external:IC:\tools\Boost\include\boost-1_80 -external:IC:\tools\wxWidgets\lib\vc_x64_lib\mswu -external:IC:\tools\wxWidgets\include -external:W0
   OBJECT_DIR = CMakeFiles\PATHYS.exe.dir
@@ -68,7 +68,7 @@ build CMakeFiles\PATHYS.exe.dir\client.cpp.obj: CXX_COMPILER__PATHYS.2eexe_Debug
   TARGET_PDB = PATHYS.exe.pdb
 
 build CMakeFiles\PATHYS.exe.dir\ope_json.cpp.obj: CXX_COMPILER__PATHYS.2eexe_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\ope_json.cpp || cmake_object_order_depends_target_PATHYS.exe
-  DEFINES = -DBOOST_CONTAINER_NO_LIB -DBOOST_JSON_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE
+  DEFINES = -DBOOST_CONTAINER_NO_LIB -DBOOST_JSON_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE -D_WIN32_WINNT=0x0501
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MTd /MTd
   INCLUDES = -external:IC:\tools\Boost\include\boost-1_80 -external:IC:\tools\wxWidgets\lib\vc_x64_lib\mswu -external:IC:\tools\wxWidgets\include -external:W0
   OBJECT_DIR = CMakeFiles\PATHYS.exe.dir
@@ -77,7 +77,7 @@ build CMakeFiles\PATHYS.exe.dir\ope_json.cpp.obj: CXX_COMPILER__PATHYS.2eexe_Deb
   TARGET_PDB = PATHYS.exe.pdb
 
 build CMakeFiles\PATHYS.exe.dir\resource.rc.res: RC_COMPILER__PATHYS.2eexe_Debug C$:\Users\Administrateur\source\repos\Projet_CIR2_Banque\resource.rc || cmake_object_order_depends_target_PATHYS.exe
-  DEFINES = -DBOOST_CONTAINER_NO_LIB -DBOOST_JSON_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE
+  DEFINES = -DBOOST_CONTAINER_NO_LIB -DBOOST_JSON_NO_LIB -DBOOST_SERIALIZATION_NO_LIB -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_UNICODE -D_WIN32_WINNT=0x0501
   DEP_FILE = CMakeFiles\PATHYS.exe.dir\resource.rc.res.d
   FLAGS = -DWIN32 -D_DEBUG
   INCLUDES = -I C:\tools\Boost\include\boost-1_80 -I C:\tools\wxWidgets\lib\vc_x64_lib\mswu -I C:\tools\wxWidgets\include

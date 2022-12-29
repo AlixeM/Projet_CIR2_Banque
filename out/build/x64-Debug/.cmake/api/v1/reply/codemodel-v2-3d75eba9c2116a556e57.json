@@ -1,0 +1,64 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "PATHYS",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "PATHYS.exe::@6890427a1f51a3e7e1df",
+<<<<<<<< HEAD:out/build/x64-Debug/.cmake/api/v1/reply/codemodel-v2-04ac3ef21d9560db4348.json
+					"jsonFile" : "target-PATHYS.exe-Debug-4264e91d7d93796fa701.json",
+========
+					"jsonFile" : "target-PATHYS.exe-Debug-4d69377e56b2a0ab5762.json",
+>>>>>>>> 5420ec8c11691f069620367224ecaff8d7e407cd:out/build/x64-Debug/.cmake/api/v1/reply/codemodel-v2-3d75eba9c2116a556e57.json
+					"name" : "PATHYS.exe",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Administrateur/source/repos/Projet_CIR2_Banque/out/build/x64-Debug",
+		"source" : "C:/Users/Administrateur/source/repos/Projet_CIR2_Banque"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
