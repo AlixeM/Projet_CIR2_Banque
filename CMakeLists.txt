@@ -37,8 +37,3 @@ target_link_libraries (PATHYS.exe LINK_PUBLIC ${Boost_LIBRARIES} ${wxWidgets_LIB
 
 #include_directories(/path/to/pthreads/headers)
 #target_link_libraries(my_target pthread)
-
-
-
-#add_subdirectory (socket)
-#add_subdirectory(customer)

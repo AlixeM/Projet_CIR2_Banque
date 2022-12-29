@@ -18,7 +18,7 @@
 #include <thread>
 #include <chrono>
 
-#include "Customer.hpp" //a effacer
+#include "Client.hpp" //a effacer
 /*#include "client.h"*/
 #include "socket_tools.hpp"
 
@@ -190,9 +190,9 @@ void BDD() {
         std::chrono::seconds five_seconds = std::chrono::seconds(5);
         std::this_thread::sleep_for(five_seconds);
         //demande à A1,A2 et A3 les nouvelles infos
-        //client("1234", 9);
-        //client("2345", 9);
-        //client("3333", 9);
+        client("1234", 9);
+        client("2345", 9);
+        client("3333", 9);
     }
 }
 
@@ -241,7 +241,7 @@ int main(int argc, char* argv[])
             client0.join();
         }
         if (Agence == "s") {
-            AgenceBDD.detach();
+            AgenceBDD.detach(); 
             AgenceA.detach();
             AgenceB.detach();
             AgenceC.detach();

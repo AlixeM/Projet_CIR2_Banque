@@ -4,6 +4,14 @@
 #include <utility>
 #include <vector>
 
+
+#ifdef _WIN32
+#include <SDKDDKVer.h>
+#endif
+
+#include <boost/archive/text_iarchive.hpp>
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/serialization/vector.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <fstream>
@@ -27,6 +35,13 @@ public :
 	std::string mdp;
 	Client();
 	Client(const int& numclient, std::string&& name, std::string&& prenom,std::vector<int>&& num_compte,std::string&& password);
+	friend std::ostream& operator<<(std::ostream& os, const Client& customer);
+	template <class Archive>
+	void serialize(Archive& ar, unsigned int version)
+	{
+		ar& numclient& nom& prenom& num_compte& mdp;
+	}
+
 };
 
 class Compte {
@@ -39,6 +54,12 @@ public :
 	int agence;
 	Compte();
 	Compte(const int& numclient,const int& numcompte, const int& type, std::string&& name, const int& solde, const int& agence);
+	friend std::ostream& operator<<(std::ostream& os, const Compte& compte);
+	template <class Archive>
+	void serialize(Archive& ar, unsigned int version)
+	{
+		ar& numclient& numcompte& nom& type& solde& agence;
+	}
 };
 
 ptree creer_ptree_client(const Client& client);

@@ -1,5 +1,5 @@
 #include "socket_tools.hpp"
-#include "Customer.hpp"
+#include "Client.hpp"
 /*#include "client.h"*/
 
 std::string to_string(boost::asio::streambuf &buffer)

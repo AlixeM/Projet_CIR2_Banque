@@ -149,3 +149,23 @@ Client retrait_depot(Client client1, Compte compte1, int type, int montant) {
 	}
 
 }*/
+std::ostream& operator<<(std::ostream& os, const Client& client) {
+	os << "numclient : " << client.numclient << std::endl;
+	os << "nom : " << client.nom << std::endl;
+	os << "prenom : " << client.prenom << std::endl;
+	for (auto& account : client.num_compte) {
+		std::cout << "num_compte : " << account << std::endl;
+	}
+	os << "mdp : " << client.mdp << std::endl;
+	return os;
+}
+
+std::ostream& operator<<(std::ostream& os, const Compte& compte) {
+	os << "numclient : " << compte.numclient << std::endl;
+	os << "numcompte : " << compte.numcompte << std::endl;
+	os << "type : " << compte.type << std::endl;
+	os << "nom : " << compte.nom << std::endl;
+	os << "solde : " << compte.solde << std::endl;
+	os << "agence : " << compte.agence << std::endl;
+	return os;
+}
