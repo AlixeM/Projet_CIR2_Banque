@@ -96,14 +96,16 @@ ptree lire_subclient() {
 
 void add_agence1(ptree pt) {
 	ptree pt_save = lire_agence1();
+	ptree groupe_acc;
+	groupe_acc.push_back({ "",pt });
 	for (ptree::value_type& compte: pt_save.get_child("Comptes")) {
 		Compte acc(compte.second);
 		ptree arbre = acc.creer_ptree_compte();
-		pt.push_back({ "", arbre });
+		groupe_acc.push_back({ "", arbre });
 	}
 	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
 	ptree pt_write;
-	pt_write.add_child("Comptes", pt);
+	pt_write.add_child("Comptes", groupe_acc);
 	std::ofstream file_out("agence1.json");
 	write_json(file_out, pt_write);
 	file_out.close();
@@ -111,14 +113,16 @@ void add_agence1(ptree pt) {
 
 void add_agence2(ptree pt) {
 	ptree pt_save = lire_agence2();
+	ptree groupe_acc;
+	groupe_acc.push_back({ "",pt });
 	for (ptree::value_type& compte : pt_save.get_child("Comptes")) {
 		Compte acc(compte.second);
 		ptree arbre = acc.creer_ptree_compte();
-		pt.push_back({ "", arbre });
+		groupe_acc.push_back({ "", arbre });
 	}
 	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
 	ptree pt_write;
-	pt_write.add_child("Comptes", pt);
+	pt_write.add_child("Comptes", groupe_acc);
 	std::ofstream file_out("agence2.json");
 	write_json(file_out, pt_write);
 	file_out.close();
@@ -126,14 +130,16 @@ void add_agence2(ptree pt) {
 
 void add_agence3(ptree pt) {
 	ptree pt_save = lire_agence3();
+	ptree groupe_acc;
+	groupe_acc.push_back({ "",pt });
 	for (ptree::value_type& compte : pt_save.get_child("Comptes")) {
 		Compte acc(compte.second);
 		ptree arbre = acc.creer_ptree_compte();
-		pt.push_back({ "", arbre });
+		groupe_acc.push_back({ "", arbre });
 	}
 	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
 	ptree pt_write;
-	pt_write.add_child("Comptes", pt);
+	pt_write.add_child("Comptes", groupe_acc);
 	std::ofstream file_out("agence3.json");
 	write_json(file_out, pt_write);
 	file_out.close();
@@ -141,14 +147,16 @@ void add_agence3(ptree pt) {
 
 void add_subclient(ptree pt) {
 	ptree pt_save = lire_subclient();
-	for (ptree::value_type& compte : pt_save.get_child("Clients")) {
-		Compte acc(compte.second);
-		ptree arbre = acc.creer_ptree_compte();
-		pt.push_back({ "", arbre });
+	ptree groupe_custom;
+	groupe_custom.push_back({ "",pt });
+	for (ptree::value_type& custom : pt_save.get_child("Clients")) {
+		Client client(custom.second);
+		ptree arbre = client.creer_ptree_client();
+		groupe_custom.push_back({ "", arbre });
 	}
 	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
 	ptree pt_write;
-	pt_write.add_child("Clients", pt);
+	pt_write.add_child("Clients", groupe_custom);
 	std::ofstream file_out("subclient.json");
 	write_json(file_out, pt_write);
 	file_out.close();
@@ -183,10 +191,8 @@ void update_centrale_compte(ptree pt) {
 }
 
 void update_centrale_client(ptree pt) {
-	ptree pt_write;
-	pt_write.add_child("Clients", pt);
 	std::ofstream file_out("client.json");
-	write_json(file_out, pt_write);
+	write_json(file_out, pt);
 	file_out.close();
 }
 

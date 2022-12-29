@@ -16,13 +16,23 @@
 #include "main.hpp"
 
 int main() {
-    std::vector<int> vec;
-    Client client1(72, "Michel", "fldsgn", "sdjfn", vec, "dknfgsdk");
-    std::vector<int> vec2;
-    Client client2(84, "sdklgn", "sdklgn", "sdklgn", vec2, "sdklgn");
-    client1.add_account(13);
-    ptree test=client1.creer_ptree_client();
-	return 1;
+    Compte compte1(69, 420, 1, "bruh big chungus", 54, 2);
+    Compte compte2(3, 4, 2, "numba twelve", 4, 1);
+    ptree arbre = compte1.creer_ptree_compte();
+    ptree tree = compte2.creer_ptree_compte();
+    ptree assemble;
+    assemble.push_back({ "",arbre });
+    assemble.push_back({ "",tree});
+    Client t(1, "bruh", "big", "chungus", { 15 }, "haha");
+    ptree a = t.creer_ptree_client();
+    ptree lec1 = lire_agence1();
+    ptree lec2 = lire_agence2();
+    ptree lec3 = lire_agence3();
+    ptree clilec = lire_subclient();
+    ptree sum = json_assemble(lec1, lec2, lec3);
+    update_centrale_client(clilec);
+
+    
 }
 
 

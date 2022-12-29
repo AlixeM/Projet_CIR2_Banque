@@ -1,0 +1,12 @@
+{
+    "Clients": {
+        "Numclient": "72",
+        "Nom": "Michel",
+        "Prenom": "fldsgn",
+        "Adresse": "sdjfn",
+        "MDP": "dknfgsdk",
+        "Num_comptes": [
+            "13"
+        ]
+    }
+}
