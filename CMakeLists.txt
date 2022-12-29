@@ -36,7 +36,4 @@ endif (MSVC)
 target_link_libraries (PATHYS.exe LINK_PUBLIC ${Boost_LIBRARIES} ${wxWidgets_LIBRARIES})
 
 
-add_subdirectory (socket)
 
-add_library (customer "Client.cpp" )
-target_include_directories (customer PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
