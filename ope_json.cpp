@@ -255,18 +255,30 @@ void tri_json() {
 			agency3.push_back({ "",arbre });
 		}
 	}
+	tri1(agency1);
+	tri2(agency2);
+	tri3(agency3);
+}
+
+void tri1(ptree pt) {
 	ptree pt1;
-	pt1.add_child("Comptes", agency1);
+	pt1.add_child("Comptes", pt);
 	std::ofstream file_out("agence1.json");
 	write_json(file_out, pt1);
 	file_out.close();
+}
+
+void tri2(ptree pt) {
 	ptree pt2;
-	pt1.add_child("Comptes", agency2);
+	pt2.add_child("Comptes", pt);
 	std::ofstream file_out("agence2.json");
 	write_json(file_out, pt2);
 	file_out.close();
+}
+
+void tri3(ptree pt) {
 	ptree pt3;
-	pt1.add_child("Comptes", agency3);
+	pt3.add_child("Comptes", pt);
 	std::ofstream file_out("agence3.json");
 	write_json(file_out, pt3);
 	file_out.close();

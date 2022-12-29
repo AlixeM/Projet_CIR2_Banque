@@ -95,6 +95,12 @@ int random_number_client();
 
 void tri_json();
 
+void tri1(ptree pt);
+
+void tri2(ptree pt);
+
+void tri3(ptree pt);
+
 
 //------------------------------------------------------------------------------
 //WxWIDGET
