@@ -16,9 +16,6 @@
 #include "main.hpp"
 
 int main() {
-    ptree root=lire_json_client();
-    Client truc=recherche_numclient(root, 57);
-    cout << truc.nom << endl;
     return 1;
 }
 

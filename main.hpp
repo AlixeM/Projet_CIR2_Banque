@@ -93,6 +93,8 @@ int random_number_compte();
 
 int random_number_client();
 
+void tri_json();
+
 
 //------------------------------------------------------------------------------
 //WxWIDGET

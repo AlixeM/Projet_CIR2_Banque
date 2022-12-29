@@ -235,3 +235,39 @@ int random_number_compte() {
 	}
 	return val;
 }
+
+void tri_json() {
+	ptree root = lire_json_compte();
+	ptree agency1;
+	ptree agency2;
+	ptree agency3;
+	for (ptree::value_type& compte : root.get_child("Comptes"))
+	{
+		Compte acc(compte.second);
+		ptree arbre=acc.creer_ptree_compte();
+		if(acc.agence==1){
+			agency1.push_back({ "",arbre });
+		}
+		if (acc.agence = 2) {
+			agency2.push_back({ "",arbre });
+		}
+		if (acc.agence = 3) {
+			agency3.push_back({ "",arbre });
+		}
+	}
+	ptree pt1;
+	pt1.add_child("Comptes", agency1);
+	std::ofstream file_out("agence1.json");
+	write_json(file_out, pt1);
+	file_out.close();
+	ptree pt2;
+	pt1.add_child("Comptes", agency2);
+	std::ofstream file_out("agence2.json");
+	write_json(file_out, pt2);
+	file_out.close();
+	ptree pt3;
+	pt1.add_child("Comptes", agency3);
+	std::ofstream file_out("agence3.json");
+	write_json(file_out, pt3);
+	file_out.close();
+}
