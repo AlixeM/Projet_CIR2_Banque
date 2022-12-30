@@ -2,6 +2,70 @@
     "Comptes": [
         {
             "Numclient": "7100",
+            "Numcompte": "5913",
+            "Type": "2",
+            "Nom": "test2",
+            "Solde": "0",
+            "Agence": "2"
+        },
+        {
+            "Numclient": "7100",
+            "Numcompte": "5877",
+            "Type": "2",
+            "Nom": "test",
+            "Solde": "0",
+            "Agence": "2"
+        },
+        {
+            "Numclient": "7100",
+            "Numcompte": "5338",
+            "Type": "1",
+            "Nom": "nouvocompte2",
+            "Solde": "0",
+            "Agence": "2"
+        },
+        {
+            "Numclient": "7100",
+            "Numcompte": "5296",
+            "Type": "1",
+            "Nom": "Nouvocompte",
+            "Solde": "0",
+            "Agence": "2"
+        },
+        {
+            "Numclient": "7100",
+            "Numcompte": "5162",
+            "Type": "1",
+            "Nom": "Compte2",
+            "Solde": "0",
+            "Agence": "2"
+        },
+        {
+            "Numclient": "7100",
+            "Numcompte": "5136",
+            "Type": "2",
+            "Nom": "Compte1",
+            "Solde": "0",
+            "Agence": "2"
+        },
+        {
+            "Numclient": "7100",
+            "Numcompte": "4309",
+            "Type": "1",
+            "Nom": "test",
+            "Solde": "0",
+            "Agence": "2"
+        },
+        {
+            "Numclient": "7100",
+            "Numcompte": "3343",
+            "Type": "2",
+            "Nom": "test",
+            "Solde": "0",
+            "Agence": "2"
+        },
+        {
+            "Numclient": "7100",
             "Numcompte": "1394",
             "Type": "1",
             "Nom": "ghjkj",
