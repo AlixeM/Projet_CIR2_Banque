@@ -1,8 +1,6 @@
 #include "wx/wxprec.h"
 #include "wx/fontdlg.h"
 #include "wx/colordlg.h"
-#include "thread"
-
 
 #ifdef __BORLANDC__
 #pragma hdrstop

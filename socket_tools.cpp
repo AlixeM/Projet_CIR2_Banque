@@ -1,7 +1,5 @@
 #include "socket_tools.hpp"
 #include "main.hpp"
-/*#include "client.h"*/
-
 std::string to_string(boost::asio::streambuf &buffer)
 {
     boost::asio::streambuf::const_buffers_type data = buffer.data();
