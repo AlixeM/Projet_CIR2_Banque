@@ -240,14 +240,18 @@ Frame3::Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, lo
 // Ajout du sizer vertical au panel gauche
     m_panel1->SetSizer(vBoxSizer);
 
+
 // Création du bouton "Ajouter un compte"
     wxButton* addButton = new wxButton(m_panel2, wxID_ADD, "Ajouter un compte",wxPoint(300,180));//
 
+
+
     size_t taillevect = client.num_compte.size();
+    ptree button = lire_json_compte();
+
     for (size_t i=0; i<taillevect; i++){
-        ptree button = lire_json_compte();
         Compte compte = search_numcompte(button, client.num_compte[i]);
-        wxButton* addButton = new wxButton(m_panel2, wxID_ADD, compte.nom);
+        wxButton* compteButton = new wxButton(m_panel2, wxID_NEW, compte.nom);
     }
 
 
@@ -514,6 +518,10 @@ void Frame3::OnCreateAccount(wxCommandEvent& event) {
         ptree nom = lire_json_client();
         Client client = recherche_numclient(nom,wxGetApp().m_idClient);
         client.add_account(idCompte);
+        ptree truc = client.creer_ptree_client();
+        add_subclient(truc);
+        ptree machin = lire_subclient();
+        update_centrale_client(machin);
 
         ptree ag1 = lire_agence1();
         ptree ag2 = lire_agence2();

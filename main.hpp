@@ -208,6 +208,7 @@ private:
     wxPanel* m_panel1;
     wxPanel* m_panel2;
     wxButton* addButton;
+	wxButton* compteButton;
     wxBoxSizer* m_hBoxSizer;
     void Quit(wxCommandEvent& event);
     void OnCreateAccount(wxCommandEvent& event);

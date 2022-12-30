@@ -26,6 +26,22 @@
         },
         {
             "Numclient": "7100",
+            "Numcompte": "1394",
+            "Type": "1",
+            "Nom": "ghjkj",
+            "Solde": "0",
+            "Agence": "2"
+        },
+        {
+            "Numclient": "7100",
+            "Numcompte": "9580",
+            "Type": "2",
+            "Nom": "testmarchegros",
+            "Solde": "0",
+            "Agence": "2"
+        },
+        {
+            "Numclient": "7100",
             "Numcompte": "9513",
             "Type": "2",
             "Nom": "testsitumarchetbg",
