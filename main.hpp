@@ -101,7 +101,7 @@ void add_agence3(ptree pt);
 
 void add_subclient(ptree pt);
 
-
+void interet();
 
 Client recherche_numclient(ptree pt, int num);
 

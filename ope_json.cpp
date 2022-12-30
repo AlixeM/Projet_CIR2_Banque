@@ -320,3 +320,19 @@ Compte search_name(ptree pt, std::string name,int numclient) {
 		}
 	}
 }
+
+void interet() {
+	ptree root = lire_json_compte();
+	ptree groupe_acc;
+	for (ptree::value_type& compte : root.get_child("Comptes"))
+	{
+		Compte acc(compte.second);
+		if (acc.type == 2) {
+			acc.solde = round(acc.solde * 1.05);
+		}
+		ptree arbre = acc.creer_ptree_compte();
+		groupe_acc.push_back({ "",arbre });
+	}
+	update_centrale_compte(groupe_acc);
+	tri_json();
+}
