@@ -1,6 +1,17 @@
 {
     "Clients": [
         {
+            "Numclient": "9840",
+            "Nom": "Maerte",
+            "Prenom": "Guillaume",
+            "Adresse": "ici",
+            "MDP": "test",
+            "Num_comptes": [
+                "4057",
+                "415"
+            ]
+        },
+        {
             "Numclient": "7100",
             "Nom": "Maerte",
             "Prenom": "Alixe",
@@ -14,14 +25,6 @@
                 "5877",
                 "5913"
             ]
-        },
-        {
-            "Numclient": "9840",
-            "Nom": "Maerte",
-            "Prenom": "Guillaume",
-            "Adresse": "ici",
-            "MDP": "test",
-            "Num_comptes": ""
         },
         {
             "Numclient": "6176",

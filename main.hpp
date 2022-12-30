@@ -140,6 +140,7 @@ public:
     int m_idClient;
     int agence;
 	int idCompte;
+	std::string NomCompte;
 };
 
 //------------------------------------------------------------------------------
@@ -235,6 +236,7 @@ public:
            long style = wxDEFAULT_FRAME_STYLE);
 private:
 	wxStaticText *label;
+	wxStaticText *label2;
     wxButton *tran;
     wxButton *dep;
     wxButton *ret;

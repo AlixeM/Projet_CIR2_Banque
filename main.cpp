@@ -301,10 +301,18 @@ Frame4::Frame4(const wxString& title, const wxPoint& pos, const wxSize& size,
     wxBoxSizer *topSizer = new wxBoxSizer(wxVERTICAL);
     SetSizer(topSizer);
 
-    int variableInt = wxGetApp().idCompte;
-    wxStaticText *label = new wxStaticText(this, wxID_STATIC, wxString::Format("Numero du compte : %d", variableInt));
+    ptree compte = lire_json_compte();
+    Compte compte2 = search_name(compte,wxGetApp().NomCompte,wxGetApp().m_idClient);
+    int idCompte = compte2.numcompte;
+    int solde = compte2.solde;
+
+    wxStaticText *label = new wxStaticText(this, wxID_STATIC, wxString::Format("Numero du compte : %d", idCompte));
     label->SetFont(wxFont(12, wxSWISS , wxNORMAL, wxBOLD, false, "Arial"));
     topSizer->Add(label, 0, wxALIGN_CENTER | wxALL, 5);
+
+    wxStaticText *label2 = new wxStaticText(this, wxID_STATIC, wxString::Format("Solde : %d", solde));
+    label2->SetFont(wxFont(8, wxSWISS , wxNORMAL, wxBOLD, false, "Arial"));
+    topSizer->Add(label2, 0, wxALIGN_CENTER | wxALL, 5);
 
     tran = new wxButton(this,Tran,"Transaction", wxPoint(110,60),wxDefaultSize);
     dep = new wxButton(this,Dep,"Depot", wxPoint(110,100),wxDefaultSize);
@@ -500,6 +508,8 @@ void Frame3::OnCreateAccount(wxCommandEvent& event) {
     wxString name = wxGetTextFromUser("Entrez le nom du compte :", "Nom du compte", "", this);
     std::string name2 = name.ToStdString();
 
+
+
 // Afficher la boîte de dialogue de sélection de type de compte
     wxArrayString accountTypes;
     accountTypes.Add("Epargne");
@@ -509,6 +519,7 @@ void Frame3::OnCreateAccount(wxCommandEvent& event) {
     if (typeDialog.ShowModal() == wxID_OK)
     {
         int idCompte = random_number_compte();
+        wxGetApp().idCompte = idCompte;
         int typeCompte;
         int solde = 0;
 
@@ -520,7 +531,7 @@ void Frame3::OnCreateAccount(wxCommandEvent& event) {
             typeCompte = 1;
         }
 
-        Compte compte(wxGetApp().m_idClient, idCompte, typeCompte, name2, solde, wxGetApp().agence);
+        Compte compte(wxGetApp().m_idClient, wxGetApp().idCompte, typeCompte, name2, solde, wxGetApp().agence);
         ptree treecompte = compte.creer_ptree_compte();
         if (wxGetApp().agence == 1){
             add_agence1(treecompte);
@@ -534,7 +545,7 @@ void Frame3::OnCreateAccount(wxCommandEvent& event) {
 
         ptree nom = lire_json_client();
         Client client = recherche_numclient(nom,wxGetApp().m_idClient);
-        client.add_account(idCompte);
+        client.add_account(wxGetApp().idCompte);
         ptree truc = client.creer_ptree_client();
         add_subclient(truc);
         ptree machin = lire_subclient();
@@ -549,6 +560,7 @@ void Frame3::OnCreateAccount(wxCommandEvent& event) {
 
         // Créer le nouveau bouton
         wxButton* accountButton = new wxButton(m_panel2, wxID_NEW, name);
+        wxGetApp().NomCompte = name;
 
         // Ajouter un espace de 20 pixels et le bouton au sizer, si c'est le premier bouton
         if (client.num_compte.size()==0){
