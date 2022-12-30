@@ -42,7 +42,7 @@ include(${wxWidgets_USE_FILE}) #################################################
 
 add_executable(PATHYS.exe main.cpp main.hpp client.cpp client.hpp ope_json.h ope_json.cpp resource.rc) ###################################
 
-target_link_libraries (PATHYS.exe LINK_PUBLIC customer ${Boost_LIBRARIES})
+#target_link_libraries (PATHYS.exe LINK_PUBLIC customer ${Boost_LIBRARIES})
 
 if(MSVC) ########################################################################################################################
     set_target_properties(PATHYS.exe PROPERTIES LINK_FLAGS /SUBSYSTEM:WINDOWS) ################################################
