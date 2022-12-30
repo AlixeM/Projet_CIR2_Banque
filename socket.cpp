@@ -7,22 +7,7 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
-
-#include <cstdlib>
-#include <cstring>
-#include <iostream>
-#include <boost/bind/bind.hpp>
-#include <boost/smart_ptr.hpp>
-#include <boost/asio.hpp>
-#include <boost/thread.hpp>
-#include <thread>
-#include <chrono>
-
-<<<<<<< HEAD
-#include "main.hpp"
-=======
->>>>>>> 5420ec8c11691f069620367224ecaff8d7e407cd
-#include "socket_tools.hpp"
+#include "socket_tools.cpp"
 
 //Taken from "https://www.boost.org/doc/libs/1_80_0/doc/html/boost_asio/example/cpp11/echo/blocking_tcp_echo_server.cpp" with modifications
 
