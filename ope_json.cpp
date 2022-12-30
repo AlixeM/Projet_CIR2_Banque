@@ -302,13 +302,13 @@ int diff_nom(int numclient, std::string nom) {
 	return 1;
 }
 
-int search_name(ptree pt, std::string name,int numclient) {
+Compte search_name(ptree pt, std::string name,int numclient) {
 	for (ptree::value_type& compte : pt.get_child("Comptes"))
 	{
 		Compte acc(compte.second);
 		if (acc.numclient == numclient) {
 			if (acc.nom == name) {
-				return acc.numcompte;
+				return acc;
 			}
 		}
 	}
