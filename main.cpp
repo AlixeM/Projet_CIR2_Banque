@@ -15,64 +15,54 @@
 #include <future>
 
 int main() {
-    /*try
+    try
     {
-        int demande_type;
-        std::thread AgenceA(server, 4, 1234);
-        std::thread AgenceB(server, 2, 2345);
-        std::thread AgenceC(server, 3, 3333);
-        std::thread AgenceBDD(server, 8, 777);
+        //int demande_type;
+        //std::thread AgenceA(server, 4, 1234);
+        //std::thread AgenceB(server, 2, 2345);
+        //std::thread AgenceC(server, 3, 3333);
+        //std::thread AgenceBDD(server, 8, 777);
         std::thread BDD(BDD);
 
-        std::string Agence;
-        std::cout << "Dans quelle agence êtes-vous ? (A) , (B) ou (C) ";
-        std::cin >> Agence;
+        //std::string Agence;
+        /* std::cout << "Dans quelle agence êtes-vous ? (A) , (B) ou (C) ";
+         std::cin >> Agence;
 
-        if (Agence == "A" || Agence == "a") Agence = "1234";
-        else if (Agence == "B" || Agence == "b") Agence = "2345";
-        else if (Agence == "C" || Agence == "c") Agence = "3333";
-        else std::cout << "cette agence n'exite pas" << std::endl;
-
-
-        while (Agence == "1234" || Agence == "2345" || Agence == "3333") {
-            color(1);
-            std::cout << "Quelle numero de demande voulez-vous faire ?" << std::endl << "(1) Compte" << std::endl << "(2) Client" << std::endl << "(3) Demande de transaction" << std::endl;
-            std::cin >> demande_type;
-            std::thread client0(client, Agence, 21, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"),1,"truc");
-            std::future<int> resultat = std::async(client, Agence, 21, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), 1, "truc");
-            int valeur = resultat.get();
+         if (Agence == "A" || Agence == "a") Agence = "1234";
+         else if (Agence == "B" || Agence == "b") Agence = "2345";
+         else if (Agence == "C" || Agence == "c") Agence = "3333";
+         else std::cout << "cette agence n'exite pas" << std::endl;
 
 
-            client0.join();
-        }
-        if (Agence == "s") {
-            AgenceBDD.detach();
-            AgenceA.detach();
-            AgenceB.detach();
-            AgenceC.detach();
+         while (Agence == "1234" || Agence == "2345" || Agence == "3333") {
+             color(1);
+             std::cout << "Quelle numero de demande voulez-vous faire ?" << std::endl << "(1) Compte" << std::endl << "(2) Client" << std::endl << "(3) Demande de transaction" << std::endl;
+             std::cin >> demande_type;
+             std::thread client0(client, Agence, 21, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"),1,"truc");
+             std::future<int> resultat = std::async(client, Agence, 21, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), 1, "truc");
+             int valeur = resultat.get();
 
-        }
-        else {
-            AgenceBDD.join();
-            AgenceA.join();
-            AgenceB.join();
-            AgenceC.join();
-        }
+
+             client0.join();
+         }
+         if (Agence == "s") {
+             AgenceBDD.detach();
+             AgenceA.detach();
+             AgenceB.detach();
+             AgenceC.detach();
+
+         }
+         else {
+             AgenceBDD.join();
+             AgenceA.join();
+             AgenceB.join();
+             AgenceC.join();
+         }*/
+     }
+     catch (std::exception& e)
+     {
+         std::cerr << "Exception: " << e.what() << "\n";
     }
-    catch (std::exception& e)
-    {
-        std::cerr << "Exception: " << e.what() << "\n";
-    }*/
-    Compte compte1(15, 57, 1, "truc", 500, 2);
-    Compte compte2(69, 420, 1, "truc", 300, 2);
-    Compte final=compte1.transaction(compte2, 50);
-    cout << final.solde << endl;
-    cout << compte1.solde << endl;
-    compte1.paiement(200);
-    cout << compte1.solde << endl;
-
-
-    return 1;
 }
 
 

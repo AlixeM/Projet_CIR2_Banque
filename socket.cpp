@@ -207,6 +207,7 @@ void BDD() {
         //client("1234", 9, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), 0, "def");
         //client("2345", 9, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), 0, "def");
        // client("3333", 9, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), 0, "def");
+        interet();
     }
 }
 
