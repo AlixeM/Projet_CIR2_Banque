@@ -15,6 +15,9 @@
 #include <cstring>
 #include <boost/bind/bind.hpp>
 #include <boost/smart_ptr.hpp>
+#include <boost/archive/text_iarchive.hpp>
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/serialization/vector.hpp>
 #include <boost/asio.hpp>
 #include <boost/thread.hpp>
 #include <thread>

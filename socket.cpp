@@ -49,7 +49,7 @@ int client(std::string agence,int demande_type)
             boost::asio::write(s, boost::asio::buffer(line));
         }
         else if (demande_type == 2) {
-            Client customer(1001, "Tartempion1", "la", { 10000, 10001 }, "123");
+            Client customer(1001, "Tartempion1", "la","truc",{ 10000, 10001 }, "123");
             auto line = get_string_from_data(customer,demande_type);
             //std::cout << "Customer sent :" << std::endl << customer << std::endl;
             boost::asio::write(s, boost::asio::buffer(line));
@@ -125,7 +125,7 @@ void session(socket_ptr sock)
                 Compte customer = get_data_from_string<Compte>(data);
                 std::cout << "Customer received :" << std::endl << customer << std::endl;
                 ///////////////////////////////////////////////////
-                Client customer_back(1001, "10", "20", { 2, 30 }, "40");
+                Client customer_back(1001, "10", "20","truc" ,{ 2, 30 }, "40");
                 std::cout << "Customer sent :" << std::endl << customer_back << std::endl;
                 auto line = get_string_from_data(customer_back, 2);
                 boost::asio::write(*sock, boost::asio::buffer(line));
@@ -134,7 +134,7 @@ void session(socket_ptr sock)
                 Client customer = get_data_from_string<Client>(data);
                 std::cout << "Customer received :" << std::endl << customer << std::endl;
                 /////////////////////////////////////////
-                Client customer_back(1001, "10", "20", { 2, 30 }, "40");
+                Client customer_back(1001, "10", "20", "truc", { 2, 30 }, "40");
                 std::cout << "Customer sent :" << std::endl << customer_back << std::endl;
                 auto line = get_string_from_data(customer_back, 2);
                 boost::asio::write(*sock, boost::asio::buffer(line));

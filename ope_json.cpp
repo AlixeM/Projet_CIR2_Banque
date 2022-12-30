@@ -147,12 +147,15 @@ void add_agence3(ptree pt) {
 
 void add_subclient(ptree pt) {
 	ptree pt_save = lire_subclient();
+	Client nouv(pt);
 	ptree groupe_custom;
 	groupe_custom.push_back({ "",pt });
 	for (ptree::value_type& custom : pt_save.get_child("Clients")) {
 		Client client(custom.second);
-		ptree arbre = client.creer_ptree_client();
-		groupe_custom.push_back({ "", arbre });
+		if (client.numclient != nouv.numclient) {
+			ptree arbre = client.creer_ptree_client();
+			groupe_custom.push_back({ "", arbre });
+		}
 	}
 	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
 	ptree pt_write;

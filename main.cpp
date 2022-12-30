@@ -10,11 +10,11 @@
 #include "wx/wx.h"
 #include "wx/statline.h"
 #endif
-
+#include "main.hpp"
 #include "socket.cpp"
 
 int main() {
-    try
+    /*try
     {
         int demande_type;
         std::thread AgenceA(server, 4, 1234);
@@ -57,7 +57,14 @@ int main() {
     catch (std::exception& e)
     {
         std::cerr << "Exception: " << e.what() << "\n";
-    }
+    }*/
+    ptree test = lire_json_client();
+    Client client =recherche_numclient(test, 35);
+    cout << client.num_compte.size() << endl;
+    client.add_account(57);
+    cout << client.num_compte.size() << endl;
+
+
     return 1;
 }
 
