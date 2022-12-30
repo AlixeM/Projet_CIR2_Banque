@@ -12,6 +12,7 @@
 #endif
 #include "main.hpp"
 #include "socket.cpp"
+#include <future>
 
 int main() {
     try
@@ -38,6 +39,10 @@ int main() {
             std::cout << "Quelle numero de demande voulez-vous faire ?" << std::endl << "(1) Compte" << std::endl << "(2) Client" << std::endl << "(3) Demande de transaction" << std::endl;
             std::cin >> demande_type;
             std::thread client0(client, Agence, 21, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"),1,"truc");
+            std::future<int> resultat = std::async(client, Agence, 21, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), 1, "truc");
+            int valeur = resultat.get();
+
+
             client0.join();
         }
         if (Agence == "s") {
@@ -255,8 +260,6 @@ Frame3::Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, lo
     for (size_t i=0; i<taillevect; i++){
         Compte compte = search_numcompte(button, client.num_compte[i]);
         wxButton* compteButton = new wxButton(m_panel2, wxID_NEW, compte.nom);
-        buttons.push_back(compteButton);
-
         // Ajout du bouton au sizer vertical
         vbox->Add(compteButton, 0, wxALIGN_RIGHT | wxBOTTOM, 5);
     }
@@ -303,12 +306,16 @@ Frame4::Frame4(const wxString& title, const wxPoint& pos, const wxSize& size,
     wxBoxSizer *topSizer = new wxBoxSizer(wxVERTICAL);
     SetSizer(topSizer);
 
+    ptree compte = lire_json_compte();
+    Compte compte2 = search_name(compte,wxGetApp().NomCompte,wxGetApp().m_idClient);
+    int idCompte = compte2.numcompte;
+    int solde = compte2.solde;
 
-    wxStaticText *label = new wxStaticText(this, wxID_STATIC, wxString::Format("Numero du compte : %d", wxGetApp().idCompte));
+    wxStaticText *label = new wxStaticText(this, wxID_STATIC, wxString::Format("Numero du compte : %d", idCompte));
     label->SetFont(wxFont(12, wxSWISS , wxNORMAL, wxBOLD, false, "Arial"));
     topSizer->Add(label, 0, wxALIGN_CENTER | wxALL, 5);
 
-    wxStaticText *label2 = new wxStaticText(this, wxID_STATIC, wxString::Format("Solde : %d", wxGetApp().solde));
+    wxStaticText *label2 = new wxStaticText(this, wxID_STATIC, wxString::Format("Solde : %d", solde));
     label2->SetFont(wxFont(8, wxSWISS , wxNORMAL, wxBOLD, false, "Arial"));
     topSizer->Add(label2, 0, wxALIGN_CENTER | wxALL, 5);
 
@@ -402,8 +409,12 @@ void Frame::OnSubmitUpdate(wxCommandEvent& WXUNUSED(event))
         wxMessageBox("Il y a un champ vide !", "Erreur", wxOK | wxICON_ERROR);
     }
     else {
+        //std::thread client0(client, "777", 21, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), wxGetApp().m_idClient, mdp_client);
+        //std::future<int> resultat = std::async(client, "777", 21, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), wxGetApp().m_idClient, mdp_client);
+        //client0.join();
+        //if(resultat.get() ==1) {
         if(valid_mdp(wxGetApp().m_idClient,mdp_client)==1) {
-    Dialog dialog(NULL, -1, "Choisissez votre agence", Chiffre);
+            Dialog dialog(NULL, -1, "Choisissez votre agence", Chiffre);
     if (dialog.ShowModal() == wxID_OK) {
         int st = 0;
         Chiffre = dialog.GetValue();
@@ -474,6 +485,10 @@ void Frame2::Submit(wxCommandEvent& WXUNUSED(event))
         int num = random_number_client();
         std::vector<int> vect;
         Client client(num, nom, prenom, adresse, vect, mdp);
+        //std::thread client0(client, agence, 2, Compte(0, 0, 0, "def", 0, 0), client, wxGetApp().m_idClient, mdp_client);
+        //std::future<int> resultat = std::async(client, agence, 2, Compte(0, 0, 0, "def", 0, 0), client, wxGetApp().m_idClient, mdp_client);
+        //client0.join();
+        //if(resultat.get() ==1) {
         ptree tamere = client.creer_ptree_client();
         add_subclient(tamere);
         ptree tonpere = lire_subclient();
@@ -558,7 +573,7 @@ void Frame3::OnCreateAccount(wxCommandEvent& event) {
 
         // Créer le nouveau bouton
         wxButton* accountButton = new wxButton(m_panel2, wxID_NEW, name);
-        newbuttons.push_back(accountButton);
+        wxGetApp().NomCompte = name;
 
         // Ajouter un espace de 20 pixels et le bouton au sizer, si c'est le premier bouton
         if (client.num_compte.size()==0){
@@ -584,40 +599,6 @@ void Frame3::OnNewAccount(wxCommandEvent& event)
 {
     try
     {
-        ptree chose = lire_json_client();
-        wxButton* button = dynamic_cast<wxButton*>(event.GetEventObject());
-        wxString label = button->GetLabel();
-
-        for(size_t i = 0; i<buttons.size(); i++){
-            wxString label2 = buttons[i]->GetLabel();
-
-            if(label == label2){
-                Client client1 = recherche_numclient(chose, wxGetApp().m_idClient);
-                int num = client1.num_compte[i];
-                wxGetApp().idCompte = num;
-
-                ptree chose2 = lire_json_compte();
-                Compte solde1 = search_numcompte(chose2,num);
-                int solde = solde1.solde;
-                wxGetApp().solde = solde;
-            }
-        }
-        for(size_t i = 0; i<newbuttons.size(); i++){
-            wxString label3 = newbuttons[i]->GetLabel();
-            size_t taille = buttons.size();
-
-            if(label == label3){
-                Client client1 = recherche_numclient(chose, wxGetApp().m_idClient);
-                int num = client1.num_compte[i+taille];
-                wxGetApp().idCompte = num;
-
-                ptree chose2 = lire_json_compte();
-                Compte solde1 = search_numcompte(chose2,num);
-                int solde = solde1.solde;
-                wxGetApp().solde = solde;
-            }
-        }
-
         Frame4* frame = new Frame4("Pathys Bank", wxPoint(150, 150), wxSize(320, 360));
         frame->Show(true);
     }
@@ -642,22 +623,7 @@ void Frame4::Transaction(wxCommandEvent& WXUNUSED(event))
     TransactionDialog dlg(this, -1, "Transaction");
     if (dlg.ShowModal() == wxID_OK)
     {
-        int com2 = wxAtoi(m_account2Label->GetValue());
-        int montant = wxAtoi(m_amountCtrl->GetValue());
-
-        ptree trans = lire_json_compte();
-        Compte transa = search_numcompte(trans,wxGetApp().idCompte);
-
-        Compte transa2 = search_numcompte(trans,com2);
-
-        Compte test = transa.transaction(transa2,montant);
-
-        if (test.solde == transa2.solde) {
-            wxMessageBox("Action impossible", "Erreur", wxOK | wxICON_ERROR);
-        }
-        else {
-            wxMessageBox("Transaction validee", "Valide", wxOK | wxICON_INFORMATION);
-        }
+        // Récupérez les valeurs entrées par l'utilisateur ici.
     }
 }
 //------------------------------------------------------------------------------
@@ -666,14 +632,7 @@ void Frame4::Depot(wxCommandEvent& WXUNUSED(event))
     DepotDialog dlg(this, -1, "Depot");
     if (dlg.ShowModal() == wxID_OK)
     {
-        int montant = wxAtoi(m_amountCtrl->GetValue());
-
-        ptree dep = lire_agence2();
-        Compte depot = search_numcompte(dep,wxGetApp().idCompte);
-
-        depot.depot(montant);
-        wxMessageBox("Depot valide", "Valide", wxOK | wxICON_INFORMATION);
-
+        // Récupérez les valeurs entrées par l'utilisateur ici.
     }
 }
 //------------------------------------------------------------------------------

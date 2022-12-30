@@ -29,7 +29,7 @@ void color(int a) {
     SetConsoleTextAttribute(console_color, 7);
 }
 
-int client(std::string agence,int demande_type, Compte compteC, Client clienC,int intI,std::string stringS)
+int client(std::string agence,int demande_type, Compte compteC, Client clientC,int intI,std::string stringS)
 {
     try
     {
@@ -78,6 +78,10 @@ int client(std::string agence,int demande_type, Compte compteC, Client clienC,in
             std::cout << line << std::endl;
             boost::asio::write(s, boost::asio::buffer(line));
         }
+        else if (demande_type == 22) {
+            auto line = get_string_from_data(clientC, demande_type);
+            boost::asio::write(s, boost::asio::buffer(line));
+        }
 
         //REPONSE
         char reply[max_size_data];
@@ -105,6 +109,10 @@ int client(std::string agence,int demande_type, Compte compteC, Client clienC,in
             std::string tmp = reply;
             std::string tmp2 = tmp.substr(0, 1);
             return stoi(tmp2);
+        }
+        else if (get_data_from_string0(reply) == " 2") {
+            Client customer_back = get_data_from_string<Client>(reply);
+            
         }
         else std::cout << "error : " << std::endl << get_data_from_string0(reply) << std::endl;
 

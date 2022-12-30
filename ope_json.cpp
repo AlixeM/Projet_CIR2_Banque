@@ -8,7 +8,6 @@ ptree lire_json_client() {
 	return pt_lecture;
 }
 
-
 ptree lire_json_compte() {
 	ptree pt_lecture;
 	std::ifstream file_in("../compte.json");
@@ -314,4 +313,3 @@ Compte search_name(ptree pt, std::string name,int numclient) {
 		}
 	}
 }
-
