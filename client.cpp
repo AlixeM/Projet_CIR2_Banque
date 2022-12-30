@@ -94,7 +94,7 @@ void Client::add_account(int num) {
 
 Compte Compte::transaction(Compte compte, int montant) {
 	if (numclient != compte.numclient) {
-		if (solde > montant) {
+		if (solde >= montant) {
 			solde -= montant;
 			compte.solde += montant;
 		}
@@ -105,7 +105,7 @@ Compte Compte::transaction(Compte compte, int montant) {
 
 
 int Compte::paiement(int montant) {
-	if (solde > montant) {
+	if (solde >= montant) {
 		solde -= montant;
 		return 1;
 	}
@@ -118,7 +118,7 @@ void Compte::depot(int montant) {
 
 Compte Compte::transfert(Compte compte, int montant) {
 	if (numclient == compte.numclient) {
-		if (solde > montant) {
+		if (solde >= montant) {
 			solde -= montant;
 			compte.solde += montant;
 
