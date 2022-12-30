@@ -1,6 +1,28 @@
 {
     "Clients": [
         {
+            "Numclient": "8669",
+            "Nom": "Mrmichou",
+            "Prenom": "jean",
+            "Adresse": "ici",
+            "MDP": "motdepasse",
+            "Num_comptes": [
+                "8735",
+                "8758"
+            ]
+        },
+        {
+            "Numclient": "6132",
+            "Nom": "mmemichou",
+            "Prenom": "joseline",
+            "Adresse": "ici",
+            "MDP": "motdepasse",
+            "Num_comptes": [
+                "6204",
+                "6263"
+            ]
+        },
+        {
             "Numclient": "9840",
             "Nom": "Maerte",
             "Prenom": "Guillaume",

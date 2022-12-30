@@ -35,42 +35,42 @@ using std::endl;
 
 class Client {
 public:
-	int numclient;
-	std::string nom;
-	std::string prenom;
-	std::vector<int> num_compte;
-	std::string mdp;
+    int numclient;
+    std::string nom;
+    std::string prenom;
+    std::vector<int> num_compte;
+    std::string mdp;
     std::string adresse;
-	Client();
-	Client(const int num_client, std::string name, std::string surname, std::string home, std::vector<int> vec_compte, std::string password);
-	Client(ptree pt);
-	void add_account(int num);
-	ptree creer_ptree_client();
+    Client();
+    Client(const int num_client, std::string name, std::string surname, std::string home, std::vector<int> vec_compte, std::string password);
+    Client(ptree pt);
+    void add_account(int num);
+    ptree creer_ptree_client();
     friend std::ostream& operator<<(std::ostream& os, const Client& customer);
     template <class Archive>
     void serialize(Archive& ar, unsigned int version)
     {
         ar& numclient& nom& prenom& num_compte& mdp;
     }
-	
+
 };
 
 class Compte {
 public:
-	int numclient;
-	int numcompte;
-	std::string nom;
-	int type;
-	int solde;
-	int agence;
-	Compte();
-	Compte(const int num_client, const int num_compte, const int compte_type, std::string name,int argent, const int agency);
-	Compte(ptree pt);
-	ptree creer_ptree_compte();
-	Compte transaction(Compte compte,int montant);
-	int paiement(int montant);
-	void depot(int montant);
-	Compte transfert(Compte compte,int montant);
+    int numclient;
+    int numcompte;
+    std::string nom;
+    int type;
+    int solde;
+    int agence;
+    Compte();
+    Compte(const int num_client, const int num_compte, const int compte_type, std::string name,int argent, const int agency);
+    Compte(ptree pt);
+    ptree creer_ptree_compte();
+    Compte transaction(Compte compte,int montant);
+    int paiement(int montant);
+    void depot(int montant);
+    Compte transfert(Compte compte,int montant);
     friend std::ostream& operator<<(std::ostream& os, const Compte& compte);
     template <class Archive>
     void serialize(Archive& ar, unsigned int version)
@@ -139,8 +139,8 @@ public:
     virtual bool OnInit();
     int m_idClient;
     int agence;
-	int idCompte;
-	std::string NomCompte;
+    int idCompte;
+    int solde;
 };
 
 //------------------------------------------------------------------------------
@@ -211,10 +211,12 @@ class Frame3 : public wxFrame
 public:
     Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, long style);
 private:
+    std::vector<wxButton*> buttons;
+    std::vector<wxButton*> newbuttons;
     wxPanel* m_panel1;
     wxPanel* m_panel2;
     wxButton* addButton;
-	wxButton* compteButton;
+    wxButton* compteButton;
     wxBoxSizer* m_hBoxSizer;
     void Quit(wxCommandEvent& event);
     void OnCreateAccount(wxCommandEvent& event);
@@ -235,8 +237,8 @@ public:
     Frame4(const wxString& title, const wxPoint& pos, const wxSize& size,
            long style = wxDEFAULT_FRAME_STYLE);
 private:
-	wxStaticText *label;
-	wxStaticText *label2;
+    wxStaticText *label;
+    wxStaticText *label2;
     wxButton *tran;
     wxButton *dep;
     wxButton *ret;
@@ -359,3 +361,4 @@ private:
 
     void CreateControls();
 };
+

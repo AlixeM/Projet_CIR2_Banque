@@ -25,11 +25,11 @@
             "Agence": "2"
         },
         {
-            "Numclient": "69",
-            "Numcompte": "420",
-            "Type": "1",
-            "Nom": "bruh big chungus",
-            "Solde": "354",
+            "Numclient": "7100",
+            "Numcompte": "5913",
+            "Type": "2",
+            "Nom": "test2",
+            "Solde": "200",
             "Agence": "2"
         },
         {
@@ -37,7 +37,15 @@
             "Numcompte": "5162",
             "Type": "1",
             "Nom": "Compte2",
-            "Solde": "400",
+            "Solde": "0",
+            "Agence": "2"
+        },
+        {
+            "Numclient": "69",
+            "Numcompte": "420",
+            "Type": "1",
+            "Nom": "bruh big chungus",
+            "Solde": "104",
             "Agence": "2"
         },
         {
@@ -45,7 +53,7 @@
             "Numcompte": "5136",
             "Type": "2",
             "Nom": "Compte1",
-            "Solde": "450",
+            "Solde": "200",
             "Agence": "2"
         },
         {
@@ -93,14 +101,6 @@
             "Numcompte": "4057",
             "Type": "1",
             "Nom": "test",
-            "Solde": "0",
-            "Agence": "2"
-        },
-        {
-            "Numclient": "7100",
-            "Numcompte": "5913",
-            "Type": "2",
-            "Nom": "test2",
             "Solde": "0",
             "Agence": "2"
         },
@@ -183,6 +183,38 @@
             "Nom": "cheh",
             "Solde": "4",
             "Agence": "1"
+        },
+        {
+            "Numclient": "8669",
+            "Numcompte": "8758",
+            "Type": "1",
+            "Nom": "courant",
+            "Solde": "0",
+            "Agence": "3"
+        },
+        {
+            "Numclient": "8669",
+            "Numcompte": "8735",
+            "Type": "2",
+            "Nom": "Epargne",
+            "Solde": "0",
+            "Agence": "3"
+        },
+        {
+            "Numclient": "6132",
+            "Numcompte": "6263",
+            "Type": "2",
+            "Nom": "Test2",
+            "Solde": "0",
+            "Agence": "3"
+        },
+        {
+            "Numclient": "6132",
+            "Numcompte": "6204",
+            "Type": "1",
+            "Nom": "test1",
+            "Solde": "100",
+            "Agence": "3"
         },
         {
             "Numclient": "69",

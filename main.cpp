@@ -15,54 +15,54 @@
 #include <future>
 
 int main() {
-    try
+    /*try
     {
-        //int demande_type;
-        //std::thread AgenceA(server, 4, 1234);
-        //std::thread AgenceB(server, 2, 2345);
-        //std::thread AgenceC(server, 3, 3333);
-        //std::thread AgenceBDD(server, 8, 777);
-        std::thread BDD(BDD);
+        int demande_type;
+        std::thread AgenceA(server, 4, 1234);
+        std::thread AgenceB(server, 2, 2345);
+        std::thread AgenceC(server, 3, 3333);
+        std::thread AgenceBDD(server, 8, 777);
+        std::thread BDD(BDD);*/
 
-        //std::string Agence;
-        /* std::cout << "Dans quelle agence êtes-vous ? (A) , (B) ou (C) ";
-         std::cin >> Agence;
+        /*std::string Agence;
+        std::cout << "Dans quelle agence êtes-vous ? (A) , (B) ou (C) ";
+        std::cin >> Agence;
 
-         if (Agence == "A" || Agence == "a") Agence = "1234";
-         else if (Agence == "B" || Agence == "b") Agence = "2345";
-         else if (Agence == "C" || Agence == "c") Agence = "3333";
-         else std::cout << "cette agence n'exite pas" << std::endl;
-
-
-         while (Agence == "1234" || Agence == "2345" || Agence == "3333") {
-             color(1);
-             std::cout << "Quelle numero de demande voulez-vous faire ?" << std::endl << "(1) Compte" << std::endl << "(2) Client" << std::endl << "(3) Demande de transaction" << std::endl;
-             std::cin >> demande_type;
-             std::thread client0(client, Agence, 21, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"),1,"truc");
-             std::future<int> resultat = std::async(client, Agence, 21, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), 1, "truc");
-             int valeur = resultat.get();
+        if (Agence == "A" || Agence == "a") Agence = "1234";
+        else if (Agence == "B" || Agence == "b") Agence = "2345";
+        else if (Agence == "C" || Agence == "c") Agence = "3333";
+        else std::cout << "cette agence n'exite pas" << std::endl;
 
 
-             client0.join();
-         }
-         if (Agence == "s") {
-             AgenceBDD.detach();
-             AgenceA.detach();
-             AgenceB.detach();
-             AgenceC.detach();
+        while (Agence == "1234" || Agence == "2345" || Agence == "3333") {
+            color(1);
+            std::cout << "Quelle numero de demande voulez-vous faire ?" << std::endl << "(1) Compte" << std::endl << "(2) Client" << std::endl << "(3) Demande de transaction" << std::endl;
+            std::cin >> demande_type;
+            std::thread client0(client, Agence, 21, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"),1,"truc");
+            std::future<int> resultat = std::async(client, Agence, 21, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), 1, "truc");
+            int valeur = resultat.get();
 
-         }
-         else {
-             AgenceBDD.join();
-             AgenceA.join();
-             AgenceB.join();
-             AgenceC.join();
-         }*/
-     }
-     catch (std::exception& e)
-     {
-         std::cerr << "Exception: " << e.what() << "\n";
+
+            client0.join();
+        }
+        if (Agence == "s") {
+            AgenceBDD.detach();
+            AgenceA.detach();
+            AgenceB.detach();
+            AgenceC.detach();
+
+        }
+        else {
+            AgenceBDD.join();
+            AgenceA.join();
+            AgenceB.join();
+            AgenceC.join();
+        }
     }
+    catch (std::exception& e)
+    {
+        std::cerr << "Exception: " << e.what() << "\n";
+    }*/
 }
 
 
@@ -252,6 +252,7 @@ Frame3::Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, lo
     for (size_t i=0; i<taillevect; i++){
         Compte compte = search_numcompte(button, client.num_compte[i]);
         wxButton* compteButton = new wxButton(m_panel2, wxID_NEW, compte.nom);
+        buttons.push_back(compteButton);
         // Ajout du bouton au sizer vertical
         vbox->Add(compteButton, 0, wxALIGN_RIGHT | wxBOTTOM, 5);
     }
@@ -298,16 +299,13 @@ Frame4::Frame4(const wxString& title, const wxPoint& pos, const wxSize& size,
     wxBoxSizer *topSizer = new wxBoxSizer(wxVERTICAL);
     SetSizer(topSizer);
 
-    ptree compte = lire_json_compte();
-    Compte compte2 = search_name(compte,wxGetApp().NomCompte,wxGetApp().m_idClient);
-    int idCompte = compte2.numcompte;
-    int solde = compte2.solde;
 
-    wxStaticText *label = new wxStaticText(this, wxID_STATIC, wxString::Format("Numero du compte : %d", idCompte));
+
+    wxStaticText *label = new wxStaticText(this, wxID_STATIC, wxString::Format("Numero du compte : %d", wxGetApp().idCompte));
     label->SetFont(wxFont(12, wxSWISS , wxNORMAL, wxBOLD, false, "Arial"));
     topSizer->Add(label, 0, wxALIGN_CENTER | wxALL, 5);
 
-    wxStaticText *label2 = new wxStaticText(this, wxID_STATIC, wxString::Format("Solde : %d", solde));
+    wxStaticText *label2 = new wxStaticText(this, wxID_STATIC, wxString::Format("Solde : %d", wxGetApp().solde));
     label2->SetFont(wxFont(8, wxSWISS , wxNORMAL, wxBOLD, false, "Arial"));
     topSizer->Add(label2, 0, wxALIGN_CENTER | wxALL, 5);
 
@@ -401,36 +399,32 @@ void Frame::OnSubmitUpdate(wxCommandEvent& WXUNUSED(event))
         wxMessageBox("Il y a un champ vide !", "Erreur", wxOK | wxICON_ERROR);
     }
     else {
-        //std::thread client0(client, "777", 21, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), wxGetApp().m_idClient, mdp_client);
-        //std::future<int> resultat = std::async(client, "777", 21, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), wxGetApp().m_idClient, mdp_client);
-        //client0.join();
-        //if(resultat.get() ==1) {
         if(valid_mdp(wxGetApp().m_idClient,mdp_client)==1) {
             Dialog dialog(NULL, -1, "Choisissez votre agence", Chiffre);
-    if (dialog.ShowModal() == wxID_OK) {
-        int st = 0;
-        Chiffre = dialog.GetValue();
-        switch (Chiffre) {
-            case 1 :
-                st = 1;
-                break;
-            case 2 :
-                st = 2;
-                break;
-            case 3 :
-                st = 3;
-                break;
+            if (dialog.ShowModal() == wxID_OK) {
+                int st = 0;
+                Chiffre = dialog.GetValue();
+                switch (Chiffre) {
+                    case 1 :
+                        st = 1;
+                        break;
+                    case 2 :
+                        st = 2;
+                        break;
+                    case 3 :
+                        st = 3;
+                        break;
+                }
+                wxGetApp().agence = st;
+            }
+            Close();
+            Frame3* frame = new Frame3("Pathys Bank", wxPoint(150, 150), wxSize(480, 360), wxDEFAULT_FRAME_STYLE);
+            frame->Show(true);
         }
-        wxGetApp().agence = st;
+        else{
+            wxMessageBox("Mot de passe ou identifiant incorrect","ERREUR", wxOK | wxICON_ERROR);
+        }
     }
-    Close();
-    Frame3* frame = new Frame3("Pathys Bank", wxPoint(150, 150), wxSize(480, 360), wxDEFAULT_FRAME_STYLE);
-    frame->Show(true);
-    }
-    else{
-        wxMessageBox("Mot de passe ou identifiant incorrect","ERREUR", wxOK | wxICON_ERROR);
-    }
-}
 }
 
 
@@ -471,16 +465,13 @@ void Frame2::Submit(wxCommandEvent& WXUNUSED(event))
     std::string mdp = mdp_client->GetValue().ToStdString();
     if (mdp.empty()||prenom.empty()||adresse.empty()||nom.empty()) {
 
-    wxMessageBox("Il y a un champ vide !", "Erreur", wxOK | wxICON_ERROR);
+        wxMessageBox("Il y a un champ vide !", "Erreur", wxOK | wxICON_ERROR);
     }
     else {
         int num = random_number_client();
         std::vector<int> vect;
         Client client(num, nom, prenom, adresse, vect, mdp);
-        //std::thread client0(client, agence, 2, Compte(0, 0, 0, "def", 0, 0), client, wxGetApp().m_idClient, mdp_client);
-        //std::future<int> resultat = std::async(client, agence, 2, Compte(0, 0, 0, "def", 0, 0), client, wxGetApp().m_idClient, mdp_client);
-        //client0.join();
-        //if(resultat.get() ==1) {
+
         ptree tamere = client.creer_ptree_client();
         add_subclient(tamere);
         ptree tonpere = lire_subclient();
@@ -565,7 +556,7 @@ void Frame3::OnCreateAccount(wxCommandEvent& event) {
 
         // Créer le nouveau bouton
         wxButton* accountButton = new wxButton(m_panel2, wxID_NEW, name);
-        wxGetApp().NomCompte = name;
+        newbuttons.push_back(accountButton);
 
         // Ajouter un espace de 20 pixels et le bouton au sizer, si c'est le premier bouton
         if (client.num_compte.size()==0){
@@ -591,6 +582,39 @@ void Frame3::OnNewAccount(wxCommandEvent& event)
 {
     try
     {
+        ptree chose = lire_json_client();
+        wxButton* button = dynamic_cast<wxButton*>(event.GetEventObject());
+        wxString label = button->GetLabel();
+
+        for(size_t i = 0; i<buttons.size(); i++){
+            wxString label2 = buttons[i]->GetLabel();
+
+            if(label == label2){
+                Client client1 = recherche_numclient(chose, wxGetApp().m_idClient);
+                int num = client1.num_compte[i];
+                wxGetApp().idCompte = num;
+
+                ptree chose2 = lire_json_compte();
+                Compte solde1 = search_numcompte(chose2,num);
+                int solde = solde1.solde;
+                wxGetApp().solde = solde;
+            }
+        }
+        for(size_t i = 0; i<newbuttons.size(); i++){
+            wxString label3 = newbuttons[i]->GetLabel();
+            size_t taille = buttons.size();
+
+            if(label == label3){
+                Client client1 = recherche_numclient(chose, wxGetApp().m_idClient);
+                int num = client1.num_compte[i+taille];
+                wxGetApp().idCompte = num;
+
+                ptree chose2 = lire_json_compte();
+                Compte solde1 = search_numcompte(chose2,num);
+                int solde = solde1.solde;
+                wxGetApp().solde = solde;
+            }
+        }
         Frame4* frame = new Frame4("Pathys Bank", wxPoint(150, 150), wxSize(320, 360));
         frame->Show(true);
     }
