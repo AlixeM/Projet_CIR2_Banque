@@ -1,6 +1,0 @@
-# ninja log v5
-13	301	6940364961808485	CMakeFiles/PATHYS.exe.dir/resource.rc.res	71cf156c6f2c12c2
-3	3755	6940364996171641	CMakeFiles/PATHYS.exe.dir/main.cpp.obj	5ced45ad434c4f09
-7	3889	6940364997529973	CMakeFiles/PATHYS.exe.dir/client.cpp.obj	30aa4de9f96cf1cd
-10	3983	6940364998536673	CMakeFiles/PATHYS.exe.dir/ope_json.cpp.obj	e23aef1cac7fcacd
-3983	5510	6940365013750937	PATHYS.exe.exe	f35ea55107ed9191
