@@ -92,46 +92,39 @@ void Client::add_account(int num) {
 	num_compte.push_back(num);
 }
 
-int Compte::transaction(Compte compte, int montant) {
-	if (numclient = compte.numclient) {
-		return 0;
+Compte Compte::transaction(Compte compte, int montant) {
+	if (numclient != compte.numclient) {
+		if (solde > montant) {
+			solde -= montant;
+			compte.solde += montant;
+		}
 	}
-	if (solde < montant) {
-		return 0;
-	}
-	else {
-		solde -= montant;
-		compte.solde += montant;
-		return 1;
-	}
+	
+	return compte;
 }
+	
 
 int Compte::paiement(int montant) {
-	if (solde < montant) {
-		return 0;
-	}
-	else {
+	if (solde > montant) {
 		solde -= montant;
 		return 1;
 	}
+	return 0;
 }
 
 void Compte::depot(int montant) {
 	solde += montant;
 }
 
-int Compte::transfert(Compte compte, int montant) {
-	if (numclient != compte.numclient) {
-		return 0;
+Compte Compte::transfert(Compte compte, int montant) {
+	if (numclient == compte.numclient) {
+		if (solde < montant) {
+			solde -= montant;
+			compte.solde += montant;
+			
+		}
 	}
-	if (solde < montant) {
-		return 0;
-	}
-	else {
-		solde -= montant;
-		compte.solde += montant;
-		return 1;
-	}
+	return compte;
 }
 
 /*Client transaction(Client client1, Compte compte1, Client client2, Compte compte2, int montant) {
