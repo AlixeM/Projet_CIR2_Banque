@@ -1,4 +1,4 @@
-# CMakeList.txt : fichier projet CMake de niveau supérieur, effectuez une configuration globale
+# CMakeList.txt : fichier projet CMake de niveau supÃ©rieur, effectuez une configuration globale
 # et incluez les sous-projets ici.
 #
 cmake_minimum_required (VERSION 3.8)
@@ -31,7 +31,8 @@ endif (MSVC)
 ##target_include_directories (customer PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 find_package(Boost 1.80.0 COMPONENTS serialization REQUIRED)
 find_package(Boost 1.80.0 COMPONENTS system thread regex serialization REQUIRED)
-#add_executable(socket socket.cpp socket_tools.cpp
+add_executable(socket socket.cpp socket_tools.cpp)
+target_link_libraries (socket LINK_PUBLIC customer ${Boost_LIBRARIES})
 
 include_directories(${Boost_INCLUDE_DIRS})
 
@@ -41,8 +42,6 @@ include(${wxWidgets_USE_FILE}) #################################################
 
 
 add_executable(PATHYS.exe main.cpp main.hpp client.cpp client.hpp ope_json.h ope_json.cpp resource.rc) ###################################
-
-#target_link_libraries (PATHYS.exe LINK_PUBLIC customer ${Boost_LIBRARIES})
 
 if(MSVC) ########################################################################################################################
     set_target_properties(PATHYS.exe PROPERTIES LINK_FLAGS /SUBSYSTEM:WINDOWS) ################################################
