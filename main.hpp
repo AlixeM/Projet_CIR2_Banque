@@ -134,6 +134,7 @@ class Application : public wxApp
 public:
     virtual bool OnInit();
     int m_idClient;
+    int agence;
 };
 
 //------------------------------------------------------------------------------

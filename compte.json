@@ -25,6 +25,14 @@
             "Agence": "2"
         },
         {
+            "Numclient": "7100",
+            "Numcompte": "9513",
+            "Type": "2",
+            "Nom": "testsitumarchetbg",
+            "Solde": "0",
+            "Agence": "2"
+        },
+        {
             "Numclient": "69",
             "Numcompte": "420",
             "Type": "1",

@@ -72,7 +72,6 @@ int main() {
 //------------------------------------------------------------------------------
 //WxWidget
 //------------------------------------------------------------------------------
-wxString Agence;
 int nbcompte = 0;
 
 BEGIN_EVENT_TABLE(Frame, wxFrame)
@@ -212,15 +211,15 @@ Frame3::Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, lo
     wxStaticText* nameText = new wxStaticText(m_panel1, wxID_ANY, name1, wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
 
     std::string name2 = client.prenom;
-    wxString name3 = wxString::Format("Prenom : %s", name);
+    wxString name3 = wxString::Format("Prenom : %s", name2);
     wxStaticText* firstNameText = new wxStaticText(m_panel1, wxID_ANY, name3, wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
 
-    wxString id = wxString::Format("Identifiant : %s", wxGetApp().m_idClient);
+    wxString id = wxString::Format("Identifiant : %d", wxGetApp().m_idClient);
     wxStaticText* idText = new wxStaticText(m_panel1, wxID_ANY, id, wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
 
     //size_t str = client.num_compte.size();
-    //wxString nbc = wxString::Format("Identifiant : %s", str);
-    wxStaticText* accountNumberText = new wxStaticText(m_panel1, wxID_ANY, "Nombre de comptes :", wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
+    //wxString nbc = wxString::Format("Nb compte : %d", str);
+    //wxStaticText* accountNumberText = new wxStaticText(m_panel1, wxID_ANY, nbc, wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
 
     // Chargement de l'icône de silhouette
     wxIcon icon(wxICON(monicone2));
@@ -235,14 +234,22 @@ Frame3::Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, lo
     vBoxSizer->Add(nameText, 0, wxALIGN_LEFT  | wxALL, 10);
     vBoxSizer->Add(firstNameText, 0, wxALIGN_LEFT  | wxALL, 10);
     vBoxSizer->Add(idText, 0, wxALIGN_LEFT  | wxALL, 10);
-    vBoxSizer->Add(accountNumberText, 0, wxALIGN_LEFT  | wxALL, 10);
+    //vBoxSizer->Add(accountNumberText, 0, wxALIGN_LEFT  | wxALL, 10);
     vBoxSizer->AddSpacer(80);
 
 // Ajout du sizer vertical au panel gauche
     m_panel1->SetSizer(vBoxSizer);
 
 // Création du bouton "Ajouter un compte"
-    wxButton* addButton = new wxButton(m_panel2, wxID_ADD, "Ajouter un compte");
+    wxButton* addButton = new wxButton(m_panel2, wxID_ADD, "Ajouter un compte",wxPoint(300,180));//
+
+    size_t taillevect = client.num_compte.size();
+    for (size_t i=0; i<taillevect; i++){
+        ptree button = lire_json_compte();
+        Compte compte = search_numcompte(button, client.num_compte[i]);
+        wxButton* addButton = new wxButton(m_panel2, wxID_ADD, compte.nom);
+    }
+
 
 // Ajout du bouton au panel droit
     m_panel2->SetSizer(new wxBoxSizer(wxVERTICAL));
@@ -371,20 +378,20 @@ void Frame::OnSubmitUpdate(wxCommandEvent& WXUNUSED(event))
         if(valid_mdp(wxGetApp().m_idClient,mdp_client)==1) {
     Dialog dialog(NULL, -1, "Choisissez votre agence", Chiffre);
     if (dialog.ShowModal() == wxID_OK) {
-        wxString st = "Aucun";
+        int st = 0;
         Chiffre = dialog.GetValue();
         switch (Chiffre) {
             case 1 :
-                st = "Listenbourg";
+                st = 1;
                 break;
             case 2 :
-                st = "Lille";
+                st = 2;
                 break;
             case 3 :
-                st = "Londres";
+                st = 3;
                 break;
         }
-        Agence = st;
+        wxGetApp().agence = st;
     }
     Close();
     Frame3* frame = new Frame3("Pathys Bank", wxPoint(150, 150), wxSize(480, 360), wxDEFAULT_FRAME_STYLE);
@@ -462,12 +469,15 @@ void Frame3::Quit(wxCommandEvent& WXUNUSED(event))
 }
 //------------------------------------------------------------------------------
 wxBoxSizer* vBoxSizer = new wxBoxSizer(wxVERTICAL);
+bool firstButton = true;
+
 void Frame3::OnCreateAccount(wxCommandEvent& event) {
     // Incrémenter le compteur de comptes
     nbcompte += 1;
 
     // Obtenir le nom du compte à partir de l'utilisateur
     wxString name = wxGetTextFromUser("Entrez le nom du compte :", "Nom du compte", "", this);
+    std::string name2 = name.ToStdString();
 
 // Afficher la boîte de dialogue de sélection de type de compte
     wxArrayString accountTypes;
@@ -477,16 +487,55 @@ void Frame3::OnCreateAccount(wxCommandEvent& event) {
 
     if (typeDialog.ShowModal() == wxID_OK)
     {
+        int idCompte = random_number_compte();
+        int typeCompte;
+        int solde = 0;
+
         wxString type = accountTypes[typeDialog.GetSelection()];
+        if (type == "Epargne"){
+            typeCompte = 2;
+        }
+        else{
+            typeCompte = 1;
+        }
+
+        Compte compte(wxGetApp().m_idClient, idCompte, typeCompte, name2, solde, wxGetApp().agence);
+        ptree treecompte = compte.creer_ptree_compte();
+        if (wxGetApp().agence == 1){
+            add_agence1(treecompte);
+        }
+        if (wxGetApp().agence == 2){
+            add_agence2(treecompte);
+        }
+        if (wxGetApp().agence == 3){
+            add_agence3(treecompte);
+        }
+
+        ptree nom = lire_json_client();
+        Client client = recherche_numclient(nom,wxGetApp().m_idClient);
+        client.add_account(idCompte);
+
+        ptree ag1 = lire_agence1();
+        ptree ag2 = lire_agence2();
+        ptree ag3 = lire_agence3();
+
+        ptree sum = json_assemble(ag1,ag2,ag3);
+        update_centrale_compte(sum);
 
         // Créer le nouveau bouton
         wxButton* accountButton = new wxButton(m_panel2, wxID_NEW, name);
 
-        // Ajouter le bouton au sizer
+        // Ajouter un espace de 20 pixels et le bouton au sizer, si c'est le premier bouton
+        if (firstButton)
+        {
+            vBoxSizer->AddSpacer(25);
+            firstButton = false;
+        }
         vBoxSizer->Add(accountButton, 0, wxALIGN_LEFT | wxALL, 5);
 
         // Mettre à jour le sizer du panel
-        vBoxSizer->Fit(m_panel2);
+        m_panel2->SetSizer(vBoxSizer);
+        m_panel2->Layout();
 
         // Connecter l'événement "cliqué" du bouton au gestionnaire d'événements OnNewAccount
         accountButton->Connect(wxID_NEW, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(Frame3::OnNewAccount));
