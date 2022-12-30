@@ -221,6 +221,7 @@ Frame3::Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, lo
     //wxString nbc = wxString::Format("Nb compte : %d", str);
     //wxStaticText* accountNumberText = new wxStaticText(m_panel1, wxID_ANY, nbc, wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
 
+
     // Chargement de l'icône de silhouette
     wxIcon icon(wxICON(monicone2));
 
@@ -234,30 +235,41 @@ Frame3::Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, lo
     vBoxSizer->Add(nameText, 0, wxALIGN_LEFT  | wxALL, 10);
     vBoxSizer->Add(firstNameText, 0, wxALIGN_LEFT  | wxALL, 10);
     vBoxSizer->Add(idText, 0, wxALIGN_LEFT  | wxALL, 10);
+
     //vBoxSizer->Add(accountNumberText, 0, wxALIGN_LEFT  | wxALL, 10);
     vBoxSizer->AddSpacer(80);
 
 // Ajout du sizer vertical au panel gauche
     m_panel1->SetSizer(vBoxSizer);
 
-
 // Création du bouton "Ajouter un compte"
     wxButton* addButton = new wxButton(m_panel2, wxID_ADD, "Ajouter un compte",wxPoint(300,180));//
-
 
 
     size_t taillevect = client.num_compte.size();
     ptree button = lire_json_compte();
 
+// Création d'un sizer vertical pour aligner les boutons en colonne sur la droite
+    wxBoxSizer* vbox = new wxBoxSizer(wxVERTICAL);
+
     for (size_t i=0; i<taillevect; i++){
         Compte compte = search_numcompte(button, client.num_compte[i]);
         wxButton* compteButton = new wxButton(m_panel2, wxID_NEW, compte.nom);
+        // Ajout du bouton au sizer vertical
+        vbox->Add(compteButton, 0, wxALIGN_RIGHT | wxBOTTOM, 5);
     }
 
+// Création d'un sizer principal qui va contenir le sizer vertical et le bouton "addButton"
+    wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
 
-// Ajout du bouton au panel droit
-    m_panel2->SetSizer(new wxBoxSizer(wxVERTICAL));
-    m_panel2->GetSizer()->Add(addButton, 0, wxALIGN_CENTER | wxALL, 5);
+// Ajout du sizer vertical au sizer principal
+    mainSizer->Add(vbox, 0, wxALIGN_RIGHT, 0);
+
+// Ajout du bouton "addButton" au sizer principal en dessous du sizer vertical
+    mainSizer->Add(addButton, 0, wxALIGN_CENTER | wxALL, 5);
+
+// Ajout du sizer principal au panel droit
+    m_panel2->SetSizer(mainSizer);
 
 // Création du sizer horizontal pour ajouter les panels et la ligne de séparation
     m_hBoxSizer = new wxBoxSizer(wxHORIZONTAL);
@@ -269,10 +281,8 @@ Frame3::Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, lo
     wxSizer* topSizer = new wxBoxSizer(wxVERTICAL);
     topSizer->Add(m_hBoxSizer, 0, wxALIGN_CENTER | wxALL, 5);
     SetSizer(topSizer);
-
     SetAutoLayout(true);
     topSizer->SetSizeHints(this);
-
 }
 
 //------------------------------------------------------------------------------
@@ -283,11 +293,18 @@ Frame4::Frame4(const wxString& title, const wxPoint& pos, const wxSize& size,
     SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_BTNFACE));
 
     wxMenu *menuFichier = new wxMenu;
-
     menuFichier->Append(App_Quit,"Quitter l'application");
     wxMenuBar *menuBarre = new wxMenuBar();
     menuBarre->Append(menuFichier,("Fichier"));
     SetMenuBar(menuBarre);
+
+    wxBoxSizer *topSizer = new wxBoxSizer(wxVERTICAL);
+    SetSizer(topSizer);
+
+    int variableInt = wxGetApp().idCompte;
+    wxStaticText *label = new wxStaticText(this, wxID_STATIC, wxString::Format("Numero du compte : %d", variableInt));
+    label->SetFont(wxFont(12, wxSWISS , wxNORMAL, wxBOLD, false, "Arial"));
+    topSizer->Add(label, 0, wxALIGN_CENTER | wxALL, 5);
 
     tran = new wxButton(this,Tran,"Transaction", wxPoint(110,60),wxDefaultSize);
     dep = new wxButton(this,Dep,"Depot", wxPoint(110,100),wxDefaultSize);
@@ -534,11 +551,14 @@ void Frame3::OnCreateAccount(wxCommandEvent& event) {
         wxButton* accountButton = new wxButton(m_panel2, wxID_NEW, name);
 
         // Ajouter un espace de 20 pixels et le bouton au sizer, si c'est le premier bouton
-        if (firstButton)
-        {
-            vBoxSizer->AddSpacer(25);
-            firstButton = false;
+        if (client.num_compte.size()==0){
+            if (firstButton)
+            {
+                vBoxSizer->AddSpacer(25);
+                firstButton = false;
+            }
         }
+
         vBoxSizer->Add(accountButton, 0, wxALIGN_LEFT | wxALL, 5);
 
         // Mettre à jour le sizer du panel
@@ -625,6 +645,7 @@ TransactionDialog::TransactionDialog(wxWindow *parent,
 }
 
 void TransactionDialog::CreateControls() {
+
     wxBoxSizer *topSizer = new wxBoxSizer(wxVERTICAL);
     SetSizer(topSizer);
 

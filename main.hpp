@@ -135,6 +135,7 @@ public:
     virtual bool OnInit();
     int m_idClient;
     int agence;
+	int idCompte;
 };
 
 //------------------------------------------------------------------------------
@@ -229,6 +230,7 @@ public:
     Frame4(const wxString& title, const wxPoint& pos, const wxSize& size,
            long style = wxDEFAULT_FRAME_STYLE);
 private:
+	wxStaticText *label;
     wxButton *tran;
     wxButton *dep;
     wxButton *ret;
