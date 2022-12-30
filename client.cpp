@@ -104,6 +104,7 @@ Compte Compte::transaction(Compte compte, int montant) {
 }
 	
 
+
 int Compte::paiement(int montant) {
 	if (solde > montant) {
 		solde -= montant;
@@ -113,7 +114,7 @@ int Compte::paiement(int montant) {
 }
 
 void Compte::depot(int montant) {
-	solde += montant;
+    solde += montant;
 }
 
 Compte Compte::transfert(Compte compte, int montant) {

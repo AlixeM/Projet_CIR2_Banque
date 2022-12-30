@@ -68,9 +68,11 @@ public:
 	Compte(ptree pt);
 	ptree creer_ptree_compte();
 	Compte transaction(Compte compte,int montant);
-	int paiement(int montant);
-	void depot(int montant);
-	Compte transfert(Compte compte,int montant);
+
+    int paiement(int montant);
+    void depot(int montant);
+    Compte transfert(Compte compte,int montant);
+
     friend std::ostream& operator<<(std::ostream& os, const Compte& compte);
     template <class Archive>
     void serialize(Archive& ar, unsigned int version)
@@ -140,7 +142,8 @@ public:
     int m_idClient;
     int agence;
 	int idCompte;
-	std::string NomCompte;
+    int solde;
+
 };
 
 //------------------------------------------------------------------------------
@@ -211,6 +214,8 @@ class Frame3 : public wxFrame
 public:
     Frame3(const wxString& title, const wxPoint& pos, const wxSize& size, long style);
 private:
+    std::vector<wxButton*> buttons;
+    std::vector<wxButton*> newbuttons;
     wxPanel* m_panel1;
     wxPanel* m_panel2;
     wxButton* addButton;
@@ -241,6 +246,8 @@ private:
     wxButton *dep;
     wxButton *ret;
     wxButton *trans;
+    wxTextCtrl* m_account2Label;
+    wxTextCtrl* m_amountCtrl;
     void Quit(wxCommandEvent& event);
     void Transaction(wxCommandEvent& event);
     void Depot(wxCommandEvent& event);

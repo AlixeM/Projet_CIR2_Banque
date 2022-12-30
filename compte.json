@@ -25,6 +25,38 @@
             "Agence": "2"
         },
         {
+            "Numclient": "7100",
+            "Numcompte": "7260",
+            "Type": "1",
+            "Nom": "test",
+            "Solde": "0",
+            "Agence": "2"
+        },
+        {
+            "Numclient": "2444",
+            "Numcompte": "1284",
+            "Type": "1",
+            "Nom": "ajout",
+            "Solde": "0",
+            "Agence": "2"
+        },
+        {
+            "Numclient": "2444",
+            "Numcompte": "2513",
+            "Type": "2",
+            "Nom": "test2",
+            "Solde": "0",
+            "Agence": "2"
+        },
+        {
+            "Numclient": "2444",
+            "Numcompte": "2493",
+            "Type": "2",
+            "Nom": "test1",
+            "Solde": "0",
+            "Agence": "2"
+        },
+        {
             "Numclient": "9840",
             "Numcompte": "415",
             "Type": "1",
@@ -85,7 +117,7 @@
             "Numcompte": "5136",
             "Type": "2",
             "Nom": "Compte1",
-            "Solde": "0",
+            "Solde": "1000",
             "Agence": "2"
         },
         {
