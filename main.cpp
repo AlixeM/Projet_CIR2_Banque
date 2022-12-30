@@ -13,7 +13,7 @@
 #include "wx/statline.h"
 #endif
 
-#include "main.hpp"
+#include "socket.cpp"
 
 int main() {
     try
