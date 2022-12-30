@@ -29,7 +29,7 @@ void color(int a) {
     SetConsoleTextAttribute(console_color, 7);
 }
 
-int client(std::string agence,int demande_type)
+int client(std::string agence,int demande_type, Compte compteC, Client clienC,int intI,std::string stringS)
 {
     try
     {
@@ -71,7 +71,12 @@ int client(std::string agence,int demande_type)
             //demande à la BDD pour recuperer les nouvelles infos
             std::string line = "Passez les infos plz + les interets plz 19";
             boost::asio::write(s, boost::asio::buffer(line));
-
+        }
+        else if (demande_type == 21) {
+            //int valid_mdp(int numclient, std::string mdp);
+            std::string line = std::to_string(intI) + " " + stringS + " 21";
+            std::cout << line << std::endl;
+            boost::asio::write(s, boost::asio::buffer(line));
         }
 
         //REPONSE
@@ -95,6 +100,11 @@ int client(std::string agence,int demande_type)
         }
         else if (get_data_from_string0(reply) == "9") {
 
+        }
+        else if (get_data_from_string0(reply) == "21") {
+            std::string tmp = reply;
+            std::string tmp2 = tmp.substr(0, 1);
+            return stoi(tmp2);
         }
         else std::cout << "error : " << std::endl << get_data_from_string0(reply) << std::endl;
 
@@ -142,7 +152,7 @@ void session(socket_ptr sock)
             else if (get_data_from_string0(data) == " 3") {
                 std::cout << "demande de transaction recu" << std::endl;
 
-                client("777", 13);
+                client("777", 13, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), 0, "def");
 
                 boost::asio::write(*sock, boost::asio::buffer("Nous avons bien recu votre demande de transaction 3"));
             }
@@ -153,7 +163,7 @@ void session(socket_ptr sock)
             }
             else if (get_data_from_string0(data) == " 9") {
                 //établi la connexion entre les agences et la BDD
-                client("777", 19);
+                client("777", 19, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), 0, "def");
                 boost::asio::write(*sock, boost::asio::buffer("message de confirmation 9"));
             }
             else if (get_data_from_string0(data) == "19") {
@@ -161,6 +171,15 @@ void session(socket_ptr sock)
                 //fonction appelé pour envoie dans la BDD
                 boost::asio::write(*sock, boost::asio::buffer("message de confirmation 19"/*infos sous forme de vecteur ??? ou plusieurs boost::asio::write ????*/));
             }
+            else if (get_data_from_string0(data) == "21") {
+                std::vector<std::string> tmp2 = separerString(data);
+                int tmp3 = stoi(tmp2[0]);
+                std::string tmp4 = tmp2[1];
+                int tmp5 = 1; //valid_mdp(tmp3, tmp4);
+                std::string retour = std::to_string(tmp5) +"21";
+                boost::asio::write(*sock, boost::asio::buffer(retour));
+            }
+
             else std::cout << "Customer received :" << std::endl << get_data_from_string0(data) << std::endl;
 
         }
@@ -177,9 +196,9 @@ void BDD() {
         std::chrono::seconds five_seconds = std::chrono::seconds(5);
         std::this_thread::sleep_for(five_seconds);
         //demande à A1,A2 et A3 les nouvelles infos
-        client("1234", 9);
-        client("2345", 9);
-        client("3333", 9);
+        //client("1234", 9, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), 0, "def");
+        //client("2345", 9, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), 0, "def");
+       // client("3333", 9, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"), 0, "def");
     }
 }
 

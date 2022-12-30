@@ -14,7 +14,7 @@
 #include "socket.cpp"
 
 int main() {
-    /*try
+    try
     {
         int demande_type;
         std::thread AgenceA(server, 4, 1234);
@@ -37,7 +37,7 @@ int main() {
             color(1);
             std::cout << "Quelle numero de demande voulez-vous faire ?" << std::endl << "(1) Compte" << std::endl << "(2) Client" << std::endl << "(3) Demande de transaction" << std::endl;
             std::cin >> demande_type;
-            std::thread client0(client, Agence, demande_type);
+            std::thread client0(client, Agence, 21, Compte(0, 0, 0, "def", 0, 0), Client(0, "def", "def", "def", { 0 }, "def"),1,"truc");
             client0.join();
         }
         if (Agence == "s") {
@@ -57,12 +57,12 @@ int main() {
     catch (std::exception& e)
     {
         std::cerr << "Exception: " << e.what() << "\n";
-    }*/
-    ptree test = lire_json_client();
+    }
+    /*ptree test = lire_json_client();
     Client client =recherche_numclient(test, 35);
     cout << client.num_compte.size() << endl;
     client.add_account(57);
-    cout << client.num_compte.size() << endl;
+    cout << client.num_compte.size() << endl;*/
 
 
     return 1;

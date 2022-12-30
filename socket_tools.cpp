@@ -1,5 +1,8 @@
 #include "socket_tools.hpp"
 #include "main.hpp"
+#include <sstream>
+#include <vector>
+
 std::string to_string(boost::asio::streambuf &buffer)
 {
     boost::asio::streambuf::const_buffers_type data = buffer.data();
@@ -41,6 +44,17 @@ std::string get_data_from_string0(std::string s) {
     return tmp2;
 
 }
+
+std::vector<std::string> separerString(const std::string& s) {
+    std::vector<std::string> mots;
+    std::istringstream iss(s);
+    std::string mot;
+    while (iss >> mot) {
+        mots.push_back(mot);
+    }
+    return mots;
+}
+
 template
 Client get_data_from_string(const char* s);
 template
