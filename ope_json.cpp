@@ -286,3 +286,28 @@ void tri3(ptree pt) {
 	write_json(file_out, pt3);
 	file_out.close();
 }
+
+int diff_nom(int numclient, std::string nom) {
+	ptree root = lire_json_client();
+	ptree root2 = lire_json_compte();
+	Client client = recherche_numclient(root, numclient);
+	size_t taille = client.num_compte.size();
+	for (size_t i; i < taille; i++) {
+		int numc = client.num_compte[i];
+		Compte compte = search_numcompte(root2, numc);
+		if (compte.nom == nom) {
+			return 0;
+		}
+	}
+	return 1;
+}
+
+int search_name(ptree pt, std::string name) {
+	for (ptree::value_type& compte : pt.get_child("Comptes"))
+	{
+		Compte acc(compte.second);
+		if (acc.nom == name) {
+			return acc.numcompte;
+		}
+	}
+}

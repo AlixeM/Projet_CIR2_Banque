@@ -125,6 +125,10 @@ void tri2(ptree pt);
 
 void tri3(ptree pt);
 
+int search_name(ptree pt, std::string name);
+
+int diff_nom(int numclient, std::string nom);
+
 
 //------------------------------------------------------------------------------
 //WxWIDGET
