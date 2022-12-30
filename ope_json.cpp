@@ -43,7 +43,7 @@ Compte search_numcompte(ptree pt, int num) {
 
 		if (acc.numcompte == num) {
 			std::cout << "Nom : " << acc.nom << std::endl;
-			std::cout << "Numéro de compte : " << acc.numcompte << std::endl;
+			std::cout << "Numï¿½ro de compte : " << acc.numcompte << std::endl;
 			std::cout << "Solde : " << acc.solde << std::endl;
 
 			return acc;
@@ -95,63 +95,61 @@ ptree lire_subclient() {
 }
 
 void add_agence1(ptree pt) {
-	ptree pt_save = lire_agence1();
-	Compte nouv(pt);
-	ptree groupe_acc;
-	groupe_acc.push_back({ "",pt });
-	for (ptree::value_type& compte : pt_save.get_child("Comptes")) {
-		Compte acc(compte.second);
-		if (acc.numcompte != nouv.numcompte) {
-			ptree arbre = acc.creer_ptree_compte();
-			groupe_acc.push_back({ "", arbre });
-		}
-	}
-	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
-	ptree pt_write;
-	pt_write.add_child("Comptes", groupe_acc);
-	std::ofstream file_out("../agence1.json");
-	write_json(file_out, pt_write);
-	file_out.close();
+    ptree pt_save = lire_agence1();
+    Compte nouv(pt);
+    ptree groupe_acc;
+    groupe_acc.push_back({ "",pt });
+    for (ptree::value_type& compte: pt_save.get_child("Comptes")) {
+        Compte acc(compte.second);
+        if (acc.numcompte != nouv.numcompte) {
+            ptree arbre = acc.creer_ptree_compte();
+            groupe_acc.push_back({ "", arbre });
+        }
+    }
+    //on rï¿½ï¿½crit ensuite le json avec les nouvelles donnï¿½es ajoutï¿½es aux anciennes
+    ptree pt_write;
+    pt_write.add_child("Comptes", groupe_acc);
+    std::ofstream file_out("../agence1.json");
+    write_json(file_out, pt_write);
+    file_out.close();
 }
-
 void add_agence2(ptree pt) {
-	ptree pt_save = lire_agence2();
-	Compte nouv(pt);
-	ptree groupe_acc;
-	groupe_acc.push_back({ "",pt });
-	for (ptree::value_type& compte : pt_save.get_child("Comptes")) {
-		Compte acc(compte.second);
-		if (acc.numcompte != nouv.numcompte) {
-			ptree arbre = acc.creer_ptree_compte();
-			groupe_acc.push_back({ "", arbre });
-		}
-	}
-	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
-	ptree pt_write;
-	pt_write.add_child("Comptes", groupe_acc);
-	std::ofstream file_out("../agence2.json");
-	write_json(file_out, pt_write);
-	file_out.close();
+    ptree pt_save = lire_agence2();
+    Compte nouv(pt);
+    ptree groupe_acc;
+    groupe_acc.push_back({ "",pt });
+    for (ptree::value_type& compte: pt_save.get_child("Comptes")) {
+        Compte acc(compte.second);
+        if (acc.numcompte != nouv.numcompte) {
+            ptree arbre = acc.creer_ptree_compte();
+            groupe_acc.push_back({ "", arbre });
+        }
+    }
+    //on rï¿½ï¿½crit ensuite le json avec les nouvelles donnï¿½es ajoutï¿½es aux anciennes
+    ptree pt_write;
+    pt_write.add_child("Comptes", groupe_acc);
+    std::ofstream file_out("../agence2.json");
+    write_json(file_out, pt_write);
+    file_out.close();
 }
-
 void add_agence3(ptree pt) {
-	ptree pt_save = lire_agence3();
-	Compte nouv(pt);
-	ptree groupe_acc;
-	groupe_acc.push_back({ "",pt });
-	for (ptree::value_type& compte : pt_save.get_child("Comptes")) {
-		Compte acc(compte.second);
-		if (acc.numcompte != nouv.numcompte) {
-			ptree arbre = acc.creer_ptree_compte();
-			groupe_acc.push_back({ "", arbre });
-		}
-	}
-	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
-	ptree pt_write;
-	pt_write.add_child("Comptes", groupe_acc);
-	std::ofstream file_out("../agence3.json");
-	write_json(file_out, pt_write);
-	file_out.close();
+    ptree pt_save = lire_agence3();
+    Compte nouv(pt);
+    ptree groupe_acc;
+    groupe_acc.push_back({ "",pt });
+    for (ptree::value_type& compte: pt_save.get_child("Comptes")) {
+        Compte acc(compte.second);
+        if (acc.numcompte != nouv.numcompte) {
+            ptree arbre = acc.creer_ptree_compte();
+            groupe_acc.push_back({ "", arbre });
+        }
+    }
+    //on rï¿½ï¿½crit ensuite le json avec les nouvelles donnï¿½es ajoutï¿½es aux anciennes
+    ptree pt_write;
+    pt_write.add_child("Comptes", groupe_acc);
+    std::ofstream file_out("../agence3.json");
+    write_json(file_out, pt_write);
+    file_out.close();
 }
 
 void add_subclient(ptree pt) {
@@ -166,7 +164,7 @@ void add_subclient(ptree pt) {
 			groupe_custom.push_back({ "", arbre });
 		}
 	}
-	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
+	//on rï¿½ï¿½crit ensuite le json avec les nouvelles donnï¿½es ajoutï¿½es aux anciennes
 	ptree pt_write;
 	pt_write.add_child("Clients", groupe_custom);
 	std::ofstream file_out("../subclient.json");

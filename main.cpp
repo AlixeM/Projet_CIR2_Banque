@@ -620,39 +620,223 @@ void Frame4::Quit(wxCommandEvent& WXUNUSED(event))
     Close();
 }
 //------------------------------------------------------------------------------
+
+wxTextCtrl* TransactionDialog::getCount2() const
+{
+    return count2;
+}
+
+wxTextCtrl* TransactionDialog::getAmount() const
+{
+    return amount;
+}
+
 void Frame4::Transaction(wxCommandEvent& WXUNUSED(event))
 {
     TransactionDialog dlg(this, -1, "Transaction");
     if (dlg.ShowModal() == wxID_OK)
     {
-        // Récupérez les valeurs entrées par l'utilisateur ici.
+        wxTextCtrl *count2 = dlg.getCount2();
+        wxTextCtrl *amount = dlg.getAmount();
+
+        int com2 = wxAtoi(count2->GetValue());
+        int montant = wxAtoi(amount->GetValue());
+
+        ptree trans = lire_json_compte();
+        Compte transa = search_numcompte(trans,wxGetApp().idCompte);
+
+        Compte transa2 = search_numcompte(trans,com2);
+
+        Compte test = transa.transaction(transa2,montant);
+
+        if (test.solde == transa2.solde) {
+            wxMessageBox("Action impossible", "Erreur", wxOK | wxICON_ERROR);
+        }
+        else {
+            wxMessageBox("Transaction validee", "Valide", wxOK | wxICON_INFORMATION);
+            ptree win = transa.creer_ptree_compte();
+            ptree win2 = test.creer_ptree_compte();
+
+            if(transa.agence == 1){
+                add_agence1(win);
+            }
+            if(transa.agence == 2){
+                add_agence2(win);
+            }
+            if(transa.agence == 3){
+                add_agence3(win);
+            }
+            if(test.agence == 1){
+                add_agence1(win2);
+            }
+            if(test.agence == 2){
+                add_agence2(win2);
+            }
+            if(test.agence == 3){
+                add_agence3(win2);
+            }
+
+            ptree ag1 = lire_agence1();
+            ptree ag2 = lire_agence2();
+            ptree ag3 = lire_agence3();
+
+            ptree sum = json_assemble(ag1,ag2,ag3);
+            update_centrale_compte(sum);
+        }
     }
 }
 //------------------------------------------------------------------------------
+
+wxTextCtrl* DepotDialog::Getm_amountCtrl() const
+{
+    return m_amountCtrl;
+}
+
 void Frame4::Depot(wxCommandEvent& WXUNUSED(event))
 {
     DepotDialog dlg(this, -1, "Depot");
     if (dlg.ShowModal() == wxID_OK)
     {
-        // Récupérez les valeurs entrées par l'utilisateur ici.
+        wxTextCtrl *m_amountCtrl = dlg.Getm_amountCtrl();
+
+        int montant = wxAtoi(m_amountCtrl->GetValue());
+
+        ptree dep = lire_json_compte();
+        Compte depot = search_numcompte(dep,wxGetApp().idCompte);
+
+        depot.depot(montant);
+        wxMessageBox("Depot valide", "Valide", wxOK | wxICON_INFORMATION);
+
+        ptree depot2 = depot.creer_ptree_compte();
+        if(depot.agence == 1){
+            add_agence1(depot2);
+        }
+        if(depot.agence == 2){
+            add_agence2(depot2);
+        }
+        if(depot.agence == 3){
+            add_agence3(depot2);
+        }
+
+        ptree ag1 = lire_agence1();
+        ptree ag2 = lire_agence2();
+        ptree ag3 = lire_agence3();
+
+        ptree sum = json_assemble(ag1,ag2,ag3);
+        update_centrale_compte(sum);
+
     }
 }
 //------------------------------------------------------------------------------
+
+wxTextCtrl* RetraitDialog::Getm_amountCtrl() const
+{
+    return m_amountCtrl;
+}
+
 void Frame4::Retrait(wxCommandEvent& WXUNUSED(event))
 {
     RetraitDialog dlg(this, -1, "Retrait");
     if (dlg.ShowModal() == wxID_OK)
     {
-        // Récupérez les valeurs entrées par l'utilisateur ici.
+        wxTextCtrl *m_amountCtrl = dlg.Getm_amountCtrl();
+
+        int montant = wxAtoi(m_amountCtrl->GetValue());
+
+        ptree ret = lire_json_compte();
+        Compte retrait = search_numcompte(ret,wxGetApp().idCompte);
+
+        int verif = retrait.paiement(montant);
+        if(verif ==1 ){
+            wxMessageBox("Retrait valide", "Valide", wxOK | wxICON_INFORMATION);
+        }
+        else {
+            wxMessageBox("Retrait invalide, montant insuffisant", "invalide", wxOK | wxICON_ERROR);
+        }
+        ptree retrait2 = retrait.creer_ptree_compte();
+        if(retrait.agence == 1){
+            add_agence1(retrait2);
+        }
+        if(retrait.agence == 2){
+            add_agence2(retrait2);
+        }
+        if(retrait.agence == 3){
+            add_agence3(retrait2);
+        }
+
+        ptree ag1 = lire_agence1();
+        ptree ag2 = lire_agence2();
+        ptree ag3 = lire_agence3();
+
+        ptree sum = json_assemble(ag1,ag2,ag3);
+        update_centrale_compte(sum);
+
     }
 }
 //------------------------------------------------------------------------------
+
+wxTextCtrl* TransferDialog::getCount2() const
+{
+    return count2;
+}
+
+wxTextCtrl* TransferDialog::getAmount() const
+{
+    return amount;
+}
 void Frame4::Transfert(wxCommandEvent& WXUNUSED(event))
 {
     TransferDialog dlg(this, -1, "Transfert");
     if (dlg.ShowModal() == wxID_OK)
     {
-        // Récupérez les valeurs entrées par l'utilisateur ici.
+        wxTextCtrl *count2 = dlg.getCount2();
+        wxTextCtrl *amount = dlg.getAmount();
+
+        int com2 = wxAtoi(count2->GetValue());
+        int montant = wxAtoi(amount->GetValue());
+
+        ptree transf = lire_json_compte();
+        Compte transfert = search_numcompte(transf,wxGetApp().idCompte);
+
+        Compte transfert2 = search_numcompte(transf,com2);
+
+        Compte jspquoi = transfert.transfert(transfert2,montant);
+
+        if (jspquoi.solde == transfert2.solde) {
+            wxMessageBox("Action impossible", "Erreur", wxOK | wxICON_ERROR);
+        }
+        else {
+            wxMessageBox("Transfert valide", "Valide", wxOK | wxICON_INFORMATION);
+
+            ptree test1 = jspquoi.creer_ptree_compte();
+            ptree test2 = transfert.creer_ptree_compte();
+
+            if (jspquoi.agence == 1) {
+                add_agence1(test1);
+            }
+            if (jspquoi.agence == 2) {
+                add_agence2(test1);
+            }
+            if (jspquoi.agence == 3) {
+                add_agence3(test1);
+            }
+            if (transfert.agence == 1) {
+                add_agence1(test2);
+            }
+            if (transfert.agence == 2) {
+                add_agence2(test2);
+            }
+            if (transfert.agence == 3) {
+                add_agence3(test2);
+            }
+
+            ptree ag1 = lire_agence1();
+            ptree ag2 = lire_agence2();
+            ptree ag3 = lire_agence3();
+
+            ptree sum = json_assemble(ag1, ag2, ag3);
+            update_centrale_compte(sum);
+        }
     }
 }
 
@@ -668,7 +852,16 @@ TransactionDialog::TransactionDialog(wxWindow *parent,
                                      long style)
         : wxDialog(parent, id, title, pos, size, style)
 {
+    count2 = nullptr;
+    amount = nullptr;
+
     CreateControls();
+}
+
+TransactionDialog::~TransactionDialog()
+{
+    delete count2;
+    delete amount;
 }
 
 void TransactionDialog::CreateControls() {
@@ -682,8 +875,8 @@ void TransactionDialog::CreateControls() {
     wxStaticText *account2Label = new wxStaticText(this, wxID_STATIC, "Numero du compte recepteur :");
     account2Sizer->Add(account2Label, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-    m_account2Ctrl = new wxTextCtrl(this, wxID_ANY);
-    account2Sizer->Add(m_account2Ctrl, 1, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+    count2 = new wxTextCtrl(this, wxID_ANY);
+    account2Sizer->Add(count2, 1, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
     wxBoxSizer *amountSizer = new wxBoxSizer(wxHORIZONTAL);
     topSizer->Add(amountSizer, 0, wxALIGN_LEFT | wxALL, 5);
@@ -691,8 +884,8 @@ void TransactionDialog::CreateControls() {
     wxStaticText *amountLabel = new wxStaticText(this, wxID_STATIC, "Montant :");
     amountSizer->Add(amountLabel, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-    m_amountCtrl = new wxTextCtrl(this, wxID_ANY);
-    amountSizer->Add(m_amountCtrl, 1, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+    amount = new wxTextCtrl(this, wxID_ANY);
+    amountSizer->Add(amount, 1, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
     wxBoxSizer *buttonSizer = new wxBoxSizer(wxHORIZONTAL);
     topSizer->Add(buttonSizer, 0, wxALIGN_CENTER | wxALL, 5);
@@ -717,7 +910,15 @@ DepotDialog::DepotDialog(wxWindow *parent,
                          long style)
         : wxDialog(parent, id, title, pos, size, style)
 {
+    m_amountCtrl = nullptr;
+
     CreateControls();
+}
+
+DepotDialog::~DepotDialog()
+{
+    delete m_amountCtrl;
+
 }
 
 void DepotDialog::CreateControls()
@@ -757,7 +958,15 @@ RetraitDialog::RetraitDialog(wxWindow *parent,
                              long style)
         : wxDialog(parent, id, title, pos, size, style)
 {
+    m_amountCtrl = nullptr;
+
     CreateControls();
+}
+
+RetraitDialog::~RetraitDialog()
+{
+    delete m_amountCtrl;
+
 }
 
 void RetraitDialog::CreateControls()
@@ -797,7 +1006,16 @@ TransferDialog::TransferDialog(wxWindow *parent,
                                long style)
         : wxDialog(parent, id, title, pos, size, style)
 {
+    count2 = nullptr;
+    amount = nullptr;
+
     CreateControls();
+}
+
+TransferDialog::~TransferDialog()
+{
+    delete count2;
+    delete amount;
 }
 
 void TransferDialog::CreateControls()
@@ -811,8 +1029,8 @@ void TransferDialog::CreateControls()
     wxStaticText *accountLabel = new wxStaticText(this, wxID_STATIC, "Numero de compte recepteur :");
     accountSizer->Add(accountLabel, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-    m_accountCtrl = new wxTextCtrl(this, wxID_ANY);
-    accountSizer->Add(m_accountCtrl, 1, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+    count2 = new wxTextCtrl(this, wxID_ANY);
+    accountSizer->Add(count2, 1, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
     wxBoxSizer *amountSizer = new wxBoxSizer(wxHORIZONTAL);
     topSizer->Add(amountSizer, 0, wxALIGN_LEFT | wxALL, 5);
@@ -820,8 +1038,8 @@ void TransferDialog::CreateControls()
     wxStaticText *amountLabel = new wxStaticText(this, wxID_STATIC, "Montant a transferer :");
     amountSizer->Add(amountLabel, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-    m_amountCtrl = new wxTextCtrl(this, wxID_ANY);
-    amountSizer->Add(m_amountCtrl, 1, wxALIGN_CENTER_VERTICAL | wxALL, 5);
+    amount = new wxTextCtrl(this, wxID_ANY);
+    amountSizer->Add(amount, 1, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
     wxBoxSizer *buttonSizer = new wxBoxSizer(wxHORIZONTAL);
     topSizer->Add(buttonSizer, 0, wxALIGN_CENTER | wxALL, 5);

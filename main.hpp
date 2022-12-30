@@ -241,6 +241,9 @@ private:
     wxButton *dep;
     wxButton *ret;
     wxButton *trans;
+    wxTextCtrl* count2;
+    wxTextCtrl* amount;
+    wxTextCtrl*m_amountCtrl;
     void Quit(wxCommandEvent& event);
     void Transaction(wxCommandEvent& event);
     void Depot(wxCommandEvent& event);
@@ -282,12 +285,16 @@ public:
                       const wxPoint &pos = wxDefaultPosition,
                       const wxSize &size = wxDefaultSize,
                       long style = wxDEFAULT_DIALOG_STYLE);
+    ~TransactionDialog();
+
+    wxTextCtrl* getCount2() const;
+    wxTextCtrl* getAmount() const;
 
 private:
-    void CreateControls();
+    wxTextCtrl *count2;
+    wxTextCtrl *amount;
 
-    wxTextCtrl *m_account2Ctrl;
-    wxTextCtrl *m_amountCtrl;
+    void CreateControls();
 };
 
 //------------------------------------------------------------------------------
@@ -300,11 +307,14 @@ public:
                 const wxPoint &pos = wxDefaultPosition,
                 const wxSize &size = wxDefaultSize,
                 long style = wxDEFAULT_DIALOG_STYLE);
+    ~DepotDialog();
+
+    wxTextCtrl* Getm_amountCtrl() const;
 
 private:
-    void CreateControls();
-
     wxTextCtrl *m_amountCtrl;
+
+    void CreateControls();
 };
 
 //------------------------------------------------------------------------------
@@ -317,11 +327,15 @@ public:
                   const wxPoint &pos = wxDefaultPosition,
                   const wxSize &size = wxDefaultSize,
                   long style = wxDEFAULT_DIALOG_STYLE);
+    ~RetraitDialog();
+
+    wxTextCtrl* Getm_amountCtrl() const;
 
 private:
+    wxTextCtrl *m_amountCtrl;
+
     void CreateControls();
 
-    wxTextCtrl *m_amountCtrl;
 };
 
 //------------------------------------------------------------------------------
@@ -334,10 +348,14 @@ public:
                    const wxPoint &pos = wxDefaultPosition,
                    const wxSize &size = wxDefaultSize,
                    long style = wxDEFAULT_DIALOG_STYLE);
+    ~TransferDialog();
+
+    wxTextCtrl* getCount2() const;
+    wxTextCtrl* getAmount() const;
 
 private:
-    void CreateControls();
+    wxTextCtrl *count2;
+    wxTextCtrl *amount;
 
-    wxTextCtrl *m_accountCtrl;
-    wxTextCtrl *m_amountCtrl;
+    void CreateControls();
 };
