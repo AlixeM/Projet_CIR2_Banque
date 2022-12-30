@@ -96,12 +96,15 @@ ptree lire_subclient() {
 
 void add_agence1(ptree pt) {
 	ptree pt_save = lire_agence1();
+	Compte nouv(pt);
 	ptree groupe_acc;
 	groupe_acc.push_back({ "",pt });
-	for (ptree::value_type& compte: pt_save.get_child("Comptes")) {
+	for (ptree::value_type& compte : pt_save.get_child("Comptes")) {
 		Compte acc(compte.second);
-		ptree arbre = acc.creer_ptree_compte();
-		groupe_acc.push_back({ "", arbre });
+		if (acc.numcompte != nouv.numcompte) {
+			ptree arbre = acc.creer_ptree_compte();
+			groupe_acc.push_back({ "", arbre });
+		}
 	}
 	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
 	ptree pt_write;
@@ -113,12 +116,15 @@ void add_agence1(ptree pt) {
 
 void add_agence2(ptree pt) {
 	ptree pt_save = lire_agence2();
+	Compte nouv(pt);
 	ptree groupe_acc;
 	groupe_acc.push_back({ "",pt });
 	for (ptree::value_type& compte : pt_save.get_child("Comptes")) {
 		Compte acc(compte.second);
-		ptree arbre = acc.creer_ptree_compte();
-		groupe_acc.push_back({ "", arbre });
+		if (acc.numcompte != nouv.numcompte) {
+			ptree arbre = acc.creer_ptree_compte();
+			groupe_acc.push_back({ "", arbre });
+		}
 	}
 	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
 	ptree pt_write;
@@ -130,12 +136,15 @@ void add_agence2(ptree pt) {
 
 void add_agence3(ptree pt) {
 	ptree pt_save = lire_agence3();
+	Compte nouv(pt);
 	ptree groupe_acc;
 	groupe_acc.push_back({ "",pt });
 	for (ptree::value_type& compte : pt_save.get_child("Comptes")) {
 		Compte acc(compte.second);
-		ptree arbre = acc.creer_ptree_compte();
-		groupe_acc.push_back({ "", arbre });
+		if (acc.numcompte != nouv.numcompte) {
+			ptree arbre = acc.creer_ptree_compte();
+			groupe_acc.push_back({ "", arbre });
+		}
 	}
 	//on réécrit ensuite le json avec les nouvelles données ajoutées aux anciennes
 	ptree pt_write;

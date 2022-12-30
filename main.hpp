@@ -67,10 +67,10 @@ public:
 	Compte(const int num_client, const int num_compte, const int compte_type, std::string name,int argent, const int agency);
 	Compte(ptree pt);
 	ptree creer_ptree_compte();
-	int transaction(Compte compte,int montant);
+	Compte transaction(Compte compte,int montant);
 	int paiement(int montant);
 	void depot(int montant);
-	int transfert(Compte compte,int montant);
+	Compte transfert(Compte compte,int montant);
     friend std::ostream& operator<<(std::ostream& os, const Compte& compte);
     template <class Archive>
     void serialize(Archive& ar, unsigned int version)
